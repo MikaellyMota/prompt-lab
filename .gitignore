@@ -1,0 +1,15 @@
+# Dependencias Python instaladas localmente
+Lib/
+Scripts/
+get-pip.py
+__pycache__/
+*.pyc
+
+# Versoes antigas do ebook
+Prompt_Lab.pdf
+Prompt_Lab_Ebook_v3.pdf
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

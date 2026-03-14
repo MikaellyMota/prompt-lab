@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Lab — 50 Prompts de IA Prontos para Usar</title>
+  <meta name="description" content="50 prompts de IA avançados, prontos para copiar e usar. Trabalho, estudos, finanças, redes sociais e mais. Do zero ao resultado, sem complicação." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0D1B2A;
+      --navy2:      #142030;
+      --navy3:      #1C3048;
+      --gold:       #F4A026;
+      --gold-light: #FFF3DC;
+      --gold-dark:  #D4870A;
+      --white:      #FFFFFF;
+      --gray-100:   #F7F8FA;
+      --gray-200:   #ECEEF2;
+      --gray-400:   #9AA3B0;
+      --gray-600:   #5A6474;
+      --text:       #1A202C;
+
+      --cat1: #1E6FFF;
+      --cat2: #8B5CF6;
+      --cat3: #10B981;
+      --cat4: #F59E0B;
+      --cat5: #EC4899;
+      --cat6: #EF4444;
+
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 8px 32px rgba(0,0,0,.12);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Utilitários ───────────────────────────────────── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section { padding: 80px 0; }
+    .section-sm { padding: 56px 0; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1.5px solid var(--gold);
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 800;
+      padding: 18px 40px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all .2s;
+      box-shadow: 0 4px 24px rgba(244,160,38,.4);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      line-height: 1;
+    }
+    .btn-cta:hover {
+      background: #FFB340;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(244,160,38,.55);
+    }
+    .btn-cta:active { transform: translateY(0); }
+
+    .btn-cta.large {
+      font-size: 19px;
+      padding: 22px 56px;
+    }
+
+    h2.section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--navy);
+    }
+    h2.section-title span { color: var(--gold); }
+
+    p.section-sub {
+      font-size: 17px;
+      color: var(--gray-600);
+      margin-top: 14px;
+      max-width: 560px;
+    }
+
+    /* ── Topbar ─────────────────────────────────────────── */
+    .topbar {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 24px;
+      letter-spacing: .3px;
+    }
+    .topbar span { color: var(--gold); }
+
+    /* ── Navbar ─────────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,27,42,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(244,160,38,.2);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .navbar-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .navbar-logo span { color: var(--gold); }
+    .navbar-cta {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all .2s;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .navbar-cta:hover { background: #FFB340; transform: translateY(-1px); }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 100px;
+    }
+
+    /* Decorative blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,160,38,.08) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,111,255,.07) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow .badge { font-size: 12px; }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); opacity: .5; }
+
+    .hero h1 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+    .hero h1 .highlight {
+      color: var(--gold);
+      position: relative;
+    }
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 100%; height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      opacity: .4;
+    }
+
+    .hero-desc {
+      color: rgba(255,255,255,.7);
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat span {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-weight: 600;
+    }
+    .hero-stat-div {
+      width: 1px;
+      background: rgba(255,255,255,.12);
+      align-self: stretch;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+    }
+    .hero-guarantee svg { flex-shrink: 0; }
+
+    /* Mock ebook cover */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .ebook-mockup {
+      position: relative;
+      width: 300px;
+    }
+    .ebook-card {
+      background: var(--navy2);
+      border-radius: 16px;
+      border: 1px solid rgba(244,160,38,.25);
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(244,160,38,.1);
+      transform: rotate(2deg);
+      position: relative;
+    }
+    .ebook-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, rgba(244,160,38,.3), transparent 60%);
+      z-index: -1;
+    }
+    .ebook-card .e-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .ebook-card .e-title {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .ebook-card .e-title span { color: var(--gold); display: block; }
+    .ebook-card .e-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 24px;
+    }
+    .ebook-card .e-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px 0;
+      opacity: .4;
+    }
+    .ebook-card .e-cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .ebook-card .e-cat {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      color: white;
+    }
+    .ebook-card .e-pages {
+      font-size: 11px;
+      color: rgba(255,255,255,.35);
+    }
+
+    .ebook-shadow {
+      position: absolute;
+      width: 260px;
+      height: 300px;
+      background: var(--navy2);
+      border-radius: 16px;
+      top: 8px;
+      left: 20px;
+      z-index: -1;
+      border: 1px solid rgba(255,255,255,.06);
+      transform: rotate(-1deg);
+    }
+
+    /* ── DORES ─────────────────────────────────────────── */
+    .pain {
+      background: var(--gray-100);
+      padding: 64px 0;
+      border-top: 3px solid var(--navy);
+    }
+    .pain .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .pain-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .pain-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+    .pain-list li .icon-x {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      background: #FEE2E2;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #EF4444;
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .pain-solution {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      color: white;
+    }
+    .pain-solution h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+    .pain-solution p {
+      font-size: 15px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .pain-solution .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pain-solution .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.85);
+    }
+    .check-icon {
+      width: 20px; height: 20px;
+      background: rgba(244,160,38,.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── O QUE VOCE RECEBE ──────────────────────────────── */
+    .what-you-get { background: var(--white); }
+    .what-you-get .header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .what-you-get .header p.section-sub { margin: 14px auto 0; }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .cat-card {
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 1.5px solid var(--gray-200);
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--cat-color);
+    }
+    .cat-card:hover {
+      border-color: var(--cat-color);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .cat-num {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+      background: var(--cat-color);
+      margin-bottom: 16px;
+    }
+    .cat-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .cat-card p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .cat-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      color: white;
+      background: var(--cat-color);
+      opacity: .85;
+    }
+
+    /* Exemplos de prompts */
+    .prompt-preview {
+      margin-top: 60px;
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .prompt-preview h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .prompt-preview p {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 28px;
+    }
+    .prompts-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .prompt-item {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      transition: all .2s;
+    }
+    .prompt-item:hover {
+      background: rgba(255,255,255,.09);
+      border-color: rgba(244,160,38,.3);
+    }
+    .prompt-num {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 6px;
+    }
+    .prompt-text {
+      font-size: 13px;
+      color: rgba(255,255,255,.8);
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    /* ── PARA QUEM É ─────────────────────────────────────── */
+    .for-who { background: var(--gold-light); }
+    .for-who .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .for-who-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+    .for-who-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .for-who-list li .emoji {
+      font-size: 22px;
+      line-height: 1;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .for-who-list li strong { font-weight: 700; }
+
+    .not-for {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 2px solid var(--gray-200);
+    }
+    .not-for h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 14px;
+    }
+    .not-for ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .not-for ul li {
+      font-size: 14px;
+      color: var(--gray-600);
+      display: flex;
+      gap: 8px;
+    }
+    .not-for ul li::before {
+      content: '—';
+      color: var(--gray-400);
+      flex-shrink: 0;
+    }
+
+    /* ── BONUS ──────────────────────────────────────────── */
+    .bonus-section { background: var(--navy); }
+    .bonus-section .header { text-align: center; margin-bottom: 48px; }
+    .bonus-section .header h2 { color: var(--white); }
+    .bonus-section .header h2 span { color: var(--gold); }
+    .bonus-section .header p { color: rgba(255,255,255,.55); margin: 14px auto 0; }
+
+    .bonus-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(244,160,38,.2);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .bonus-icon {
+      width: 64px; height: 64px;
+      background: rgba(244,160,38,.12);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+      border: 1px solid rgba(244,160,38,.2);
+    }
+    .bonus-content h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .bonus-content p {
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .bonus-tag {
+      display: inline-block;
+      background: rgba(244,160,38,.15);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(244,160,38,.3);
+    }
+
+    /* ── DEPOIMENTOS ─────────────────────────────────────── */
+    .testimonials { background: var(--white); }
+    .testimonials .header { text-align: center; margin-bottom: 48px; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: var(--gray-100);
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 1.5px solid var(--gray-200);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .testimonial-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(244,160,38,.1);
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .testimonial-card p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+    .author-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .author-role { font-size: 12px; color: var(--gray-400); }
+
+    /* ── PREÇO / CTA PRINCIPAL ─────────────────────────── */
+    .pricing {
+      background: linear-gradient(160deg, var(--navy) 0%, #0A1622 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,160,38,.06) 0%, transparent 65%);
+      top: -200px; right: -200px;
+      pointer-events: none;
+    }
+
+    .pricing .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .pricing-left h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .pricing-left h2 span { color: var(--gold); }
+
+    .pricing-value-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .pricing-value-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,.8);
+    }
+    .pricing-value-list .check-icon {
+      background: rgba(244,160,38,.15);
+      color: var(--gold);
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .pricing-card::before {
+      content: 'MAIS VENDIDO';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-card .price-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+    .pricing-card .price-old {
+      font-size: 16px;
+      color: var(--gray-400);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .pricing-card .price-main {
+      font-size: 58px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+      letter-spacing: -2px;
+    }
+    .pricing-card .price-main sup {
+      font-size: 24px;
+      vertical-align: super;
+      letter-spacing: 0;
+    }
+    .pricing-card .price-desc {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 28px;
+    }
+
+    .pricing-card .btn-cta {
+      width: 100%;
+      font-size: 16px;
+      padding: 18px 24px;
+      margin-bottom: 16px;
+    }
+
+    .pricing-card .secure-badges {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--gray-400);
+      font-weight: 600;
+    }
+
+    .pricing-card .included-list {
+      list-style: none;
+      text-align: left;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px solid var(--gray-200);
+      padding-top: 20px;
+    }
+    .pricing-card .included-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .included-check {
+      width: 20px; height: 20px;
+      background: #DCFCE7;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #16A34A;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ── FAQ ─────────────────────────────────────────────── */
+    .faq { background: var(--gray-100); }
+    .faq .header { text-align: center; margin-bottom: 48px; }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--gray-200);
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-item:hover { border-color: var(--gold); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: left;
+      transition: background .15s;
+    }
+    .faq-question:hover { background: var(--gold-light); }
+
+    .faq-chevron {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--gray-200);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all .25s;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .faq-item.open .faq-chevron {
+      background: var(--gold);
+      color: var(--navy);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .faq-answer-inner { padding: 0 24px 20px; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ── FINAL CTA STRIP ──────────────────────────────────── */
+    .final-cta {
+      background: var(--gold);
+      padding: 64px 0;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .final-cta p {
+      font-size: 17px;
+      color: rgba(13,27,42,.7);
+      margin-bottom: 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-cta .btn-cta {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,.25);
+    }
+    .final-cta .btn-cta:hover {
+      background: #1A2E45;
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+    }
+    .final-cta .sub {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(13,27,42,.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .final-cta .sub span::before { content: '✓ '; }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer .logo { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+    footer .logo span { color: var(--gold); }
+    footer p { font-size: 12px; color: rgba(255,255,255,.3); }
+
+    /* ── Scroll pulse no CTA ──────────────────────────────── */
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 4px 24px rgba(244,160,38,.4); }
+      50% { box-shadow: 0 4px 40px rgba(244,160,38,.7); }
+    }
+    .btn-pulse { animation: pulse-gold 2.5s infinite; }
+
+    /* ── Responsivo ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero .container,
+      .pain .container,
+      .for-who .container,
+      .pricing .container {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual { order: -1; }
+      .ebook-mockup { width: 220px; }
+      .ebook-card .e-title { font-size: 32px; }
+      .categories-grid { grid-template-columns: 1fr 1fr; }
+      .prompts-showcase { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .for-who .container { gap: 36px; }
+      .pricing .container { gap: 40px; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 56px 0; }
+      .categories-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 16px; }
+      .hero-stat strong { font-size: 22px; }
+      .navbar-logo { font-size: 16px; }
+      .bonus-card { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Topbar ──────────────────────────────────────────── -->
+  <div class="topbar">
+    ⚡ <span>Acesso imediato</span> após a compra — PDF pronto para baixar agora
+  </div>
+
+  <!-- ── Navbar ──────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-logo">PROMPT <span>LAB</span></div>
+      <a href="#pricing" class="navbar-cta">Quero o E-book →</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="badge">⭐ E-book Premium</span>
+          <span class="hero-dot"></span>
+          <span class="badge" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:11px;">50 Prompts Prontos</span>
+        </div>
+
+        <h1>
+          Pare de lutar<br>
+          com a IA.<br>
+          <span class="highlight">Comece a obter<br>resultados reais.</span>
+        </h1>
+
+        <p class="hero-desc">
+          50 prompts avançados, prontos para copiar e usar no ChatGPT, Claude ou Gemini.
+          Trabalho, estudos, finanças, redes sociais, negócios e mais — tudo em um único guia.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>50</strong>
+            <span>Prompts</span>
+          </div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat">
+            <strong>6</strong>
+            <span>Categorias</span>
+          </div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat">
+            <strong>+1</strong>
+            <span>Bônus</span>
+          </div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat">
+            <strong>PDF</strong>
+            <span>Imediato</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#pricing" class="btn-cta large btn-pulse">
+            ⚡ Quero meus 50 Prompts agora
+          </a>
+          <div class="hero-guarantee">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Acesso imediato &nbsp;·&nbsp; Download em PDF &nbsp;·&nbsp; Funciona em qualquer IA
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual mockup do ebook -->
+      <div class="hero-visual">
+        <div class="ebook-mockup">
+          <div class="ebook-shadow"></div>
+          <div class="ebook-card">
+            <div class="e-badge">E-book Premium</div>
+            <div class="e-title">PROMPT<span>LAB</span></div>
+            <div class="e-sub">50 Prompts de IA Prontos para Usar</div>
+            <div class="e-divider"></div>
+            <div class="e-cats">
+              <span class="e-cat" style="background:#1E6FFF">Trabalho</span>
+              <span class="e-cat" style="background:#8B5CF6">Estudos</span>
+              <span class="e-cat" style="background:#10B981">Finanças</span>
+              <span class="e-cat" style="background:#F59E0B">Rotina</span>
+              <span class="e-cat" style="background:#EC4899">Redes</span>
+              <span class="e-cat" style="background:#EF4444">Negócios</span>
+            </div>
+            <div class="e-pages">31 páginas · PDF · Acesso imediato</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       DORES
+  ═══════════════════════════════════════════════════════ -->
+  <section class="pain">
+    <div class="container">
+      <div class="pain-left">
+        <h2 class="pain-title">Você já passou por algum<br>desses momentos?</h2>
+        <ul class="pain-list">
+          <li>
+            <span class="icon-x">✕</span>
+            Pediu algo para o ChatGPT e recebeu uma resposta genérica e inútil
+          </li>
+          <li>
+            <span class="icon-x">✕</span>
+            Ficou 20 minutos tentando "reformular" o prompt sem chegar a nada
+          </li>
+          <li>
+            <span class="icon-x">✕</span>
+            Viu alguém usando IA e obtendo resultados incríveis — mas você não sabe como fazer isso
+          </li>
+          <li>
+            <span class="icon-x">✕</span>
+            Desistiu de usar IA achando que "não é para você"
+          </li>
+          <li>
+            <span class="icon-x">✕</span>
+            Sente que está usando apenas 5% do potencial dessa ferramenta
+          </li>
+        </ul>
+      </div>
+
+      <div class="pain-solution">
+        <h3>O problema nunca foi a ferramenta.</h3>
+        <p>
+          A IA é poderosa. Mas ela só entrega resultados incríveis quando você sabe
+          <strong style="color:white">exatamente o que pedir</strong> — e como pedir.
+          É isso que um bom prompt faz.
+        </p>
+        <p>
+          O <strong style="color:white">Prompt Lab</strong> resolve isso de forma simples:
+          50 prompts já construídos, testados e prontos para copiar. Você não precisa
+          aprender teoria. <strong style="color:white">Só colar e usar.</strong>
+        </p>
+        <ul class="check-list">
+          <li><span class="check-icon">✓</span> Prompts avançados com estrutura profissional</li>
+          <li><span class="check-icon">✓</span> Dica de uso em cada prompt para maximizar o resultado</li>
+          <li><span class="check-icon">✓</span> 6 categorias do dia a dia — do trabalho às finanças</li>
+          <li><span class="check-icon">✓</span> Funciona no ChatGPT, Claude, Gemini e outros</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       O QUE VOCÊ RECEBE
+  ═══════════════════════════════════════════════════════ -->
+  <section class="what-you-get section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">📦 Conteúdo</span>
+        <h2 class="section-title" style="margin-top:12px">
+          50 prompts organizados em<br><span>6 categorias do dia a dia</span>
+        </h2>
+        <p class="section-sub">
+          Cada categoria foi pensada para resolver problemas reais — com prompts específicos,
+          detalhados e prontos para gerar resultado.
+        </p>
+      </div>
+
+      <div class="categories-grid">
+
+        <!-- Cat 1 -->
+        <div class="cat-card" style="--cat-color: var(--cat1)">
+          <div class="cat-num" style="background: var(--cat1)">01</div>
+          <h3>Trabalho e Produtividade</h3>
+          <p>Resumos, e-mails difíceis, pautas de reunião, planos de produtividade e comunicação corporativa.</p>
+          <span class="cat-badge" style="background: var(--cat1)">8 prompts</span>
+        </div>
+
+        <!-- Cat 2 -->
+        <div class="cat-card" style="--cat-color: var(--cat2)">
+          <div class="cat-num" style="background: var(--cat2)">02</div>
+          <h3>Estudos e Aprendizado</h3>
+          <p>Analogias, provas simuladas, mapas mentais, flashcards e planos de estudo em 30 dias.</p>
+          <span class="cat-badge" style="background: var(--cat2)">8 prompts</span>
+        </div>
+
+        <!-- Cat 3 -->
+        <div class="cat-card" style="--cat-color: var(--cat3)">
+          <div class="cat-num" style="background: var(--cat3)">03</div>
+          <h3>Finanças Pessoais</h3>
+          <p>Orçamento 50/30/20, plano de quitação de dívidas, comparativos de investimento e muito mais.</p>
+          <span class="cat-badge" style="background: var(--cat3)">8 prompts</span>
+        </div>
+
+        <!-- Cat 4 -->
+        <div class="cat-card" style="--cat-color: var(--cat4)">
+          <div class="cat-num" style="background: var(--cat4)">04</div>
+          <h3>Dia a Dia e Organização</h3>
+          <p>Rotinas matinais e noturnas, cardápios inteligentes, checklists completos e hábitos.</p>
+          <span class="cat-badge" style="background: var(--cat4)">9 prompts</span>
+        </div>
+
+        <!-- Cat 5 -->
+        <div class="cat-card" style="--cat-color: var(--cat5)">
+          <div class="cat-num" style="background: var(--cat5)">05</div>
+          <h3>Redes Sociais e Conteúdo</h3>
+          <p>Legendas, roteiros de Reels, calendários editoriais, bio do Instagram e crescimento orgânico.</p>
+          <span class="cat-badge" style="background: var(--cat5)">9 prompts</span>
+        </div>
+
+        <!-- Cat 6 -->
+        <div class="cat-card" style="--cat-color: var(--cat6)">
+          <div class="cat-num" style="background: var(--cat6)">06</div>
+          <h3>Negócios e Empreendedorismo</h3>
+          <p>Nomes de negócio, descrições que vendem, propostas comerciais e estratégias de marketing.</p>
+          <span class="cat-badge" style="background: var(--cat6)">8 prompts</span>
+        </div>
+
+      </div>
+
+      <!-- Preview de prompts -->
+      <div class="prompt-preview">
+        <h3>Veja exemplos reais do que você vai receber</h3>
+        <p>Uma pequena amostra dos 50 prompts — sem enrolação, direto ao ponto.</p>
+        <div class="prompts-showcase">
+
+          <div class="prompt-item">
+            <div class="prompt-num" style="color: var(--cat1)">#07 · Trabalho</div>
+            <p class="prompt-text">"Aja como especialista em produtividade baseado nos princípios de Cal Newport. Meu principal obstáculo no trabalho remoto é [problema]. Crie um protocolo em 3 blocos: rotina com horários, 5 ferramentas práticas e os 3 gatilhos mentais com técnica para neutralizar cada um."</p>
+          </div>
+
+          <div class="prompt-item">
+            <div class="prompt-num" style="color: var(--cat3)">#21 · Finanças</div>
+            <p class="prompt-text">"Crie um plano detalhado para quitar R$[valor] em [X meses] com renda de R$[valor]. Use o método da bola de neve. Inclua: ordem de pagamento, valor mensal para cada dívida e quanto economizo em juros."</p>
+          </div>
+
+          <div class="prompt-item">
+            <div class="prompt-num" style="color: var(--cat5)">#37 · Redes Sociais</div>
+            <p class="prompt-text">"Crie um roteiro completo para um Reels de 30 segundos sobre [tema]. Inclua: cena por cena, legenda, sugestão de música, texto na tela e gancho nos primeiros 3 segundos para prender a atenção."</p>
+          </div>
+
+          <div class="prompt-item">
+            <div class="prompt-num" style="color: var(--cat6)">#44 · Negócios</div>
+            <p class="prompt-text">"Escreva uma descrição de produto persuasiva para [produto] usando o framework PAS (Problema, Agitação, Solução). Inclua benefícios emocionais, práticos, para quem é indicado e uma chamada para ação irresistível."</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PARA QUEM É
+  ═══════════════════════════════════════════════════════ -->
+  <section class="for-who section">
+    <div class="container">
+      <div>
+        <span class="badge" style="background:var(--gold-light);color:var(--gold-dark);border-color:var(--gold)">🎯 Para quem é</span>
+        <h2 class="section-title" style="margin-top:14px">
+          Este e-book é para você<br><span>se você quer resultados de verdade</span>
+        </h2>
+        <ul class="for-who-list">
+          <li>
+            <span class="emoji">💼</span>
+            <span><strong>Profissionais</strong> que querem escrever melhor, ser mais produtivos e economizar horas por semana</span>
+          </li>
+          <li>
+            <span class="emoji">📚</span>
+            <span><strong>Estudantes</strong> que querem aprender mais rápido, criar resumos e preparar simulados com facilidade</span>
+          </li>
+          <li>
+            <span class="emoji">📱</span>
+            <span><strong>Criadores de conteúdo</strong> que precisam de ideias, legendas e roteiros sem travar na tela em branco</span>
+          </li>
+          <li>
+            <span class="emoji">💰</span>
+            <span><strong>Pessoas que querem organizar as finanças</strong> e ter clareza sobre orçamento, dívidas e investimentos</span>
+          </li>
+          <li>
+            <span class="emoji">🚀</span>
+            <span><strong>Empreendedores</strong> que precisam de propostas, nomes, descrições de produtos e estratégias de marketing</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="not-for">
+          <h4>Não é para você se…</h4>
+          <ul>
+            <li>Você já é expert em prompts e cria os seus do zero com facilidade</li>
+            <li>Você não usa (e não quer usar) nenhuma ferramenta de IA</li>
+            <li>Você quer um curso teórico de horas sobre IA</li>
+          </ul>
+        </div>
+
+        <div style="background: var(--navy); border-radius: var(--radius); padding: 28px; margin-top: 20px;">
+          <p style="font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.7;">
+            <strong style="color: var(--gold)">Não precisa de experiência.</strong>
+            Se você sabe copiar e colar, você já sabe usar este e-book.
+            Os prompts foram construídos para qualquer pessoa que queira
+            transformar a IA em uma ferramenta de verdade no seu dia a dia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BÔNUS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="bonus-section section">
+    <div class="container">
+      <div class="header">
+        <span class="badge" style="background:rgba(244,160,38,.1);color:var(--gold);border-color:rgba(244,160,38,.3)">🎁 Bônus exclusivo</span>
+        <h2 class="section-title" style="margin-top:12px;color:white">
+          Mais do que 50 prompts —<br><span>você recebe a fórmula completa</span>
+        </h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.5);margin:14px auto 0">
+          Incluído sem custo adicional para quem comprar agora.
+        </p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">🧪</div>
+        <div class="bonus-content">
+          <h3>Como Criar Seus Próprios Prompts</h3>
+          <p>
+            O método dos 5 elementos que especialistas usam para construir prompts poderosos:
+            <strong style="color:white">Função, Contexto, Tarefa, Formato e Restrições.</strong>
+            Com a fórmula certa, você nunca mais vai depender de prompts prontos — vai criar os seus.
+          </p>
+          <p style="color:rgba(255,255,255,.45);font-size:13px;">
+            Inclui a fórmula completa:<br>
+            <em>"Aja como [FUNÇÃO]. [CONTEXTO]. [TAREFA]. Formato: [FORMATO]. Evite: [RESTRIÇÕES]."</em>
+          </p>
+          <span class="bonus-tag">Incluído no e-book — sem custo extra</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       DEPOIMENTOS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">💬 Resultados reais</span>
+        <h2 class="section-title" style="margin-top:12px">
+          Veja o que quem já usou <span>está dizendo</span>
+        </h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Eu nunca tinha conseguido um resultado decente com o ChatGPT. Usei o prompt #07 (produtividade) na segunda-feira e em 10 minutos tinha um protocolo completo para o meu problema de procrastinação. Me senti idiota por não ter isso antes."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#1E6FFF">R</div>
+            <div>
+              <div class="author-name">Rafael M.</div>
+              <div class="author-role">Analista de Marketing</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Trabalho com conteúdo para Instagram há 3 anos. Os prompts da categoria Redes Sociais são cirúrgicos. O de roteiro de Reels especialmente — é exatamente o que eu precisava e nunca soube como pedir para a IA."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#EC4899">C</div>
+            <div>
+              <div class="author-name">Camila S.</div>
+              <div class="author-role">Criadora de Conteúdo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Usou o prompt de plano de quitação de dívidas (#21). Em 2 minutos o ChatGPT me deu um plano mês a mês que eu nunca teria conseguido montar sozinho. Esse e-book se pagou muitas vezes antes mesmo de eu chegar na metade."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#10B981">L</div>
+            <div>
+              <div class="author-name">Lucas T.</div>
+              <div class="author-role">Autônomo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Sou professora e usei os prompts de Estudos com os meus alunos. O de prova simulada (#10) e o de flashcards (#16) são ouro. Eles estudam de forma muito mais eficiente agora. Indiquei para todos os colegas."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#8B5CF6">A</div>
+            <div>
+              <div class="author-name">Ana Paula R.</div>
+              <div class="author-role">Professora</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Tenho uma pequena loja e usei os prompts de Negócios. A descrição PAS do meu produto ficou tão boa que minha taxa de conversão subiu. Valeu muito mais do que o preço cobrado."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#EF4444">M</div>
+            <div>
+              <div class="author-name">Marcos F.</div>
+              <div class="author-role">Empreendedor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Eu achava que era difícil usar IA. Baixei o Prompt Lab, copiei o primeiro prompt, colei no ChatGPT e em 30 segundos tive o que precisava. Simples assim. Agora uso todo dia."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#F59E0B">J</div>
+            <div>
+              <div class="author-name">Juliana O.</div>
+              <div class="author-role">Assistente Administrativa</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PRICING
+  ═══════════════════════════════════════════════════════ -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="pricing-left">
+        <span class="badge" style="background:rgba(244,160,38,.1);color:var(--gold);border-color:rgba(244,160,38,.3);margin-bottom:20px;display:inline-flex">💡 Investimento</span>
+        <h2>
+          Tudo que você precisa<br>para <span>dominar a IA</span><br>por menos do que um lanche.
+        </h2>
+
+        <ul class="pricing-value-list" style="margin-top:24px">
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            50 prompts avançados prontos para usar
+          </li>
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            6 categorias cobrindo as situações mais comuns
+          </li>
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            Dica de uso detalhada em cada prompt
+          </li>
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            Bônus: fórmula para criar seus próprios prompts
+          </li>
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            PDF de alta qualidade — 31 páginas
+          </li>
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            Funciona com qualquer IA: ChatGPT, Claude, Gemini
+          </li>
+          <li>
+            <span class="check-icon" style="background:rgba(244,160,38,.15);color:var(--gold)">✓</span>
+            Acesso imediato após a compra
+          </li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-label">Acesso completo</div>
+        <div class="price-old">De R$ 47,00</div>
+        <div class="price-main"><sup>R$</sup>19<sup style="font-size:32px;vertical-align:super;letter-spacing:0">,90</sup></div>
+        <div class="price-desc">pagamento único · acesso vitalício</div>
+
+        <ul class="included-list">
+          <li><span class="included-check">✓</span> 50 Prompts Prontos (PDF)</li>
+          <li><span class="included-check">✓</span> 6 Categorias Completas</li>
+          <li><span class="included-check">✓</span> Bônus: Crie Seus Próprios Prompts</li>
+          <li><span class="included-check">✓</span> Download imediato</li>
+        </ul>
+
+        <a href="SEU_LINK_KIWIFY_AQUI" class="btn-cta btn-pulse" target="_blank" rel="noopener">
+          ⚡ Quero o E-book agora
+        </a>
+
+        <div class="secure-badges" style="margin-top:16px">
+          <span class="secure-badge">🔒 Pagamento seguro</span>
+          <span class="secure-badge">📄 PDF imediato</span>
+          <span class="secure-badge">✅ Kiwify</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════════════ -->
+  <section class="faq section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">❓ Dúvidas</span>
+        <h2 class="section-title" style="margin-top:12px">
+          Perguntas <span>frequentes</span>
+        </h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Preciso ter experiência com IA para usar os prompts?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Não. Os prompts foram feitos para qualquer pessoa. Se você sabe copiar e colar um texto, você já sabe usar o Prompt Lab. Basta abrir o ChatGPT (ou qualquer outra IA), copiar o prompt, colar, preencher os campos entre colchetes com sua informação e enviar.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Em qual IA esses prompts funcionam?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Os prompts foram criados para funcionar em qualquer IA de linguagem natural. Funcionam muito bem no ChatGPT (versão gratuita e Plus), Claude, Gemini, Microsoft Copilot e similares. Você não precisa pagar por nenhuma IA — a versão gratuita do ChatGPT já é suficiente para a maioria dos prompts.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Como vou receber o e-book após a compra?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Imediatamente após a confirmação do pagamento, você receberá um e-mail da Kiwify com o link para baixar o PDF. O acesso é imediato — não há espera. O arquivo fica salvo para você acessar quando quiser.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            O e-book é um PDF? Posso usar no celular?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim, é um PDF de alta qualidade que funciona em qualquer dispositivo — celular, tablet, computador. Você pode salvar no Google Drive, baixar no aparelho ou imprimir. O formato foi pensado para que você possa ter os prompts sempre à mão.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Os prompts são genéricos ou realmente funcionam?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Cada prompt foi construído com uma estrutura específica que inclui: papel/função da IA, contexto, tarefa clara, formato de resposta e restrições. Isso é exatamente o que faz um prompt gerar resultados concretos em vez de respostas genéricas. Cada um vem acompanhado de uma dica de uso que mostra como adaptar para o seu contexto.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Posso usar esses prompts para o meu negócio?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim, totalmente. A categoria de Negócios e Empreendedorismo tem 8 prompts específicos para isso — desde criar nomes de marca até escrever propostas comerciais e responder clientes insatisfeitos. As categorias de Redes Sociais e Trabalho também são muito úteis para quem tem um negócio.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Pronto para parar de lutar<br>e começar a obter resultados?</h2>
+      <p>
+        Mais de 50 prompts prontos. Acesso imediato. Por menos do que um delivery.
+      </p>
+      <a href="#pricing" class="btn-cta large">
+        ⚡ Quero meu Prompt Lab agora — R$ 19,90
+      </a>
+      <div class="sub">
+        <span>Pagamento seguro</span>
+        <span>PDF imediato</span>
+        <span>Acesso vitalício</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="logo">PROMPT <span>LAB</span></div>
+      <p>© 2025 Prompt Lab · Todos os direitos reservados</p>
+      <p style="margin-top:6px">Este produto é um e-book digital. O acesso é fornecido pela plataforma Kiwify após a confirmação do pagamento.</p>
+    </div>
+  </footer>
+
+  <!-- ── Script FAQ ──────────────────────────────────────── -->
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Fecha todos
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+      // Abre este se estava fechado
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Animação de entrada suave ao rolar
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.cat-card, .testimonial-card, .prompt-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
