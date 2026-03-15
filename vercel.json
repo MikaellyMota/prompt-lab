@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/",        "destination": "/index.html" },
+    { "source": "/30posts", "destination": "/30posts.html" }
+  ]
+}
