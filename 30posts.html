@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30 Posts em 1 Hora com IA — Prompt Lab</title>
+  <meta name="description" content="Crie 30 posts completos para o Instagram em menos de 1 hora usando IA. Prompts prontos, 10 templates de legenda e passo a passo completo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0D1B2A;
+      --navy2:   #142030;
+      --pink:    #EC4899;
+      --pink2:   #BE185D;
+      --pink3:   #FDF2F8;
+      --pink4:   #FCE7F3;
+      --purple:  #8B5CF6;
+      --blue:    #1E6FFF;
+      --green:   #10B981;
+      --gold:    #F4A026;
+      --white:   #FFFFFF;
+      --gray100: #F7F8FA;
+      --gray200: #ECEEF2;
+      --gray400: #9AA3B0;
+      --gray600: #5A6474;
+      --text:    #1A202C;
+      --radius:  14px;
+      --shadow:  0 8px 32px rgba(0,0,0,.12);
+      --shadowlg:0 20px 60px rgba(0,0,0,.18);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--pink3); color: var(--pink2);
+      font-size: 13px; font-weight: 700; letter-spacing: .5px;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+      border: 1.5px solid var(--pink);
+    }
+
+    .btn-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--pink); color: var(--white);
+      font-size: 17px; font-weight: 800; padding: 18px 40px;
+      border-radius: 100px; border: none; cursor: pointer;
+      transition: all .2s; box-shadow: 0 4px 24px rgba(236,72,153,.4);
+      text-transform: uppercase; letter-spacing: .5px; line-height: 1;
+    }
+    .btn-cta:hover { background: #F472B6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(236,72,153,.55); }
+    .btn-cta.large { font-size: 19px; padding: 22px 56px; }
+    .btn-cta.dark { background: var(--navy); color: var(--white); box-shadow: 0 4px 24px rgba(0,0,0,.25); }
+    .btn-cta.dark:hover { background: #1A2E45; }
+
+    h2.section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--navy); }
+    h2.section-title span { color: var(--pink); }
+
+    @keyframes pulse-pink { 0%,100% { box-shadow: 0 4px 24px rgba(236,72,153,.4); } 50% { box-shadow: 0 4px 40px rgba(236,72,153,.7); } }
+    .btn-pulse { animation: pulse-pink 2.5s infinite; }
+
+    /* ── Topbar ── */
+    .topbar { background: var(--navy); color: var(--white); text-align: center; font-size: 13px; font-weight: 600; padding: 10px 24px; }
+    .topbar span { color: var(--pink); }
+
+    /* ── Navbar ── */
+    .navbar { position: sticky; top: 0; z-index: 100; background: rgba(13,27,42,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(236,72,153,.2); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .navbar-logo { font-size: 20px; font-weight: 900; color: var(--white); }
+    .navbar-logo span { color: var(--pink); }
+    .navbar-cta { background: var(--pink); color: var(--white); font-size: 13px; font-weight: 800; padding: 10px 22px; border-radius: 100px; border: none; cursor: pointer; transition: all .2s; text-transform: uppercase; letter-spacing: .4px; }
+    .navbar-cta:hover { background: #F472B6; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero { background: var(--navy); position: relative; overflow: hidden; padding: 80px 0 100px; }
+    .hero::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(236,72,153,.09) 0%, transparent 70%); top: -200px; right: -100px; pointer-events: none; }
+    .hero::after  { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,.07) 0%, transparent 70%); bottom: -150px; left: -100px; pointer-events: none; }
+
+    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+
+    .hero h1 { font-size: clamp(30px, 4.5vw, 50px); font-weight: 900; line-height: 1.1; color: var(--white); letter-spacing: -1px; margin-bottom: 22px; }
+    .hero h1 .hl { color: var(--pink); }
+
+    .hero-desc { color: rgba(255,255,255,.7); font-size: 17px; line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+
+    .hero-stats { display: flex; gap: 24px; margin-bottom: 36px; }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 26px; font-weight: 900; color: var(--pink); line-height: 1; }
+    .hero-stat span { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .5px; font-weight: 600; }
+    .hero-stat-div { width: 1px; background: rgba(255,255,255,.12); align-self: stretch; }
+
+    .hero-cta-group { display: flex; flex-direction: column; gap: 12px; }
+    .hero-guarantee { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,.5); }
+
+    /* Mockup */
+    .hero-visual { display: flex; justify-content: center; align-items: center; }
+    .ebook-mockup { position: relative; width: 300px; }
+    .ebook-card { background: var(--navy2); border-radius: 16px; border: 1px solid rgba(236,72,153,.25); padding: 32px 28px; text-align: center; box-shadow: var(--shadowlg), 0 0 0 1px rgba(236,72,153,.1); transform: rotate(2deg); position: relative; }
+    .ebook-card::before { content: ''; position: absolute; inset: -1px; border-radius: 17px; background: linear-gradient(135deg, rgba(236,72,153,.3), transparent 60%); z-index: -1; }
+    .e-badge { display: inline-block; background: var(--pink); color: var(--white); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .e-num { font-size: 72px; font-weight: 900; color: var(--pink); line-height: 1; }
+    .e-title { font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.2; margin-bottom: 4px; }
+    .e-sub { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 20px; }
+    .e-divider { height: 2px; background: linear-gradient(90deg, transparent, var(--pink), transparent); margin: 16px 0; opacity: .4; }
+    .e-chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 14px; }
+    .e-chip { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; color: white; }
+    .e-pages { font-size: 11px; color: rgba(255,255,255,.3); }
+    .ebook-shadow { position: absolute; width: 260px; height: 320px; background: var(--navy2); border-radius: 16px; top: 8px; left: 20px; z-index: -1; border: 1px solid rgba(255,255,255,.06); transform: rotate(-1deg); }
+
+    /* ── CONTADOR / URGENCIA ── */
+    .urgency-bar { background: linear-gradient(90deg, var(--pink2), var(--purple)); padding: 16px 0; text-align: center; }
+    .urgency-bar p { color: white; font-size: 15px; font-weight: 700; }
+    .urgency-bar span { color: var(--gold); }
+
+    /* ── DORES ── */
+    .pain { background: var(--gray100); padding: 64px 0; border-top: 3px solid var(--navy); }
+    .pain .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .pain-title { font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .pain-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--gray600); line-height: 1.5; }
+    .icon-x { flex-shrink: 0; width: 22px; height: 22px; background: #FEE2E2; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #EF4444; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .pain-solution { background: var(--navy); border-radius: var(--radius); padding: 36px 32px; color: white; }
+    .pain-solution h3 { font-size: 22px; font-weight: 800; margin-bottom: 16px; color: var(--pink); }
+    .pain-solution p { font-size: 15px; color: rgba(255,255,255,.75); line-height: 1.7; margin-bottom: 16px; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .check-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.85); }
+    .check-icon { width: 20px; height: 20px; background: rgba(236,72,153,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--pink); flex-shrink: 0; }
+
+    /* ── METODO ── */
+    .metodo { background: var(--white); }
+    .metodo .header { text-align: center; margin-bottom: 48px; }
+    .metodo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+    .metodo-card { border-radius: var(--radius); padding: 24px 20px; text-align: center; border: 2px solid transparent; transition: all .25s; }
+    .metodo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .metodo-num { font-size: 48px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .metodo-label { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+    .metodo-desc { font-size: 13px; color: var(--gray600); line-height: 1.5; }
+
+    /* ── O QUE VOCE RECEBE ── */
+    .what { background: var(--gray100); }
+    .what .header { text-align: center; margin-bottom: 48px; }
+    .what-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .what-card { background: var(--white); border-radius: var(--radius); padding: 28px 24px; border: 1.5px solid var(--gray200); transition: all .25s; position: relative; overflow: hidden; }
+    .what-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--card-color); }
+    .what-card:hover { border-color: var(--card-color); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .what-icon { font-size: 32px; margin-bottom: 14px; }
+    .what-card h3 { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .what-card p { font-size: 14px; color: var(--gray600); line-height: 1.6; }
+
+    /* Preview prompts */
+    .prompt-preview { background: var(--navy); border-radius: var(--radius); padding: 36px; margin-top: 40px; }
+    .prompt-preview h3 { font-size: 20px; font-weight: 800; color: white; margin-bottom: 6px; }
+    .prompt-preview > p { font-size: 14px; color: rgba(255,255,255,.5); margin-bottom: 24px; }
+    .prompts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .prompt-item { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: 16px 18px; transition: all .2s; }
+    .prompt-item:hover { background: rgba(255,255,255,.09); border-color: rgba(236,72,153,.3); }
+    .prompt-cat { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; color: var(--pink); }
+    .prompt-text { font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.55; font-style: italic; }
+
+    /* ── TEMPLATES ── */
+    .templates { background: var(--white); }
+    .templates .header { text-align: center; margin-bottom: 16px; }
+    .templates-sub { text-align: center; font-size: 16px; color: var(--gray600); margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .templates-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 32px; }
+    .tpl-card { background: var(--gray100); border-radius: 10px; padding: 16px 14px; border: 1.5px solid var(--gray200); transition: all .2s; cursor: default; }
+    .tpl-card:hover { border-color: var(--pink); background: var(--pink3); transform: translateY(-2px); }
+    .tpl-num { font-size: 11px; font-weight: 800; color: var(--pink); text-transform: uppercase; margin-bottom: 4px; }
+    .tpl-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+
+    /* ── PASSO A PASSO ── */
+    .steps { background: linear-gradient(160deg, var(--navy) 0%, #0A1622 100%); }
+    .steps .header { text-align: center; margin-bottom: 48px; }
+    .steps .header h2 { color: white; }
+    .steps .header h2 span { color: var(--pink); }
+    .steps .header p { color: rgba(255,255,255,.55); margin: 12px auto 0; max-width: 520px; font-size: 16px; }
+    .steps-timeline { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .step-item { display: grid; grid-template-columns: 80px 1fr; gap: 20px; align-items: flex-start; position: relative; }
+    .step-item:not(:last-child)::after { content: ''; position: absolute; left: 39px; top: 52px; bottom: -16px; width: 2px; background: rgba(255,255,255,.1); }
+    .step-time { text-align: center; padding-top: 12px; }
+    .step-bubble { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; margin: 0 auto 6px; font-weight: 900; color: white; }
+    .step-mins { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.5); line-height: 1; text-align: center; }
+    .step-body { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+    .step-body h4 { font-size: 15px; font-weight: 800; color: white; margin-bottom: 8px; }
+    .step-body p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+    /* ── DEPOIMENTOS ── */
+    .testimonials { background: var(--white); }
+    .testimonials .header { text-align: center; margin-bottom: 48px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testi-card { background: var(--gray100); border-radius: var(--radius); padding: 26px; border: 1.5px solid var(--gray200); transition: all .2s; }
+    .testi-card:hover { border-color: var(--pink); box-shadow: 0 4px 20px rgba(236,72,153,.1); }
+    .stars { color: var(--gold); font-size: 14px; letter-spacing: 1px; margin-bottom: 12px; }
+    .testi-card p { font-size: 14px; color: var(--gray600); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .author-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: white; flex-shrink: 0; }
+    .author-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .author-role { font-size: 12px; color: var(--gray400); }
+
+    /* ── PREÇO ── */
+    .pricing { background: linear-gradient(160deg, var(--navy) 0%, #0A1622 100%); position: relative; overflow: hidden; }
+    .pricing::before { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(236,72,153,.06) 0%, transparent 65%); top: -200px; right: -200px; pointer-events: none; }
+    .pricing .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .pricing-left h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 20px; }
+    .pricing-left h2 span { color: var(--pink); }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .price-list li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: rgba(255,255,255,.8); }
+    .pricing-card { background: white; border-radius: 20px; padding: 40px 36px; text-align: center; box-shadow: var(--shadowlg); position: relative; }
+    .pricing-card::before { content: 'OFERTA DE LANÇAMENTO'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--pink); color: white; font-size: 11px; font-weight: 800; letter-spacing: 1px; padding: 6px 16px; border-radius: 100px; white-space: nowrap; }
+    .price-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gray400); margin-bottom: 8px; }
+    .price-old { font-size: 16px; color: var(--gray400); text-decoration: line-through; margin-bottom: 4px; }
+    .price-main { font-size: 58px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 4px; letter-spacing: -2px; }
+    .price-main sup { font-size: 24px; vertical-align: super; letter-spacing: 0; }
+    .price-desc { font-size: 13px; color: var(--gray400); margin-bottom: 24px; }
+    .included-list { list-style: none; text-align: left; margin: 20px 0; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--gray200); padding-top: 20px; }
+    .included-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+    .inc-check { width: 20px; height: 20px; background: #DCFCE7; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #16A34A; font-size: 11px; flex-shrink: 0; }
+    .pricing-card .btn-cta { width: 100%; font-size: 16px; padding: 18px 24px; margin-bottom: 16px; }
+    .secure-badges { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .secure-badge { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray400); font-weight: 600; }
+
+    /* bundle */
+    .bundle-box { background: var(--pink3); border: 2px solid var(--pink); border-radius: var(--radius); padding: 20px 24px; margin-top: 20px; text-align: center; }
+    .bundle-box h4 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .bundle-box p { font-size: 13px; color: var(--gray600); margin-bottom: 12px; }
+    .bundle-price { font-size: 22px; font-weight: 900; color: var(--pink2); }
+    .bundle-old { font-size: 14px; color: var(--gray400); text-decoration: line-through; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--gray100); }
+    .faq .header { text-align: center; margin-bottom: 48px; }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: white; border-radius: 10px; border: 1.5px solid var(--gray200); overflow: hidden; transition: border-color .2s; }
+    .faq-item:hover { border-color: var(--pink); }
+    .faq-question { width: 100%; background: none; border: none; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-size: 15px; font-weight: 700; color: var(--navy); text-align: left; transition: background .15s; }
+    .faq-question:hover { background: var(--pink3); }
+    .faq-chevron { width: 28px; height: 28px; border-radius: 50%; background: var(--gray200); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .25s; font-size: 16px; color: var(--navy); }
+    .faq-item.open .faq-chevron { background: var(--pink); color: white; transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; font-size: 14px; color: var(--gray600); line-height: 1.7; }
+    .faq-answer-inner { padding: 0 24px 20px; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ── FINAL CTA ── */
+    .final-cta { background: var(--pink); padding: 64px 0; text-align: center; }
+    .final-cta h2 { font-size: clamp(24px, 4vw, 40px); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 14px; }
+    .final-cta p { font-size: 17px; color: rgba(255,255,255,.8); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .final-cta .sub { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.65); display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .final-cta .sub span::before { content: '✓ '; }
+
+    footer { background: var(--navy); padding: 32px 0; text-align: center; }
+    footer .logo { font-size: 18px; font-weight: 900; color: white; margin-bottom: 8px; }
+    footer .logo span { color: var(--pink); }
+    footer p { font-size: 12px; color: rgba(255,255,255,.3); }
+
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .hero .container, .pain .container, .pricing .container { grid-template-columns: 1fr; }
+      .hero-visual { order: -1; }
+      .metodo-grid { grid-template-columns: repeat(2, 1fr); }
+      .what-grid { grid-template-columns: 1fr; }
+      .prompts-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .templates-grid { grid-template-columns: repeat(3, 1fr); }
+      .ebook-mockup { width: 220px; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 56px 0; }
+      .metodo-grid { grid-template-columns: repeat(2, 1fr); }
+      .templates-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">📲 <span>PDF imediato</span> após a compra — comece a usar hoje mesmo</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-logo">PROMPT <span>LAB</span></div>
+      <a href="#pricing" class="navbar-cta">Quero o Guia →</a>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+          <span class="badge">📱 Instagram</span>
+          <span class="badge" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.55);font-size:11px">Prompts + Templates</span>
+        </div>
+
+        <h1>
+          Crie <span class="hl">30 posts</span><br>
+          para o Instagram<br>
+          em <span class="hl">1 hora</span> com IA.
+        </h1>
+
+        <p class="hero-desc">
+          Prompts prontos, 10 templates de legenda editáveis e um passo a passo completo.
+          Nunca mais fique sem conteúdo — e nunca mais perca horas tentando criar do zero.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>30</strong><span>Posts prontos</span></div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat"><strong>1h</strong><span>Tempo total</span></div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat"><strong>10</strong><span>Templates</span></div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat"><strong>+4</strong><span>Bônus</span></div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#pricing" class="btn-cta large btn-pulse">
+            📲 Quero criar 30 posts em 1 hora
+          </a>
+          <div class="hero-guarantee">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            PDF imediato &nbsp;·&nbsp; ChatGPT, Claude, Gemini &nbsp;·&nbsp; Qualquer nicho
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="hero-visual">
+        <div class="ebook-mockup">
+          <div class="ebook-shadow"></div>
+          <div class="ebook-card">
+            <div class="e-badge">E-book Premium</div>
+            <div class="e-num">30</div>
+            <div class="e-title">POSTS EM<br>1 HORA COM IA</div>
+            <div class="e-sub">Guia Completo para Instagram</div>
+            <div class="e-divider"></div>
+            <div class="e-chips">
+              <span class="e-chip" style="background:#EC4899">Prompts</span>
+              <span class="e-chip" style="background:#8B5CF6">Templates</span>
+              <span class="e-chip" style="background:#10B981">Passo a Passo</span>
+              <span class="e-chip" style="background:#F4A026">Bônus</span>
+            </div>
+            <div class="e-pages">25 páginas · PDF · Acesso imediato</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Urgência -->
+  <div class="urgency-bar">
+    <p>🔥 A consistência é o segredo do crescimento — e agora você não tem mais desculpa. <span>Comece hoje.</span></p>
+  </div>
+
+  <!-- ═══════ DORES ═══════ -->
+  <section class="pain">
+    <div class="container">
+      <div>
+        <h2 class="pain-title">Você já viveu<br>algum desses momentos?</h2>
+        <ul class="pain-list">
+          <li><span class="icon-x">✕</span> Ficou travado na frente do celular sem saber o que postar</li>
+          <li><span class="icon-x">✕</span> Abriu o Instagram, fechou, abriu de novo… e não postou nada</li>
+          <li><span class="icon-x">✕</span> Passou 2 horas criando um post que teve 12 curtidas</li>
+          <li><span class="icon-x">✕</span> Ficou semanas sem postar porque "não tinha tempo" ou "não sabia o quê"</li>
+          <li><span class="icon-x">✕</span> Viu perfis menores crescendo rápido enquanto o seu ficou parado</li>
+        </ul>
+      </div>
+      <div class="pain-solution">
+        <h3>O problema não é falta de criatividade.</h3>
+        <p>É falta de um <strong style="color:white">sistema</strong>. Perfis que crescem no Instagram não têm mais talento — eles têm um método para criar conteúdo de forma rápida e consistente.</p>
+        <p>É exatamente isso que este guia entrega: um <strong style="color:white">sistema completo com IA</strong> para você criar 30 posts todo mês sem travar, sem perder horas e sem depender de inspiração.</p>
+        <ul class="check-list">
+          <li><span class="check-icon">✓</span> 5 prompts prontos que geram 30 ideias em minutos</li>
+          <li><span class="check-icon">✓</span> 10 templates de legenda para copiar e editar</li>
+          <li><span class="check-icon">✓</span> Passo a passo de 60 minutos do zero ao agendado</li>
+          <li><span class="check-icon">✓</span> 4 prompts bônus para nunca mais travar</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ O MÉTODO ═══════ -->
+  <section class="metodo section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">📐 O Método</span>
+        <h2 class="section-title" style="margin-top:12px">A estrutura dos <span>30 posts</span> mensais</h2>
+        <p style="font-size:16px;color:var(--gray600);margin:14px auto 0;max-width:520px">Todo perfil de sucesso usa estes 4 tipos de post. Distribua seus 30 assim:</p>
+      </div>
+      <div class="metodo-grid">
+        <div class="metodo-card" style="background:#EFF6FF;border-color:#BFDBFE">
+          <div class="metodo-num" style="color:var(--blue)">12</div>
+          <div class="metodo-label" style="color:var(--blue)">Educativos</div>
+          <div class="metodo-desc">Ensinam algo útil. Geram salvamentos e constroem sua autoridade no nicho.</div>
+        </div>
+        <div class="metodo-card" style="background:#F5F3FF;border-color:#DDD6FE">
+          <div class="metodo-num" style="color:var(--purple)">8</div>
+          <div class="metodo-label" style="color:var(--purple)">Engajamento</div>
+          <div class="metodo-desc">Geram comentários e interações. Alimentam o algoritmo a seu favor.</div>
+        </div>
+        <div class="metodo-card" style="background:#ECFDF5;border-color:#A7F3D0">
+          <div class="metodo-num" style="color:var(--green)">6</div>
+          <div class="metodo-label" style="color:var(--green)">Bastidores</div>
+          <div class="metodo-desc">Mostram quem você é. Geram conexão emocional e fidelizam seguidores.</div>
+        </div>
+        <div class="metodo-card" style="background:#FFF1F2;border-color:#FECDD3">
+          <div class="metodo-num" style="color:#EF4444">4</div>
+          <div class="metodo-label" style="color:#EF4444">Venda</div>
+          <div class="metodo-desc">Ofertam de forma natural. Com apenas 4, você vende sem parecer chato.</div>
+        </div>
+      </div>
+      <div style="background:var(--pink3);border:2px solid var(--pink);border-radius:var(--radius);padding:20px 24px;text-align:center">
+        <p style="font-size:15px;font-weight:700;color:var(--navy)">
+          💡 Esta distribuição mantém seu perfil <strong>ativo, humano e lucrativo</strong> ao mesmo tempo.
+          Os prompts do guia já estão organizados para gerar cada tipo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ O QUE VOCE RECEBE ═══════ -->
+  <section class="what section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">📦 Conteúdo completo</span>
+        <h2 class="section-title" style="margin-top:12px">Tudo que você precisa<br><span>em um único guia</span></h2>
+      </div>
+      <div class="what-grid">
+        <div class="what-card" style="--card-color: var(--blue)">
+          <div class="what-icon">📋</div>
+          <h3>5 Prompts Geradores de Conteúdo</h3>
+          <p>Do gerador de 30 ideias em massa ao prompt de carrossel completo. Cada um entrega um resultado específico e está pronto para copiar e colar na IA.</p>
+        </div>
+        <div class="what-card" style="--card-color: var(--purple)">
+          <div class="what-icon">✏️</div>
+          <h3>10 Templates de Legenda Prontos</h3>
+          <p>Educativo, storytelling, mito vs. verdade, venda sutil, engajamento e mais. Copie, substitua os colchetes e publique. Simples assim.</p>
+        </div>
+        <div class="what-card" style="--card-color: var(--green)">
+          <div class="what-icon">⏱️</div>
+          <h3>Passo a Passo: 30 Posts em 1 Hora</h3>
+          <p>Dividido em 4 blocos de tempo (0-10min, 10-35min, 35-50min, 50-60min). Você sabe exatamente o que fazer em cada minuto.</p>
+        </div>
+        <div class="what-card" style="--card-color: var(--gold)">
+          <div class="what-icon">🎁</div>
+          <h3>Bônus: 4 Prompts para Nunca Mais Travar</h3>
+          <p>Para quando não souber o que postar, quiser viralizar, quiser vender sem parecer chato ou crescer rápido com alcance orgânico.</p>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="prompt-preview">
+        <h3>Amostra real do que você vai receber</h3>
+        <p>Exemplos diretos dos prompts e templates do guia.</p>
+        <div class="prompts-grid">
+          <div class="prompt-item">
+            <div class="prompt-cat">Prompt #01 — Gerador de Ideias</div>
+            <p class="prompt-text">"Você é um estrategista de conteúdo para Instagram. Crie 30 ideias de posts para um perfil de [nicho] voltado para [público]. Distribua: 12 educativos, 8 engajamento, 6 bastidores e 4 venda. Para cada ideia: tema em uma linha, tipo entre parênteses e formato ideal."</p>
+          </div>
+          <div class="prompt-item">
+            <div class="prompt-cat">Template #7 — Mito vs. Verdade</div>
+            <p class="prompt-text">MITO: [crença errada comum no seu nicho]<br><br>VERDADE: [o que realmente funciona]<br><br>A maioria ainda acredita no mito — e perde [resultado] por isso.<br><br>Marca alguém que precisa saber disso ↓</p>
+          </div>
+          <div class="prompt-item">
+            <div class="prompt-cat">Bônus B3 — Vender sem Parecer Chato</div>
+            <p class="prompt-text">"Crie 3 formas de mencionar [produto] sem soar como propaganda. Abordagem 1: educativa. Abordagem 2: prova social. Abordagem 3: storytelling. Para cada uma, entregue o post pronto para publicar."</p>
+          </div>
+          <div class="prompt-item">
+            <div class="prompt-cat">Template #3 — Storytelling</div>
+            <p class="prompt-text">Há [tempo], eu [situação difícil]. Parecia que [o problema].<br><br>Até que eu descobri [virada].<br><br>Hoje [resultado positivo].<br><br>Se você também [identificação com o público], esse post é pra você.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ TEMPLATES ═══════ -->
+  <section class="templates section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">✏️ Templates</span>
+        <h2 class="section-title" style="margin-top:12px">10 templates prontos<br><span>para qualquer nicho</span></h2>
+      </div>
+      <p class="templates-sub">Copie, substitua os colchetes com o seu conteúdo e publique. Funciona para qualquer área.</p>
+      <div class="templates-grid">
+        <div class="tpl-card"><div class="tpl-num">T1</div><div class="tpl-name">Educativo</div></div>
+        <div class="tpl-card"><div class="tpl-num">T2</div><div class="tpl-name">Lista</div></div>
+        <div class="tpl-card"><div class="tpl-num">T3</div><div class="tpl-name">Storytelling</div></div>
+        <div class="tpl-card"><div class="tpl-num">T4</div><div class="tpl-name">Engajamento</div></div>
+        <div class="tpl-card"><div class="tpl-num">T5</div><div class="tpl-name">Bastidores</div></div>
+        <div class="tpl-card"><div class="tpl-num">T6</div><div class="tpl-name">Dica Rápida</div></div>
+        <div class="tpl-card"><div class="tpl-num">T7</div><div class="tpl-name">Mito vs. Verdade</div></div>
+        <div class="tpl-card"><div class="tpl-num">T8</div><div class="tpl-name">Resultado</div></div>
+        <div class="tpl-card"><div class="tpl-num">T9</div><div class="tpl-name">Venda Sutil</div></div>
+        <div class="tpl-card"><div class="tpl-num">T10</div><div class="tpl-name">Frase de Impacto</div></div>
+      </div>
+      <div style="background:var(--navy);border-radius:var(--radius);padding:24px 32px;text-align:center">
+        <p style="color:rgba(255,255,255,.75);font-size:15px">
+          Cada template vem com os campos marcados entre <strong style="color:var(--pink)">[colchetes]</strong> para você editar.
+          Leva menos de 2 minutos por legenda.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PASSO A PASSO ═══════ -->
+  <section class="steps section">
+    <div class="container">
+      <div class="header">
+        <span class="badge" style="background:rgba(236,72,153,.1);color:var(--pink);border-color:rgba(236,72,153,.3)">⏱️ Passo a Passo</span>
+        <h2 class="section-title" style="margin-top:12px">Do zero ao agendado<br><span>em exatamente 1 hora</span></h2>
+        <p>Cada minuto tem uma tarefa definida. Sem procrastinar, sem se perder.</p>
+      </div>
+      <div class="steps-timeline">
+        <div class="step-item">
+          <div class="step-time">
+            <div class="step-bubble" style="background:var(--pink)">💡</div>
+            <div class="step-mins">0–10 min</div>
+          </div>
+          <div class="step-body">
+            <h4>Geração de Ideias</h4>
+            <p>Cole o Prompt 1 com seu nicho preenchido. Em segundos você tem 30 ideias categorizadas por tipo e formato. Selecione as melhores e salve numa lista.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-time">
+            <div class="step-bubble" style="background:var(--blue)">✏️</div>
+            <div class="step-mins">10–35 min</div>
+          </div>
+          <div class="step-body">
+            <h4>Criação das Legendas</h4>
+            <p>Use o Prompt 2 para desenvolver cada ideia OU escolha um dos 10 templates e edite. Média de 1-2 minutos por legenda. Em 25 minutos você tem 30 legendas prontas.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-time">
+            <div class="step-bubble" style="background:var(--purple)">🏷️</div>
+            <div class="step-mins">35–50 min</div>
+          </div>
+          <div class="step-body">
+            <h4>Hashtags Estratégicas</h4>
+            <p>Use o prompt de hashtags para cada post: 5 grandes (1M+), 5 médias (100K-500K) e 5 pequenas (10K-50K). A combinação certa multiplica o alcance orgânico.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-time">
+            <div class="step-bubble" style="background:var(--green)">📅</div>
+            <div class="step-mins">50–60 min</div>
+          </div>
+          <div class="step-body">
+            <h4>Revisão e Agendamento</h4>
+            <p>Releia rapidamente, ajuste o tom se necessário e agende pelo Instagram, Meta Business Suite ou Buffer. Pronto: 30 posts do mês resolvidos em 1 hora.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ DEPOIMENTOS ═══════ -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">💬 Resultados</span>
+        <h2 class="section-title" style="margin-top:12px">Quem usou o método <span>nunca mais travou</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Eu travava toda semana sem saber o que postar. Usei o Prompt 1 no domingo à noite, em 8 minutos tinha 30 ideias para o mês inteiro. Nunca mais fiquei sem conteúdo."</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background:var(--pink)">B</div>
+            <div><div class="author-name">Beatriz L.</div><div class="author-role">Nutricionista — 4.2k seguidores</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Os templates são geniais. Antes passava 1 hora criando uma legenda. Agora pego o Template de Storytelling, edito em 3 minutos e posto. Meu engajamento subiu muito."</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background:var(--purple)">T</div>
+            <div><div class="author-name">Thiago M.</div><div class="author-role">Personal Trainer</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Tenho uma loja e sempre achei que Instagram era para quem tem tempo. Com esse passo a passo, faço tudo em 1h no domingo e fico a semana toda com conteúdo agendado."</p>
+          <div class="testi-author">
+            <div class="author-avatar" style="background:var(--green)">P</div>
+            <div><div class="author-name">Patricia O.</div><div class="author-role">Empreendedora</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PREÇO ═══════ -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="pricing-left">
+        <span class="badge" style="background:rgba(236,72,153,.1);color:var(--pink);border-color:rgba(236,72,153,.3);margin-bottom:20px;display:inline-flex">💡 Investimento</span>
+        <h2>Consistência no Instagram<br>por menos do que <span>um café por semana.</span></h2>
+        <ul class="price-list" style="margin-top:20px">
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> 5 prompts geradores de conteúdo</li>
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> 10 templates de legenda prontos</li>
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> Passo a passo de 60 minutos</li>
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> Bônus: 4 prompts para nunca mais travar</li>
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> PDF de 25 páginas — design profissional</li>
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> Funciona para qualquer nicho</li>
+          <li><span class="check-icon" style="background:rgba(236,72,153,.15);color:var(--pink)">✓</span> Acesso imediato após a compra</li>
+        </ul>
+
+        <!-- Bundle -->
+        <div class="bundle-box">
+          <h4>🔥 Quer os dois e-books?</h4>
+          <p>Combine com o <strong>Prompt Lab (50 Prompts)</strong> e domine a IA por completo.</p>
+          <div style="display:flex;align-items:center;justify-content:center;gap:12px">
+            <span class="bundle-old">R$ 44,80</span>
+            <span class="bundle-price">R$ 34,90 os dois</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-label">Acesso completo</div>
+        <div class="price-old">De R$ 49,90</div>
+        <div class="price-main"><sup>R$</sup>24<sup style="font-size:32px;vertical-align:super;letter-spacing:0">,90</sup></div>
+        <div class="price-desc">pagamento único · acesso vitalício</div>
+        <ul class="included-list">
+          <li><span class="inc-check">✓</span> 5 Prompts Prontos</li>
+          <li><span class="inc-check">✓</span> 10 Templates de Legenda</li>
+          <li><span class="inc-check">✓</span> Passo a Passo: 30 Posts em 1 Hora</li>
+          <li><span class="inc-check">✓</span> Bônus: 4 Prompts Anti-Bloqueio</li>
+          <li><span class="inc-check">✓</span> PDF imediato (25 páginas)</li>
+        </ul>
+        <a href="SEU_LINK_KIWIFY_30POSTS" class="btn-cta btn-pulse">
+          📲 Quero o guia agora
+        </a>
+        <div class="secure-badges">
+          <span class="secure-badge">🔒 Pagamento seguro</span>
+          <span class="secure-badge">📄 PDF imediato</span>
+          <span class="secure-badge">✅ Kiwify</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FAQ ═══════ -->
+  <section class="faq section">
+    <div class="container">
+      <div class="header">
+        <span class="badge">❓ Dúvidas</span>
+        <h2 class="section-title" style="margin-top:12px">Perguntas <span>frequentes</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Funciona para qualquer nicho do Instagram?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Sim. Todos os prompts e templates usam campos entre colchetes para você preencher com o seu nicho e público. Funciona para nutrição, moda, finanças, fitness, empreendedorismo, educação, pets — qualquer área.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Precisa ter conta paga no ChatGPT?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Não. A versão gratuita do ChatGPT (chat.openai.com) já funciona perfeitamente para todos os prompts do guia. Você também pode usar Claude (claude.ai) ou Gemini (gemini.google.com) — todos gratuitos.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Realmente dá para fazer 30 posts em 1 hora?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Sim — 30 legendas completas com texto, hashtags e CTA. O que demora mais é o conteúdo visual (fotos, artes no Canva), mas isso você faz separado. O guia foca no que trava todo mundo: o texto e as ideias. Com os prompts e templates, esse processo cai de horas para minutos.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Vou soar "robótico" usando textos gerados por IA?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Não — quando o prompt é bem estruturado. Os prompts deste guia pedem à IA que use o tom que você definir (informal, inspirador, direto…) e os templates são estruturas que você preenche com sua própria voz e experiências. O resultado final soa autêntico porque parte da sua realidade.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Como recebo o e-book após a compra?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            Imediatamente após a confirmação do pagamento, você recebe um e-mail da Kiwify com o link para baixar o PDF. O acesso é imediato — sem espera.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FINAL CTA ═══════ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Chega de travar.<br>Comece a postar com consistência.</h2>
+      <p>30 posts. 1 hora. Toda semana. A IA faz o pesado — você decide, edita e publica.</p>
+      <a href="#pricing" class="btn-cta large dark">
+        📲 Quero criar 30 posts em 1 hora — R$ 24,90
+      </a>
+      <div class="sub">
+        <span>PDF imediato</span>
+        <span>Qualquer nicho</span>
+        <span>Acesso vitalício</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="logo">PROMPT <span>LAB</span></div>
+      <p>© 2025 Prompt Lab · Todos os direitos reservados</p>
+      <p style="margin-top:6px">Este produto é um e-book digital entregue pela plataforma Kiwify após confirmação do pagamento.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.what-card, .testi-card, .prompt-item, .metodo-card, .tpl-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
