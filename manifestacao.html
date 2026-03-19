@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Como Manifestar a Vida dos Sonhos — Guia Completo</title>
-  <meta name="description" content="Aprenda as técnicas mais poderosas de manifestação: Técnica 369, Scripting, Vision Board e muito mais. Transforme seus sonhos em realidade." />
+  <title>Por que suas afirmações não funcionam? — Guia de Manifestação</title>
+  <meta name="description" content="Descubra por que você ainda não manifesta os seus sonhos e aprenda o método completo com Técnica 369, Scripting e Rotina Diária. R$ 19,90." />
   <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -23,569 +23,295 @@
   <!-- Fim Meta Pixel -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --deep-purple: #1E0A3C;
+      --deep: #1E0A3C;
       --purple: #5B2D8E;
-      --med-purple: #7B4DB5;
-      --lavender: #EDE0FF;
+      --med: #7B4DB5;
+      --lav: #EDE0FF;
       --light-lav: #F7F0FF;
       --gold: #C9963B;
       --light-gold: #FFF8E7;
       --rose: #A63D72;
       --soft-rose: #FCE8F3;
       --cream: #FFFEF9;
-      --dark-text: #1A1A2E;
-      --mid-gray: #7A7A9A;
-      --white: #ffffff;
+      --text: #1A1A2E;
+      --gray: #7A7A9A;
+      --white: #fff;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Georgia', serif; background: var(--cream); color: var(--text); line-height: 1.7; }
 
-    body {
-      font-family: 'Georgia', serif;
-      background: var(--cream);
-      color: var(--dark-text);
-      line-height: 1.7;
+    /* STICKY BAR */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: var(--gold);
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
     }
+    .sticky-bar p { font-family: sans-serif; font-size: 14px; font-weight: 700; color: var(--deep); }
+    .sticky-bar a {
+      background: var(--deep); color: var(--gold);
+      font-family: sans-serif; font-weight: 800; font-size: 14px;
+      padding: 10px 24px; border-radius: 30px; text-decoration: none;
+      white-space: nowrap;
+    }
+    @media(max-width:480px){ .sticky-bar p { display:none; } }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--deep-purple) 0%, #3D1A6E 60%, #6B2D8E 100%);
-      color: var(--white);
-      text-align: center;
-      padding: 80px 20px 70px;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(160deg, var(--deep) 0%, #3D1A6E 55%, #5B2D8E 100%);
+      color: var(--white); text-align: center;
+      padding: 60px 20px 70px; position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,150,59,0.15) 0%, transparent 70%);
-      top: -100px; right: -100px;
+      content:''; position:absolute; width:600px; height:600px; border-radius:50%;
+      background: radial-gradient(circle, rgba(201,150,59,0.12) 0%, transparent 65%);
+      top:-200px; right:-150px; pointer-events:none;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(166,61,114,0.12) 0%, transparent 70%);
-      bottom: -80px; left: -80px;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--deep-purple);
-      font-family: sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 6px 18px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      text-transform: uppercase;
+    .hero-top-bar {
+      background: rgba(201,150,59,0.15);
+      border: 1px solid rgba(201,150,59,0.4);
+      border-radius: 30px; display:inline-block;
+      padding: 7px 20px; margin-bottom: 28px;
+      font-family: sans-serif; font-size: 13px; color: var(--gold); font-weight: 700;
     }
     .hero h1 {
-      font-size: clamp(32px, 6vw, 58px);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 8px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      font-size: clamp(28px, 5.5vw, 52px);
+      font-weight: 700; line-height: 1.15; margin-bottom: 16px;
     }
-    .hero h1 span { color: var(--gold); }
+    .hero h1 em { color: var(--gold); font-style: normal; }
     .hero-sub {
-      font-style: italic;
+      font-size: clamp(15px, 2.2vw, 18px); color: rgba(255,255,255,0.8);
+      max-width: 540px; margin: 0 auto 32px; font-style: italic;
+    }
+    /* Prova social no hero */
+    .hero-proof {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .hero-proof .avatars { font-size: 22px; }
+    .hero-proof p { font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.75); }
+    .hero-proof strong { color: var(--gold); }
+    .hero-stars { color: var(--gold); font-size: 14px; margin-bottom: 4px; }
+
+    .btn-gold {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #E8B84B);
+      color: var(--deep); font-family: sans-serif; font-weight: 800;
       font-size: clamp(16px, 2.5vw, 20px);
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 36px;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 18px 44px; border-radius: 50px; text-decoration: none;
+      box-shadow: 0 8px 30px rgba(201,150,59,0.5);
+      transition: transform .2s, box-shadow .2s;
+      text-transform: uppercase; letter-spacing: 1px;
     }
-    .hero-stars {
-      font-size: 22px;
-      color: var(--gold);
-      margin-bottom: 28px;
-      letter-spacing: 4px;
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(201,150,59,0.6); }
+    .hero-below-btn {
+      margin-top: 14px; font-family: sans-serif; font-size: 13px;
+      color: rgba(255,255,255,0.55);
     }
-    .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold), #E8B84B);
-      color: var(--deep-purple);
-      font-family: sans-serif;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 18px 44px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(201,150,59,0.45);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(201,150,59,0.55);
-    }
-    .hero-price {
-      margin-top: 18px;
-      font-family: sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
-    }
-    .hero-price strong {
-      color: var(--gold);
-      font-size: 22px;
-    }
+    .hero-below-btn span { color: var(--gold); font-weight: 700; }
 
-    /* ── SECTION BASE ── */
-    section { padding: 70px 20px; }
-    .container { max-width: 860px; margin: 0 auto; }
-    .section-label {
-      font-family: sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
+    /* SECTIONS */
+    section { padding: 60px 20px; }
+    .container { max-width: 820px; margin: 0 auto; }
+    .label {
+      font-family: sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
     }
-    .section-title {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 700;
-      color: var(--deep-purple);
-      line-height: 1.25;
-      margin-bottom: 16px;
+    .title {
+      font-size: clamp(22px, 4vw, 34px); font-weight: 700;
+      color: var(--deep); line-height: 1.25; margin-bottom: 14px;
     }
-    .section-title span { color: var(--rose); }
-    .section-subtitle {
-      font-size: 17px;
-      color: var(--mid-gray);
-      margin-bottom: 40px;
-    }
+    .title span { color: var(--rose); }
+    .gold-bar { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin: 0 auto 32px; }
 
-    /* ── DOR ── */
-    .pain { background: var(--deep-purple); color: var(--white); }
-    .pain .section-title { color: var(--white); }
-    .pain .section-label { color: var(--gold); }
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 36px;
-    }
-    .pain-card {
+    /* IDENTIFICAÇÃO */
+    .ident { background: var(--deep); }
+    .ident .title { color: var(--white); }
+    .ident-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 16px; margin-top: 28px; }
+    .ident-item {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(201,150,59,0.2);
-      border-radius: 14px;
-      padding: 24px;
-    }
-    .pain-card .icon { font-size: 28px; margin-bottom: 10px; }
-    .pain-card p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.85);
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    /* ── SOLUÇÃO ── */
-    .solution { background: var(--light-lav); }
-    .solution-text {
-      font-size: 17px;
-      color: var(--dark-text);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-    .gold-line {
-      width: 60px; height: 3px;
-      background: var(--gold);
-      border-radius: 2px;
-      margin: 0 auto 40px;
-    }
-
-    /* ── TÉCNICAS ── */
-    .techniques { background: var(--white); }
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin-top: 36px;
-    }
-    .tech-card {
-      border-radius: 16px;
-      padding: 28px;
-      border-top: 4px solid var(--purple);
-      background: var(--light-lav);
-      transition: transform 0.2s;
-    }
-    .tech-card:hover { transform: translateY(-4px); }
-    .tech-card:nth-child(2) { border-top-color: var(--rose); background: var(--soft-rose); }
-    .tech-card:nth-child(3) { border-top-color: var(--gold); background: var(--light-gold); }
-    .tech-card:nth-child(4) { border-top-color: var(--med-purple); background: var(--lavender); }
-    .tech-card:nth-child(5) { border-top-color: var(--rose); background: var(--soft-rose); }
-    .tech-card .num {
-      font-family: sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--purple);
-      margin-bottom: 8px;
-      opacity: 0.35;
-    }
-    .tech-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--deep-purple);
-      margin-bottom: 8px;
-    }
-    .tech-card p {
-      font-size: 14px;
-      color: var(--dark-text);
-      line-height: 1.6;
-    }
-
-    /* ── CONTEÚDO ── */
-    .contents { background: var(--deep-purple); color: var(--white); }
-    .contents .section-title { color: var(--white); }
-    .chapters-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 12px;
-      margin-top: 32px;
-    }
-    .chapter-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 12px;
-      padding: 14px 18px;
       border-left: 3px solid var(--gold);
+      border-radius: 10px; padding: 18px 20px;
+      font-style: italic; font-size: 15px; color: rgba(255,255,255,0.85);
     }
-    .chapter-num {
-      font-family: sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--gold);
-      min-width: 32px;
+    .ident-item::before { content: '"'; color: var(--gold); font-size: 28px; line-height: 0; vertical-align: -10px; margin-right: 4px; }
+
+    /* O PROBLEMA */
+    .problem { background: var(--light-lav); text-align: center; }
+    .problem-text { font-size: 17px; color: var(--text); max-width: 640px; margin: 0 auto 20px; line-height: 1.8; }
+    .highlight-box {
+      background: var(--deep); border-radius: 14px; padding: 28px 32px;
+      max-width: 560px; margin: 0 auto;
     }
-    .chapter-info h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 2px;
-    }
-    .chapter-info p {
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
+    .highlight-box p {
+      font-size: 18px; font-weight: 700; color: var(--gold);
+      font-family: sans-serif; line-height: 1.5;
     }
 
-    /* ── QUOTE ── */
-    .quote-section {
-      background: linear-gradient(135deg, var(--purple), var(--rose));
-      text-align: center;
-      padding: 60px 20px;
+    /* SOLUÇÃO */
+    .solution { background: var(--white); }
+    .solution-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; margin-top: 32px; }
+    .sol-card {
+      border-radius: 14px; padding: 24px;
+      background: var(--light-lav); border-top: 4px solid var(--purple);
+      transition: transform .2s;
     }
-    .quote-section blockquote {
-      font-size: clamp(18px, 3vw, 26px);
-      font-style: italic;
-      color: var(--white);
-      max-width: 680px;
-      margin: 0 auto 16px;
-      line-height: 1.5;
-    }
-    .quote-section cite {
-      font-family: sans-serif;
-      font-size: 13px;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 2px;
-    }
+    .sol-card:hover { transform: translateY(-4px); }
+    .sol-card:nth-child(2) { border-top-color: var(--rose); background: var(--soft-rose); }
+    .sol-card:nth-child(3) { border-top-color: var(--gold); background: var(--light-gold); }
+    .sol-card .icon { font-size: 32px; margin-bottom: 10px; }
+    .sol-card h3 { font-size: 17px; font-weight: 700; color: var(--deep); margin-bottom: 6px; }
+    .sol-card p { font-size: 14px; color: var(--text); }
 
-    /* ── TÉCNICA 369 DESTAQUE ── */
-    .tech369 { background: var(--light-gold); }
-    .tech369-blocks {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .t369-block {
-      border-radius: 14px;
-      padding: 24px;
-      text-align: center;
-      color: var(--white);
-    }
-    .t369-block.morning { background: var(--gold); }
-    .t369-block.afternoon { background: var(--med-purple); }
-    .t369-block.night { background: var(--rose); }
-    .t369-block .big-num {
-      font-family: sans-serif;
-      font-size: 56px;
-      font-weight: 900;
-      opacity: 0.9;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .t369-block h4 {
-      font-family: sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      opacity: 0.9;
-    }
-    .t369-block p {
-      font-size: 13px;
-      opacity: 0.85;
-    }
-    @media (max-width: 560px) {
-      .tech369-blocks { grid-template-columns: 1fr; }
-    }
+    /* TÉCNICA 369 */
+    .t369 { background: var(--deep); }
+    .t369 .title { color: var(--white); }
+    .t369 .label { color: var(--gold); }
+    .t369-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 28px; }
+    .t369-block { border-radius: 14px; padding: 28px 16px; text-align: center; color: var(--white); }
+    .t369-block.m { background: linear-gradient(135deg, #C9963B, #E8B84B); color: var(--deep); }
+    .t369-block.t { background: var(--med); }
+    .t369-block.n { background: var(--rose); }
+    .t369-block .num { font-family: sans-serif; font-size: 64px; font-weight: 900; line-height: 1; }
+    .t369-block h4 { font-family: sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 6px 0; opacity: .9; }
+    .t369-block p { font-size: 13px; opacity: .85; }
+    @media(max-width:500px){ .t369-row { grid-template-columns:1fr; } }
 
-    /* ── AFIRMAÇÕES ── */
-    .affirmations { background: var(--white); }
-    .aff-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .aff-card {
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
-    .aff-card.gold { background: var(--light-gold); border-top: 3px solid var(--gold); }
-    .aff-card.rose { background: var(--soft-rose); border-top: 3px solid var(--rose); }
-    .aff-card.purple { background: var(--lavender); border-top: 3px solid var(--purple); }
-    .aff-card.med { background: var(--light-lav); border-top: 3px solid var(--med-purple); }
-    .aff-card h4 {
-      font-family: sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--deep-purple);
-    }
-    .aff-card p {
-      font-size: 13px;
-      font-style: italic;
-      color: var(--dark-text);
-      line-height: 1.6;
-    }
-
-    /* ── DEPOIMENTOS ── */
-    .testimonials { background: var(--light-lav); }
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 36px;
-    }
+    /* DEPOIMENTOS */
+    .testi { background: var(--light-lav); }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 18px; margin-top: 28px; }
     .testi-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 26px;
-      box-shadow: 0 4px 20px rgba(91,45,142,0.08);
-      border-left: 4px solid var(--purple);
+      background: var(--white); border-radius: 14px; padding: 24px;
+      box-shadow: 0 4px 16px rgba(91,45,142,.07); border-left: 4px solid var(--purple);
     }
-    .testi-card p {
-      font-style: italic;
-      font-size: 15px;
-      color: var(--dark-text);
-      margin-bottom: 14px;
-      line-height: 1.7;
-    }
-    .testi-author {
-      font-family: sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--purple);
-    }
-    .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 10px; }
+    .testi-stars { color: var(--gold); font-size: 13px; margin-bottom: 10px; }
+    .testi-card p { font-style: italic; font-size: 14.5px; color: var(--text); margin-bottom: 12px; line-height: 1.7; }
+    .testi-author { font-family: sans-serif; font-size: 12px; font-weight: 700; color: var(--purple); }
 
-    /* ── GARANTIA ── */
-    .guarantee { background: var(--white); text-align: center; }
+    /* CTA MEIO */
+    .cta-mid {
+      background: linear-gradient(135deg, var(--purple), var(--rose));
+      text-align: center; padding: 60px 20px;
+    }
+    .cta-mid h2 { font-size: clamp(22px,4vw,34px); color: var(--white); margin-bottom: 8px; }
+    .cta-mid p { color: rgba(255,255,255,.8); font-size: 16px; margin-bottom: 28px; font-style: italic; }
+
+    /* CONTEÚDO */
+    .contents { background: var(--white); }
+    .chapters { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 10px; margin-top: 24px; }
+    .chapter {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--light-lav); border-radius: 10px;
+      padding: 13px 16px; border-left: 3px solid var(--gold);
+    }
+    .chapter-num { font-family: sans-serif; font-size: 18px; font-weight: 800; color: var(--gold); min-width: 28px; }
+    .chapter h4 { font-size: 13px; font-weight: 700; color: var(--deep); margin-bottom: 2px; }
+    .chapter p { font-size: 11px; color: var(--gray); }
+
+    /* GARANTIA */
+    .guarantee { background: var(--light-gold); text-align: center; }
     .guarantee-box {
-      max-width: 560px;
-      margin: 0 auto;
-      background: var(--light-gold);
-      border-radius: 20px;
-      padding: 40px;
-      border: 2px dashed var(--gold);
+      max-width: 520px; margin: 0 auto;
+      border: 2px dashed var(--gold); border-radius: 18px; padding: 36px;
     }
-    .guarantee-box .icon { font-size: 52px; margin-bottom: 16px; }
-    .guarantee-box h3 {
-      font-size: 22px;
-      color: var(--deep-purple);
-      margin-bottom: 12px;
-    }
-    .guarantee-box p {
-      font-size: 15px;
-      color: var(--dark-text);
-      line-height: 1.7;
-    }
+    .guarantee-box .g-icon { font-size: 48px; margin-bottom: 12px; }
+    .guarantee-box h3 { font-size: 20px; color: var(--deep); margin-bottom: 10px; }
+    .guarantee-box p { font-size: 15px; color: var(--text); line-height: 1.7; }
 
-    /* ── PREÇO / CTA FINAL ── */
+    /* PRICING */
     .pricing {
-      background: linear-gradient(135deg, var(--deep-purple) 0%, #3D1A6E 100%);
-      text-align: center;
-      padding: 80px 20px;
-      color: var(--white);
+      background: linear-gradient(160deg, var(--deep) 0%, #3D1A6E 100%);
+      text-align: center; padding: 70px 20px 100px;
     }
-    .pricing .section-title { color: var(--white); }
+    .pricing .title { color: var(--white); }
+    .pricing .label { color: var(--gold); }
     .price-box {
-      max-width: 480px;
-      margin: 0 auto 36px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(201,150,59,0.3);
-      border-radius: 20px;
-      padding: 40px;
+      max-width: 460px; margin: 32px auto;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(201,150,59,.3);
+      border-radius: 20px; padding: 36px;
     }
-    .price-old {
-      font-family: sans-serif;
-      font-size: 15px;
-      color: rgba(255,255,255,0.45);
-      text-decoration: line-through;
-      margin-bottom: 4px;
+    .price-old { font-family: sans-serif; font-size: 14px; color: rgba(255,255,255,.4); text-decoration: line-through; margin-bottom: 4px; }
+    .price-main { font-family: sans-serif; font-size: 58px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .price-sub { font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,.55); margin-bottom: 28px; }
+    .price-list { list-style: none; text-align: left; margin-bottom: 30px; }
+    .price-list li {
+      font-family: sans-serif; font-size: 14px; color: rgba(255,255,255,.85);
+      padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .price-main {
-      font-family: sans-serif;
-      font-size: 56px;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .price-sub {
-      font-family: sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 28px;
-    }
-    .price-features {
-      list-style: none;
-      margin-bottom: 32px;
-      text-align: left;
-    }
-    .price-features li {
-      font-family: sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.85);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .price-features li::before {
-      content: '✦ ';
-      color: var(--gold);
-    }
-    .btn-primary-dark {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold), #E8B84B);
-      color: var(--deep-purple);
-      font-family: sans-serif;
-      font-weight: 800;
-      font-size: 20px;
-      padding: 20px 50px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 10px 35px rgba(201,150,59,0.5);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .btn-primary-dark:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 45px rgba(201,150,59,0.6);
-    }
-    .security-badges {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-family: sans-serif;
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .price-list li::before { content: '✦ '; color: var(--gold); }
+    .security { display:flex; justify-content:center; gap:20px; margin-top:20px; flex-wrap:wrap; }
+    .security span { font-family:sans-serif; font-size:12px; color:rgba(255,255,255,.45); }
 
-    /* ── FAQ ── */
+    /* FAQ */
     .faq { background: var(--cream); }
-    .faq-item {
-      border-bottom: 1px solid var(--lavender);
-      padding: 20px 0;
-    }
-    .faq-item h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--deep-purple);
-      margin-bottom: 8px;
-    }
-    .faq-item p {
-      font-size: 15px;
-      color: var(--dark-text);
-      line-height: 1.7;
-    }
+    .faq-item { border-bottom: 1px solid var(--lav); padding: 18px 0; }
+    .faq-item h4 { font-size: 16px; font-weight: 700; color: var(--deep); margin-bottom: 6px; }
+    .faq-item p { font-size: 15px; color: var(--text); line-height: 1.7; }
 
-    /* ── FOOTER ── */
     footer {
-      background: var(--deep-purple);
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 30px 20px;
-      font-family: sans-serif;
-      font-size: 13px;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .hero { padding: 60px 20px 50px; }
-      .tech369-blocks { grid-template-columns: 1fr; }
+      background: var(--deep); color: rgba(255,255,255,.4);
+      text-align: center; padding: 28px 20px;
+      font-family: sans-serif; font-size: 12px;
+      padding-bottom: 80px;
     }
   </style>
 </head>
 <body>
 
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <p>✦ Guia Completo de Manifestação — R$ 19,90</p>
+  <a href="https://pay.kiwify.com.br/LM55tYd">Quero Agora →</a>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="hero-badge">✦ Guia Completo de Manifestação</span>
-    <h1>Como Manifestar a<br><span>Vida dos Sonhos</span></h1>
-    <p class="hero-sub">Técnicas poderosas de intenção, fé e ação para co-criar a realidade que você merece</p>
-    <div class="hero-stars">✦ ✦ ✦ ✦ ✦</div>
-    <a href="https://pay.kiwify.com.br/LM55tYd" class="btn-primary">✨ Quero Manifestar Agora</a>
-    <p class="hero-price">Apenas <strong>R$ 19,90</strong> — acesso imediato</p>
+    <div class="hero-top-bar">✦ Mais de 200 pessoas já transformaram sua realidade</div>
+    <h1>Você faz afirmações todo dia<br>mas sua vida <em>não muda nada?</em></h1>
+    <p class="hero-sub">O problema não é você. É que afirmação sem método é apenas repetição vazia. Existe uma forma certa de manifestar.</p>
+
+    <div class="hero-proof">
+      <span class="avatars">👩‍💼👩👩‍🦱</span>
+      <div>
+        <div class="hero-stars">★★★★★</div>
+        <p><strong>+200 mulheres</strong> já aplicaram o método</p>
+      </div>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/LM55tYd" class="btn-gold">✨ Quero Aprender o Método — R$ 19,90</a>
+    <p class="hero-below-btn">🔒 Pagamento seguro · ⚡ Acesso imediato · 🛡️ <span>Garantia de 7 dias</span></p>
   </div>
 </section>
 
-<!-- DOR -->
-<section class="pain">
+<!-- IDENTIFICAÇÃO -->
+<section class="ident">
   <div class="container" style="text-align:center;">
-    <p class="section-label">Você se identifica com isso?</p>
-    <h2 class="section-title">Você já tentou manifestar antes<br>mas algo sempre <span style="color:var(--rose)">não funcionou?</span></h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="icon">😔</div>
-        <p>"Faço afirmações todo dia mas minha vida não muda nada..."</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">😕</div>
-        <p>"Já montei vision board mas nunca consigo me manter consistente..."</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">😣</div>
-        <p>"Tenho crenças limitantes que bloqueiam tudo e não sei como mudar..."</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">😞</div>
-        <p>"Fico empolgada por alguns dias e depois perco o foco completamente..."</p>
-      </div>
+    <p class="label" style="color:var(--gold)">Você se identifica?</p>
+    <h2 class="title" style="color:var(--white)">Se você já disse alguma dessas frases,<br>esse guia é para você:</h2>
+    <div class="ident-list">
+      <div class="ident-item">Faço afirmações todo dia mas minha vida não muda nada...</div>
+      <div class="ident-item">Já montei vision board mas não consigo me manter consistente...</div>
+      <div class="ident-item">Tenho crenças limitantes que bloqueiam tudo e não sei como mudar...</div>
+      <div class="ident-item">Fico empolgada por alguns dias e depois perco o foco completamente...</div>
+    </div>
+  </div>
+</section>
+
+<!-- O PROBLEMA -->
+<section class="problem">
+  <div class="container" style="text-align:center;">
+    <p class="label">Por que não está funcionando</p>
+    <h2 class="title">O erro que <span>90% das pessoas</span> cometem</h2>
+    <div class="gold-bar"></div>
+    <p class="problem-text">A maioria das pessoas usa manifestação de forma incompleta — fazem afirmações sem emoção, visualizam sem consistência ou esperam resultado sem agir.</p>
+    <p class="problem-text">Manifestação não é só pensar positivo. É uma <strong>prática estruturada</strong> que combina reprogramação do subconsciente, frequência emocional e ação intencional.</p>
+    <div class="highlight-box">
+      <p>✦ Quando você aplica o método certo, os resultados aparecem em 21 dias. ✦</p>
     </div>
   </div>
 </section>
@@ -593,99 +319,48 @@
 <!-- SOLUÇÃO -->
 <section class="solution">
   <div class="container" style="text-align:center;">
-    <p class="section-label">A solução que você estava esperando</p>
-    <h2 class="section-title">Manifestação não é sorte.<br>É uma <span>habilidade que se aprende.</span></h2>
-    <div class="gold-line"></div>
-    <p class="solution-text">A maioria das pessoas usa apenas 10% do poder da manifestação porque não conhece as técnicas corretas — ou as usa de forma incompleta e inconsistente.</p>
-    <p class="solution-text">Este guia reúne as <strong>10 técnicas mais poderosas</strong>, aplicadas de forma prática e com uma rotina diária clara. Sem enrolação. Sem misticismo vago. Método real, com ciência e espiritualidade juntos.</p>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<div class="quote-section">
-  <blockquote>"Tudo o que a mente pode conceber e acreditar, ela pode alcançar."</blockquote>
-  <cite>— Napoleon Hill</cite>
-</div>
-
-<!-- TÉCNICAS -->
-<section class="techniques">
-  <div class="container" style="text-align:center;">
-    <p class="section-label">O que você vai aprender</p>
-    <h2 class="section-title">10 técnicas que<br><span>realmente funcionam</span></h2>
-    <div class="tech-grid">
-      <div class="tech-card">
-        <div class="num">01</div>
-        <h3>🧠 Os 3 Pilares</h3>
-        <p>Pensamento, Emoção e Ação — a tríade que move qualquer manifestação de forma consistente.</p>
+    <p class="label">A solução</p>
+    <h2 class="title">O método completo em <span>3 pilares</span></h2>
+    <div class="gold-bar"></div>
+    <div class="solution-cols">
+      <div class="sol-card">
+        <div class="icon">🧠</div>
+        <h3>Reprogramação</h3>
+        <p>Técnica 369, Scripting e afirmações com emoção para reprogramar o subconsciente em 21 dias.</p>
       </div>
-      <div class="tech-card">
-        <div class="num">02</div>
-        <h3>🌱 Terreno Interior</h3>
-        <p>Como identificar e dissolver crenças limitantes que bloqueiam silenciosamente sua vida.</p>
+      <div class="sol-card">
+        <div class="icon">✨</div>
+        <h3>Frequência</h3>
+        <p>Gratidão, meditação e visualização para elevar sua vibração e se tornar um ímã para o que deseja.</p>
       </div>
-      <div class="tech-card">
-        <div class="num">03</div>
-        <h3>⚡ Técnica 369</h3>
-        <p>O método dos números sagrados de Tesla para reprogramar o subconsciente em 21 dias.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">04</div>
-        <h3>✍️ Scripting</h3>
-        <p>Escreva sua vida dos sonhos como se já existisse e ative o poder do presente em você.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">05</div>
-        <h3>🎯 Vision Board</h3>
-        <p>Como criar um painel que ativa seu sistema de ativação reticular e atrai oportunidades.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">06</div>
-        <h3>🌟 Afirmações</h3>
-        <p>47 afirmações organizadas por área da vida para reprogramar sua mente todos os dias.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">07</div>
-        <h3>🙏 Gratidão</h3>
-        <p>A prática mais poderosa da manifestação — inclusive a gratidão antecipada.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">08</div>
-        <h3>🧘 Meditação</h3>
-        <p>Roteiro completo para acessar o estado alfa e plantar sementes poderosas no subconsciente.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">09</div>
-        <h3>📅 Rotina Diária</h3>
-        <p>Sua rotina completa de manifestação: manhã, tarde e noite — pronta para começar hoje.</p>
-      </div>
-      <div class="tech-card">
-        <div class="num">10</div>
-        <h3>⚡ Ação com Intenção</h3>
-        <p>Como equilibrar manifestação e ação no mundo real sem cair na armadilha da passividade.</p>
+      <div class="sol-card">
+        <div class="icon">⚡</div>
+        <h3>Ação Intencional</h3>
+        <p>Rotina diária completa — manhã, tarde e noite — para criar consistência e momentum poderoso.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TÉCNICA 369 DESTAQUE -->
-<section class="tech369">
+<!-- TÉCNICA 369 -->
+<section class="t369">
   <div class="container" style="text-align:center;">
-    <p class="section-label">Técnica em destaque</p>
-    <h2 class="section-title">A Técnica 369 de Tesla</h2>
-    <p class="section-subtitle">Reprograme seu subconsciente com 3 simples momentos ao dia</p>
-    <div class="tech369-blocks">
-      <div class="t369-block morning">
-        <div class="big-num">3</div>
+    <p class="label">Técnica em destaque</p>
+    <h2 class="title" style="color:var(--white)">A Técnica 369 de Nikola Tesla</h2>
+    <p style="color:rgba(255,255,255,.7); font-style:italic; margin-bottom:8px;">O método dos números sagrados para reprogramar o subconsciente</p>
+    <div class="t369-row">
+      <div class="t369-block m">
+        <div class="num">3</div>
         <h4>☀️ Manhã</h4>
-        <p>Escreva sua afirmação <strong>3 vezes</strong> ao acordar — quando o subconsciente está mais receptivo.</p>
+        <p>Escreva sua afirmação <strong>3 vezes</strong> ao acordar — maior receptividade do subconsciente.</p>
       </div>
-      <div class="t369-block afternoon">
-        <div class="big-num">6</div>
+      <div class="t369-block t">
+        <div class="num">6</div>
         <h4>🌤 Tarde</h4>
-        <p>Escreva <strong>6 vezes</strong> ao meio-dia. Feche os olhos e sinta a emoção de já ter realizado.</p>
+        <p>Escreva <strong>6 vezes</strong> ao meio-dia sentindo a emoção de já ter realizado.</p>
       </div>
-      <div class="t369-block night">
-        <div class="big-num">9</div>
+      <div class="t369-block n">
+        <div class="num">9</div>
         <h4>🌙 Noite</h4>
         <p>Escreva <strong>9 vezes</strong> antes de dormir. O subconsciente processa durante o sono.</p>
       </div>
@@ -693,133 +368,56 @@
   </div>
 </section>
 
-<!-- CONTEÚDO -->
-<section class="contents">
-  <div class="container" style="text-align:center;">
-    <p class="section-label">Sumário do guia</p>
-    <h2 class="section-title">O que está dentro do e-book</h2>
-    <div class="chapters-list">
-      <div class="chapter-item">
-        <span class="chapter-num">01</span>
-        <div class="chapter-info">
-          <h4>O Que é Manifestação?</h4>
-          <p>Mente, vibração e co-criação</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">02</span>
-        <div class="chapter-info">
-          <h4>Prepare o Terreno Interior</h4>
-          <p>Clareza e crenças limitantes</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">03</span>
-        <div class="chapter-info">
-          <h4>Técnica 369 de Tesla</h4>
-          <p>Números sagrados e subconsciente</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">04</span>
-        <div class="chapter-info">
-          <h4>Scripting — Escrita Criativa</h4>
-          <p>Escreva sua vida como realidade</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">05</span>
-        <div class="chapter-info">
-          <h4>Vision Board</h4>
-          <p>O painel dos sonhos</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">06</span>
-        <div class="chapter-info">
-          <h4>Afirmações e Mantras</h4>
-          <p>Frases que reprogramam a mente</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">07</span>
-        <div class="chapter-info">
-          <h4>Gratidão como Combustível</h4>
-          <p>A prática mais poderosa</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">08</span>
-        <div class="chapter-info">
-          <h4>Meditação e Visualização</h4>
-          <p>Acesse o estado alfa</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">09</span>
-        <div class="chapter-info">
-          <h4>Rotina Diária</h4>
-          <p>Manhã, tarde e noite</p>
-        </div>
-      </div>
-      <div class="chapter-item">
-        <span class="chapter-num">10</span>
-        <div class="chapter-info">
-          <h4>Ação com Intenção</h4>
-          <p>Manifestação + movimento real</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AFIRMAÇÕES -->
-<section class="affirmations">
-  <div class="container" style="text-align:center;">
-    <p class="section-label">Prévia do conteúdo</p>
-    <h2 class="section-title">Afirmações para cada área<br><span>da sua vida</span></h2>
-    <div class="aff-grid">
-      <div class="aff-card gold">
-        <h4>💰 ABUNDÂNCIA</h4>
-        <p>"Dinheiro chega até mim de formas fáceis e inesperadas."</p>
-      </div>
-      <div class="aff-card rose">
-        <h4>❤️ AMOR</h4>
-        <p>"Mereço e recebo amor verdadeiro, respeitoso e apaixonado."</p>
-      </div>
-      <div class="aff-card purple">
-        <h4>🌿 SAÚDE</h4>
-        <p>"Meu corpo é forte, saudável e cheio de vitalidade."</p>
-      </div>
-      <div class="aff-card med">
-        <h4>🚀 CARREIRA</h4>
-        <p>"Meu trabalho me realiza e gera prosperidade crescente."</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- DEPOIMENTOS -->
-<section class="testimonials">
+<section class="testi">
   <div class="container" style="text-align:center;">
-    <p class="section-label">Quem já transformou a vida</p>
-    <h2 class="section-title">Resultados <span>reais</span></h2>
+    <p class="label">Quem já aplicou</p>
+    <h2 class="title">Resultados <span>reais</span></h2>
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p>"Pratiquei a Técnica 369 por 21 dias e minha situação financeira mudou de forma que eu não esperava. Consegui um aumento e uma oportunidade de renda extra. O guia é objetivo e poderoso."</p>
+        <p>"Pratiquei a Técnica 369 por 21 dias e minha situação financeira mudou de forma que eu não esperava. Consegui um aumento e uma renda extra. O guia é objetivo e poderoso."</p>
         <span class="testi-author">— Camila R., 34 anos</span>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p>"O scripting transformou minha relação comigo mesma. Comecei a me ver como a mulher que quero ser, e as coisas começaram a se alinhar. O guia explica tudo de forma simples e prática."</p>
+        <p>"O scripting transformou minha relação comigo mesma. Comecei a me ver como a mulher que quero ser e as coisas começaram a se alinhar. Simples e prático."</p>
         <span class="testi-author">— Juliana M., 28 anos</span>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p>"Tentei manifestação antes mas sem resultado. Esse guia me mostrou o que eu estava fazendo de errado — pedir sem contexto emocional. Em 30 dias, resultados concretos. Vale muito mais do que o preço."</p>
+        <p>"Tentei manifestação antes sem resultado. Esse guia me mostrou o que eu estava fazendo de errado. Em 30 dias, resultados concretos. Vale muito mais que o preço."</p>
         <span class="testi-author">— Fernanda S., 41 anos</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA MEIO -->
+<div class="cta-mid">
+  <div class="container">
+    <h2>Pronta para manifestar de verdade?</h2>
+    <p>Acesso imediato. Leia no celular ou computador.</p>
+    <a href="https://pay.kiwify.com.br/LM55tYd" class="btn-gold">✨ Quero o Guia Agora — R$ 19,90</a>
+  </div>
+</div>
+
+<!-- CONTEÚDO -->
+<section class="contents">
+  <div class="container" style="text-align:center;">
+    <p class="label">O que está dentro</p>
+    <h2 class="title">10 capítulos com <span>método completo</span></h2>
+    <div class="chapters">
+      <div class="chapter"><span class="chapter-num">01</span><div><h4>O Que é Manifestação?</h4><p>Mente, vibração e co-criação</p></div></div>
+      <div class="chapter"><span class="chapter-num">02</span><div><h4>Prepare o Terreno Interior</h4><p>Crenças limitantes e clareza</p></div></div>
+      <div class="chapter"><span class="chapter-num">03</span><div><h4>Técnica 369 de Tesla</h4><p>Reprograme o subconsciente</p></div></div>
+      <div class="chapter"><span class="chapter-num">04</span><div><h4>Scripting — Escrita Criativa</h4><p>Escreva sua vida como realidade</p></div></div>
+      <div class="chapter"><span class="chapter-num">05</span><div><h4>Vision Board</h4><p>O painel dos sonhos</p></div></div>
+      <div class="chapter"><span class="chapter-num">06</span><div><h4>Afirmações e Mantras</h4><p>Por área da vida</p></div></div>
+      <div class="chapter"><span class="chapter-num">07</span><div><h4>Gratidão como Combustível</h4><p>A prática mais poderosa</p></div></div>
+      <div class="chapter"><span class="chapter-num">08</span><div><h4>Meditação e Visualização</h4><p>Roteiro completo estado alfa</p></div></div>
+      <div class="chapter"><span class="chapter-num">09</span><div><h4>Rotina Diária</h4><p>Manhã, tarde e noite pronta</p></div></div>
+      <div class="chapter"><span class="chapter-num">10</span><div><h4>Ação com Intenção</h4><p>Manifestação + movimento real</p></div></div>
     </div>
   </div>
 </section>
@@ -828,36 +426,36 @@
 <section class="guarantee">
   <div class="container">
     <div class="guarantee-box">
-      <div class="icon">🛡️</div>
-      <h3>Garantia de 7 Dias</h3>
-      <p>Se por qualquer motivo você não ficar satisfeita com o conteúdo, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+      <div class="g-icon">🛡️</div>
+      <h3>Garantia Total de 7 Dias</h3>
+      <p>Se por qualquer motivo você não ficar satisfeita, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
     </div>
   </div>
 </section>
 
-<!-- PREÇO -->
+<!-- PRICING -->
 <section class="pricing">
   <div class="container">
-    <p class="section-label">Sua transformação começa aqui</p>
-    <h2 class="section-title">Invista na vida<br>que você merece</h2>
+    <p class="label">Invista na sua transformação</p>
+    <h2 class="title">Comece hoje por apenas</h2>
     <div class="price-box">
       <p class="price-old">De R$ 47,00</p>
       <p class="price-main">R$ 19,90</p>
-      <p class="price-sub">pagamento único — acesso imediato e vitalício</p>
-      <ul class="price-features">
+      <p class="price-sub">pagamento único · acesso imediato e vitalício</p>
+      <ul class="price-list">
         <li>10 técnicas completas de manifestação</li>
-        <li>Roteiro de meditação passo a passo</li>
+        <li>Técnica 369 + Scripting + Vision Board</li>
+        <li>Rotina diária pronta para aplicar hoje</li>
         <li>Afirmações por área da vida</li>
-        <li>Rotina diária pronta para aplicar</li>
-        <li>Exercícios práticos em cada capítulo</li>
-        <li>Formato PDF — leia no celular ou computador</li>
+        <li>Roteiro de meditação passo a passo</li>
+        <li>PDF — leia no celular ou computador</li>
       </ul>
-      <a href="https://pay.kiwify.com.br/LM55tYd" class="btn-primary-dark">✨ Quero Manifestar Agora</a>
+      <a href="https://pay.kiwify.com.br/LM55tYd" class="btn-gold">✨ Quero Manifestar Agora</a>
     </div>
-    <div class="security-badges">
-      <span class="badge">🔒 Pagamento Seguro</span>
-      <span class="badge">⚡ Acesso Imediato</span>
-      <span class="badge">🛡️ Garantia 7 dias</span>
+    <div class="security">
+      <span>🔒 Pagamento Seguro</span>
+      <span>⚡ Acesso Imediato</span>
+      <span>🛡️ Garantia 7 dias</span>
     </div>
   </div>
 </section>
@@ -865,35 +463,34 @@
 <!-- FAQ -->
 <section class="faq">
   <div class="container">
-    <p class="section-label" style="text-align:center;">Dúvidas frequentes</p>
-    <h2 class="section-title" style="text-align:center; margin-bottom:40px;">Perguntas <span>& Respostas</span></h2>
+    <p class="label" style="text-align:center">Dúvidas frequentes</p>
+    <h2 class="title" style="text-align:center; margin-bottom:32px">Perguntas <span>& Respostas</span></h2>
     <div class="faq-item">
       <h4>Para quem é esse guia?</h4>
-      <p>Para qualquer pessoa que queira aprender ou aprofundar as técnicas de manifestação de forma prática, com método claro e resultado concreto. Não é necessário nenhum conhecimento prévio.</p>
+      <p>Para qualquer pessoa que queira aprender ou aprofundar as técnicas de manifestação de forma prática. Não é necessário nenhum conhecimento prévio.</p>
     </div>
     <div class="faq-item">
       <h4>Em quanto tempo recebo o material?</h4>
-      <p>O acesso é imediato! Assim que o pagamento for confirmado, você recebe o link para download do PDF no seu e-mail.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Funciona mesmo ou é só "papo motivacional"?</h4>
-      <p>O guia combina práticas espirituais com evidências da neurociência (como o estado alfa, o sistema de ativação reticular e a reprogramação do subconsciente). São técnicas usadas por coaches, psicólogos e pesquisadores de alta performance.</p>
+      <p>Acesso imediato! Assim que o pagamento for confirmado, você recebe o link para download do PDF no seu e-mail.</p>
     </div>
     <div class="faq-item">
       <h4>Quanto tempo por dia preciso dedicar?</h4>
-      <p>A rotina sugerida leva entre 20 e 30 minutos por dia, divididos em manhã, tarde e noite. Totalmente adaptável à sua realidade.</p>
+      <p>Entre 20 e 30 minutos por dia, divididos em manhã, tarde e noite. Totalmente adaptável à sua rotina.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Funciona mesmo ou é só "papo motivacional"?</h4>
+      <p>O guia combina práticas espirituais com neurociência — estado alfa, sistema de ativação reticular e reprogramação do subconsciente. Método real com base científica.</p>
     </div>
     <div class="faq-item">
       <h4>E se eu não gostar?</h4>
-      <p>Você tem 7 dias de garantia total. Se não ficar satisfeita, basta solicitar o reembolso e devolvemos 100% do valor pago.</p>
+      <p>Você tem 7 dias de garantia total. Se não ficar satisfeita, devolvemos 100% do valor. Sem perguntas.</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 Como Manifestar a Vida dos Sonhos — Todos os direitos reservados.</p>
-  <p style="margin-top:8px;">Ao realizar a compra você concorda com os Termos de Uso e Política de Privacidade.</p>
+  <p style="margin-top:6px">Ao realizar a compra você concorda com os Termos de Uso e Política de Privacidade.</p>
 </footer>
 
 </body>
