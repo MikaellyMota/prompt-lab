@@ -25,16 +25,20 @@ PURPLE  = colors.HexColor('#5B2D8E')
 MED     = colors.HexColor('#7B4DB5')
 LAV     = colors.HexColor('#EDE0FF')
 LLIGHT  = colors.HexColor('#F7F0FF')
-GOLD    = colors.HexColor('#C9963B')
-LGOLD   = colors.HexColor('#FFF8E7')
 ROSE    = colors.HexColor('#A63D72')
 SROSE   = colors.HexColor('#FCE8F3')
 TEAL    = colors.HexColor('#1A7A6E')
 LTEAL   = colors.HexColor('#E0F5F2')
-CREAM   = colors.HexColor('#FFFEF9')
-TEXT    = colors.HexColor('#1A1A2E')
-GRAY    = colors.HexColor('#7A7A9A')
+# Base visual inspirada em layout cream + dourado + marrom ("Destrave sua energia")
+CREAM   = colors.HexColor('#F9F6F1')
+TEXT    = colors.HexColor('#4A3F3C')
+GRAY    = colors.HexColor('#7A726E')
 WHITE   = colors.white
+GOLD    = colors.HexColor('#C5A076')
+LGOLD   = colors.HexColor('#F3EBE0')
+BLANCH_SAGE   = colors.HexColor('#8B9474')
+BLANCH_MAROON = colors.HexColor('#6D4C41')
+INNER_BAR = colors.HexColor('#E5DDD4')
 
 TECH_COLORS = [ROSE, PURPLE, TEAL]
 TECH_BG     = [SROSE, LLIGHT, LTEAL]
@@ -212,82 +216,105 @@ class QuoteBox(Flowable):
 
 # ── Fundo de páginas ─────────────────────────────────────────────────────────
 
-def draw_cover(c):
-    c.setFillColor(DEEP)
+def _hline(c, y, x0=None, x1=None, w=0.6, col=None):
+    col = col or GOLD
+    x0 = x0 if x0 is not None else W * 0.18
+    x1 = x1 if x1 is not None else W * 0.82
+    c.saveState()
+    c.setStrokeColor(col)
+    c.setLineWidth(w)
+    c.line(x0, y, x1, y)
+    c.restoreState()
+
+
+def draw_cover_blanch(c):
+    """Capa estilo refer\u00eancia: cream, tipografia central, duas faixas neuro/espiritualidade."""
+    c.setFillColor(CREAM)
     c.rect(0, 0, W, H, fill=1, stroke=0)
-    # Circulo decorativo no canto superior direito — longe do texto
-    cx, cy = W * 0.82, H * 0.80
-    for r, alpha in [(75, 0.05), (58, 0.08), (42, 0.12)]:
+    y_hi = H - 16 * mm
+    _hline(c, y_hi)
+    c.setFillColor(TEXT)
+    c.setFont('Helvetica', 7.5)
+    c.drawCentredString(W / 2, y_hi - 5.5 * mm,
+                        'N E U R O C I \u00ca N C I A   &   E S P I R I T U A L I D A D E')
+    _hline(c, y_hi - 11 * mm)
+
+    cy = H * 0.52
+    c.setFillColor(TEXT)
+    c.setFont('Times-Bold', 34)
+    c.drawCentredString(W / 2, cy + 28 * mm, '3 T\u00e9cnicas de')
+    c.setFont('Times-Bold', 38)
+    c.drawCentredString(W / 2, cy + 12 * mm, 'Manifesta\u00e7\u00e3o')
+
+    c.setFillColor(GRAY)
+    c.setFont('Helvetica-Oblique', 11)
+    sub = 'Pr\u00e1ticas simples para transformar inten\u00e7\u00e3o em realidade'
+    c.drawCentredString(W / 2, cy - 2 * mm, sub)
+    c.setFont('Helvetica-Oblique', 10)
+    c.drawCentredString(W / 2, cy - 8 * mm, '\u2014 com neuroci\u00eancia e espiritualidade pr\u00e1tica \u2014')
+
+    bw, bh, gap = 64 * mm, 12 * mm, 5 * mm
+    x0 = (W - (2 * bw + gap)) / 2
+    yb = cy - 28 * mm
+    for (x, col, lab) in [(x0, BLANCH_SAGE, 'NEUROCI\u00caNCIA'),
+                          (x0 + bw + gap, BLANCH_MAROON, 'ESPIRITUALIDADE')]:
+        c.setFillColor(col)
+        c.roundRect(x, yb, bw, bh, 3 * mm, fill=1, stroke=0)
+        c.setFillColor(WHITE)
+        c.setFont('Helvetica-Bold', 9)
+        c.drawCentredString(x + bw / 2, yb + 4 * mm, lab)
+
+    yf = 22 * mm
+    _hline(c, yf + 8 * mm)
+    c.setFillColor(GRAY)
+    c.setFont('Helvetica', 7)
+    c.drawCentredString(W / 2, yf + 4.5 * mm, 'Neuroci\u00eancia & Espiritualidade')
+    _hline(c, yf + 2 * mm)
+
+
+def draw_consistencia_page(c):
+    """P\u00e1gina 'A regra de ouro' / CONSIST\u00caNCIA antes do sum\u00e1rio."""
+    c.setFillColor(CREAM)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    _hline(c, H - 18 * mm, col=colors.HexColor('#D8D0C8'))
+    _hline(c, 16 * mm, col=colors.HexColor('#D8D0C8'))
+
+    cx, cy = W / 2, H * 0.52
+    for r, a in [(95, 0.04), (72, 0.06), (48, 0.08)]:
         c.setFillColor(GOLD)
-        c.setFillAlpha(alpha)
+        c.setFillAlpha(a)
         c.circle(cx, cy, r * mm, fill=1, stroke=0)
     c.setFillAlpha(1.0)
+
     c.setFillColor(GOLD)
-    c.setFillAlpha(0.85)
-    c.circle(cx, cy, 7 * mm, fill=1, stroke=0)
-    c.setFillAlpha(1.0)
-    # Faixas ouro topo/base
+    c.setFont('Helvetica-Bold', 8)
+    c.drawCentredString(W / 2, cy + 52 * mm, 'A REGRA DE OURO')
+    _hline(c, cy + 48 * mm, W * 0.35, W * 0.65)
+
+    c.setFillColor(TEXT)
+    c.setFont('Helvetica-Bold', 46)
+    c.drawCentredString(W / 2, cy + 18 * mm, 'CONSIS-')
+    c.drawCentredString(W / 2, cy - 8 * mm, 'T\u00caNCIA.')
+    _hline(c, cy - 18 * mm, W * 0.30, W * 0.70)
+
+    c.setFillColor(TEXT)
+    c.setFont('Helvetica', 11)
+    c.drawCentredString(W / 2, cy - 28 * mm, 'Fa\u00e7a todos os dias. Sem exce\u00e7\u00e3o.')
     c.setFillColor(GOLD)
-    c.rect(0, H - 8 * mm, W, 4 * mm, fill=1, stroke=0)
-    c.rect(0, 8 * mm, W, 4 * mm, fill=1, stroke=0)
-    # Badge topo
-    bw = 72 * mm
-    c.setFillColor(ROSE)
-    c.roundRect((W - bw) / 2, H - 28 * mm, bw, 9 * mm, 4 * mm, fill=1, stroke=0)
-    c.setFillColor(WHITE)
-    c.setFont('Helvetica-Bold', 9)
-    c.drawCentredString(W / 2, H - 28 * mm + 3 * mm, 'T\u00c9CNICAS DE MANIFESTA\u00c7\u00c3O')
-    # Titulo principal
-    c.setFillColor(WHITE)
-    c.setFont('Helvetica-Bold', 52)
-    c.drawCentredString(W / 2, H * 0.74, '3 T\u00c9CNICAS')
-    c.setFillColor(GOLD)
-    c.setFont('Helvetica-Bold', 36)
-    c.drawCentredString(W / 2, H * 0.66, 'DE MANIFESTA\u00c7\u00c3O')
-    # Separador
-    c.setStrokeColor(GOLD)
-    c.setLineWidth(1)
-    c.line(LM + 10 * mm, H * 0.62, W - LM - 10 * mm, H * 0.62)
-    # Lista de tecnicas — alinhada à esquerda com badge colorido
-    tecnicas = [
-        ('T\u00c9CNICA 01', 'Ta\u00e7a de \u00c1gua', ROSE),
-        ('T\u00c9CNICA 02', 'Espelho \u2014 EU SOU', MED),
-        ('T\u00c9CNICA 03', 'Visualiza\u00e7\u00e3o \u2014 Dr. Joe Dispenza', TEAL),
-    ]
-    y = H * 0.575
-    for label, name, col in tecnicas:
-        c.setFillColor(col)
-        c.roundRect(LM + 5 * mm, y - 2.5 * mm, 24 * mm, 6.5 * mm, 2.5 * mm, fill=1, stroke=0)
-        c.setFillColor(WHITE)
-        c.setFont('Helvetica-Bold', 7.5)
-        c.drawString(LM + 6.5 * mm, y + 0.5 * mm, label)
-        c.setFillColor(WHITE)
-        c.setFillAlpha(0.9)
-        c.setFont('Helvetica', 12)
-        c.drawString(LM + 32 * mm, y + 0.5 * mm, name)
-        c.setFillAlpha(1.0)
-        y -= 12 * mm
-    # Bonus badge
-    c.setFillColor(PURPLE)
-    c.setFillAlpha(0.9)
-    bw2 = 68 * mm
-    c.roundRect(LM + 5 * mm, y - 2 * mm, bw2, 8 * mm, 3 * mm, fill=1, stroke=0)
-    c.setFillAlpha(1.0)
-    c.setFillColor(GOLD)
-    c.setFont('Helvetica-Bold', 9)
-    c.drawString(LM + 8 * mm, y + 1.5 * mm, '\u2605  B\u00d4NUS: Pr\u00e1tica da Lua Nova')
-    # Rodape
-    c.setFillColor(WHITE)
-    c.setFillAlpha(0.5)
-    c.setFont('Helvetica', 9)
-    c.drawCentredString(W / 2, 16 * mm, 'Transforme inten\u00e7\u00e3o em realidade')
-    c.setFillAlpha(1.0)
+    c.setFont('Helvetica-Oblique', 10.5)
+    c.drawCentredString(W / 2, cy - 36 * mm,
+                        'A repeti\u00e7\u00e3o \u00e9 o que transforma inten\u00e7\u00e3o em realidade.')
+
+    c.setFillColor(GRAY)
+    c.setFont('Helvetica', 7)
+    c.drawCentredString(W / 2, 11 * mm,
+                        '3 T\u00e9cnicas \u2022 Neuroci\u00eancia & Espiritualidade')
 
 
 def draw_inner(c):
     c.setFillColor(CREAM)
     c.rect(0, 0, W, H, fill=1, stroke=0)
-    c.setFillColor(LAV)
+    c.setFillColor(INNER_BAR)
     c.rect(0, 0, 3 * mm, H, fill=1, stroke=0)
     c.setFillColor(DEEP)
     c.rect(0, H - TM, W, TM, fill=1, stroke=0)
@@ -335,6 +362,10 @@ def step_row(num, title, desc, color=PURPLE, iw=IW):
 
 def build_content(iw):
     story = []
+    story.append(Spacer(1, 1))
+    story.append(NextPageTemplate('manifest'))
+    story.append(PageBreak())
+    story.append(Spacer(1, 1))
     story.append(NextPageTemplate('inner'))
     story.append(PageBreak())
 
@@ -967,7 +998,12 @@ def build_pdf(output='3_Tecnicas_Manifestacao_v2.pdf'):
 
     def cover_bg(canvas, doc):
         canvas.saveState()
-        draw_cover(canvas)
+        draw_cover_blanch(canvas)
+        canvas.restoreState()
+
+    def manifest_bg(canvas, doc):
+        canvas.saveState()
+        draw_consistencia_page(canvas)
         canvas.restoreState()
 
     def inner_bg(canvas, doc):
@@ -975,9 +1011,12 @@ def build_pdf(output='3_Tecnicas_Manifestacao_v2.pdf'):
         draw_inner(canvas)
         canvas.restoreState()
 
+    manifest_frame = Frame(0, 0, W, H, leftPadding=0, rightPadding=0,
+                           topPadding=0, bottomPadding=0, id='manifest')
     cover_tpl = PageTemplate(id='cover', frames=[cover_frame], onPage=cover_bg)
+    manifest_tpl = PageTemplate(id='manifest', frames=[manifest_frame], onPage=manifest_bg)
     inner_tpl = PageTemplate(id='inner', frames=[inner_frame], onPage=inner_bg)
-    doc.addPageTemplates([cover_tpl, inner_tpl])
+    doc.addPageTemplates([cover_tpl, manifest_tpl, inner_tpl])
 
     story = build_content(IW)
     doc.build(story)
