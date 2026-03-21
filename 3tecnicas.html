@@ -73,6 +73,25 @@
       background: radial-gradient(circle, rgba(166,61,114,0.1) 0%, transparent 65%);
       bottom:-80px; left:-80px; pointer-events:none;
     }
+    .hero-heat {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-family: sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--deep);
+      background: linear-gradient(90deg, #FFD56B, #FFC93C);
+      padding: 7px 16px; border-radius: 30px;
+      box-shadow: 0 4px 14px rgba(255,200,80,0.45);
+      animation: heatPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes heatPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.95; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-heat { animation: none; }
+    }
     .hero-badge {
       display: inline-block;
       background: rgba(201,150,59,0.2); border: 1px solid rgba(201,150,59,0.5);
@@ -196,6 +215,18 @@
     .urgency { background: linear-gradient(135deg, var(--rose), var(--purple)); text-align: center; padding: 56px 20px; }
     .urgency h2 { font-size: clamp(22px,4vw,34px); color: var(--white); margin-bottom: 10px; }
     .urgency p { color: rgba(255,255,255,.82); font-size: 16px; margin-bottom: 28px; font-style: italic; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .urgency-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 22px; }
+    .urgency-pill {
+      font-family: sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35);
+      color: var(--white); padding: 8px 14px; border-radius: 24px;
+    }
+    .urgency-loss {
+      font-family: sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--white); max-width: 540px; margin: 0 auto 22px;
+      line-height: 1.5;
+    }
 
     /* GARANTIA */
     .guarantee { background: var(--lgold); text-align: center; padding: 60px 20px; }
@@ -208,6 +239,40 @@
     .pricing { background: linear-gradient(160deg, var(--deep) 0%, #3D1A6E 100%); text-align: center; padding: 70px 20px 100px; }
     .pricing .title { color: var(--white); }
     .price-box { max-width: 440px; margin: 28px auto; background: rgba(255,255,255,.07); border: 1px solid rgba(201,150,59,.3); border-radius: 20px; padding: 36px; }
+    .price-flash {
+      font-family: sans-serif; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--deep); background: var(--gold);
+      display: inline-block; padding: 8px 18px; border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .value-stack {
+      background: rgba(0,0,0,.22);
+      border-radius: 14px;
+      padding: 16px 18px 14px;
+      margin-bottom: 20px;
+      text-align: left;
+      border: 1px solid rgba(201,150,59,.2);
+    }
+    .vs-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 12px;
+      font-family: sans-serif; font-size: 13px;
+      color: rgba(255,255,255,.88);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      line-height: 1.35;
+    }
+    .vs-row:last-of-type { border-bottom: none; }
+    .vs-row del { color: rgba(255,255,255,.45); font-size: 12px; white-space: nowrap; }
+    .vs-total {
+      font-family: sans-serif; font-size: 14px; font-weight: 800;
+      color: var(--gold);
+      text-align: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(201,150,59,.4);
+    }
     .price-old { font-family: sans-serif; font-size: 14px; color: rgba(255,255,255,.4); text-decoration: line-through; margin-bottom: 4px; }
     .price-main { font-family: sans-serif; font-size: 60px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
     .price-sub { font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 26px; }
@@ -231,12 +296,13 @@
 <!-- STICKY -->
 <div class="sticky">
   <p>✦ 3 Técnicas de Manifestação — R$ 24,90</p>
-  <a href="SEU_LINK_KIWIFY_3TECNICAS">Quero Agora →</a>
+  <a href="SEU_LINK_KIWIFY_3TECNICAS">Garantir oferta →</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+    <div class="hero-heat">🔥 Oferta com bônus · só neste link</div>
     <div class="hero-badge">✦ Acesso imediato após o pagamento</div>
     <h1>Você faz afirmações, visualiza…<br>e mesmo assim <em>nada muda?</em></h1>
     <p class="hero-sub">O problema não é você. É que você está usando as técnicas erradas — ou do jeito errado. Isso muda hoje.</p>
@@ -244,8 +310,8 @@
       <span class="stars">★★★★★</span>
       <p><strong>Garantia de 7 dias</strong> · PDF no e-mail na hora do pagamento · Cartão ou Pix pela Kiwify</p>
     </div>
-    <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">✨ Quero as 3 Técnicas — R$ 24,90</a>
-    <p class="hero-below">🔒 Pagamento seguro · ⚡ Acesso imediato · 🛡️ <span>Garantia de 7 dias</span></p>
+    <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">✨ Sim — quero o PDF e os bônus — R$ 24,90</a>
+    <p class="hero-below">⏱ Leva menos de 2 minutos · 🔒 Pagamento seguro · 🛡️ <span>7 dias para testar sem risco</span></p>
   </div>
 </section>
 
@@ -355,9 +421,15 @@
 <!-- URGÊNCIA -->
 <div class="urgency">
   <div class="container">
-    <h2>Cada dia sem praticar é um dia a menos manifestando.</h2>
-    <p>As técnicas são simples. O PDF você acessa agora mesmo, no celular. O único passo que falta é o seu.</p>
-    <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">✨ Quero Começar Agora — R$ 24,90</a>
+    <div class="urgency-pills">
+      <span class="urgency-pill">Preço de campanha</span>
+      <span class="urgency-pill">Bônus inclusos</span>
+      <span class="urgency-pill">Garantia 7 dias</span>
+    </div>
+    <h2>O método leva minutos.<br>A indecisão custa semanas.</h2>
+    <p class="urgency-loss">Se você fechar esta página, volta para a mesma rotina: esperando “um dia” mudar sozinho.</p>
+    <p>As técnicas são simples. O PDF chega na hora no seu e-mail. Você testa com calma — se não fizer sentido, pede reembolso.</p>
+    <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">✨ Quero garantir agora — R$ 24,90</a>
   </div>
 </div>
 
@@ -377,10 +449,17 @@
   <div class="container">
     <p class="label">Sua transformação começa hoje</p>
     <h2 class="title">Invista na vida<br>que você merece</h2>
+    <p class="body-text" style="color:rgba(255,255,255,.65);max-width:520px;margin:-8px auto 8px;font-style:italic">Técnicas + bônus no mesmo pacote — você testa com calma (7 dias de garantia). Oferta válida enquanto mantivermos esta campanha neste link.</p>
     <div class="price-box" id="comprar">
+      <div class="price-flash">Pacote completo · preço especial</div>
+      <div class="value-stack" aria-label="Valor do pacote">
+        <div class="vs-row"><span>3 técnicas (passo a passo no PDF)</span> <del>R$ 47,00</del></div>
+        <div class="vs-row"><span>Bônus: Lua Nova + 369 (33 dias) + perfume energético</span> <span style="color:var(--gold);font-weight:800;font-size:12px;white-space:nowrap">INCLUSO</span></div>
+        <div class="vs-total">Você leva o pacote hoje por apenas R$ 24,90</div>
+      </div>
       <p class="price-old">De R$ 47,00</p>
       <p class="price-main">R$ 24,90</p>
-      <p class="price-sub">pagamento único · acesso imediato e vitalício</p>
+      <p class="price-sub">pagamento único · acesso imediato e vitalício · risco zero por 7 dias</p>
       <ul class="price-list">
         <li>Técnica da Taça de Água</li>
         <li>Técnica do Espelho — EU SOU</li>
@@ -389,7 +468,7 @@
         <li>Bônus: Perfume Energético da Lua Nova</li>
         <li>PDF — leia no celular agora mesmo</li>
       </ul>
-      <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">✨ Quero as 3 Técnicas Agora</a>
+      <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">✨ Finalizar e receber no e-mail — R$ 24,90</a>
     </div>
     <div class="security">
       <span>🔒 Pagamento Seguro</span>
