@@ -530,7 +530,7 @@ def build_content(iw):
          'Baseada na neuroci\u00eancia de Dr. Joe Dispenza', TEAL),
         ('\u23f1', 'PROTOCOLO', 'Semanal',
          'Como encaixar as 3 t\u00e9cnicas na rotina', MED),
-        ('\u2605', 'B\u00d4NUS', 'Pr\u00e1tica da Lua Nova',
+        ('\u2605', 'B\u00d4NUS', 'Pr\u00e1tica da Lua Crescente',
          'T\u00e9cnica 369 Lunar + Perfume Energ\u00e9tico', GOLD),
     ]
     for icon, label, title, desc, col in toc:
@@ -579,7 +579,7 @@ def build_content(iw):
     story.append(sp(2))
     story.append(b('1) Leia as <b>tr\u00eas t\u00e9cnicas</b> na ordem (Ta\u00e7a, Espelho, Visualiza\u00e7\u00e3o). Cada uma tem o <b>porqu\u00ea</b> e o <b>passo a passo</b>.'))
     story.append(b('2) Depois abra o cap\u00edtulo <b>Protocolo semanal</b>. L\u00e1 voc\u00ea v\u00ea como juntar tudo no dia a dia.'))
-    story.append(b('3) No final, o <b>b\u00f4nus</b> explica a T\u00e9cnica 369 (escrita) e a pr\u00e1tica da Lua Nova. Sem pressa: volte ao b\u00f4nus quando quiser aprofundar.'))
+    story.append(b('3) No final, o <b>b\u00f4nus</b> explica a T\u00e9cnica 369 (escrita) e a pr\u00e1tica da Lua Crescente. Sem pressa: volte ao b\u00f4nus quando quiser aprofundar.'))
     story.append(b('4) Se ficar em d\u00favida, procure as caixas <b>RESUMO R\u00c1PIDO</b> no fim de cada t\u00e9cnica.'))
     story.append(sp(3))
     story.append(TipBox([
@@ -1006,7 +1006,7 @@ def build_content(iw):
     )
     story.append(tbl_bonus)
     story.append(sp(5))
-    story.append(b('Esta pr\u00e1tica une escrita, visualiza\u00e7\u00e3o e inten\u00e7\u00e3o energ\u00e9tica. Recomendo realiz\u00e1-la na <b>Lua Nova</b> (para semear) ou na <b>Lua Cheia</b> (para amplificar).'))
+    story.append(b('Esta pr\u00e1tica une escrita, visualiza\u00e7\u00e3o e inten\u00e7\u00e3o energ\u00e9tica. Recomendo realiz\u00e1-la na <b>Lua Crescente</b> (para crescer) ou na <b>Lua Cheia</b> (para amplificar).'))
     story.append(sp(3))
 
     # T\u00e9cnica 369 Lunar
