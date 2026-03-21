@@ -650,6 +650,97 @@ def build_content(iw):
     story.append(b('Desligue a tela. Durma com a inten\u00e7\u00e3o.'))
     story.append(sp(5))
 
+    story.append(bb('Exemplo de como fica a semana na pr\u00e1tica'))
+    story.append(AccentBar(iw, GOLD, 2))
+    story.append(sp(3))
+    story.append(Paragraph(
+        'Use esta tabela como <b>modelo</b> (segunda a domingo). '
+        '<b>\u00c1gua</b> de manh\u00e3 = beber o restante do copo da noite anterior; '
+        '<b>Espelho</b> = afirma\u00e7\u00f5es EU SOU; '
+        '<b>Visualiza\u00e7\u00e3o</b> = pr\u00e1tica com 528 Hz; '
+        '<b>369</b> = t\u00e9cnica do b\u00f4nus (3x manh\u00e3, 6x tarde, 9x noite).',
+        S('week_leg', fontName='Helvetica', fontSize=9, leading=13, textColor=TEXT,
+          alignment=TA_JUSTIFY, spaceAfter=8)))
+    _wc = S('wcell', fontName='Helvetica', fontSize=8, leading=11, textColor=TEXT, alignment=TA_LEFT)
+    _wh = S('whead', fontName='Helvetica-Bold', fontSize=8.5, leading=11, textColor=WHITE, alignment=TA_CENTER)
+    w = iw
+    cw_dia = 22 * mm
+    cw_rest = w - cw_dia
+    cw_m = cw_rest * 0.36
+    cw_t = cw_rest * 0.26
+    cw_n = cw_rest - cw_m - cw_t
+    week_rows = [
+        [
+            Paragraph('<b>Dia</b>', _wh),
+            Paragraph('<b>Manh\u00e3</b>', _wh),
+            Paragraph('<b>Tarde</b>', _wh),
+            Paragraph('<b>Noite</b>', _wh),
+        ],
+        [
+            Paragraph('<b>Segunda</b>', _wc),
+            Paragraph('\u00c1gua + Espelho + Visualiza\u00e7\u00e3o', _wc),
+            Paragraph('369 (6x)', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+        ],
+        [
+            Paragraph('<b>Ter\u00e7a</b>', _wc),
+            Paragraph('\u00c1gua + Espelho', _wc),
+            Paragraph('369 (6x)', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+        ],
+        [
+            Paragraph('<b>Quarta</b>', _wc),
+            Paragraph('\u00c1gua + Espelho + Visualiza\u00e7\u00e3o', _wc),
+            Paragraph('369 (6x)', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+        ],
+        [
+            Paragraph('<b>Quinta</b>', _wc),
+            Paragraph('\u00c1gua + Espelho', _wc),
+            Paragraph('369 (6x)', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+        ],
+        [
+            Paragraph('<b>Sexta</b>', _wc),
+            Paragraph('\u00c1gua + Espelho + Visualiza\u00e7\u00e3o', _wc),
+            Paragraph('369 (6x)', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+        ],
+        [
+            Paragraph('<b>S\u00e1bado</b>', _wc),
+            Paragraph('\u00c1gua + Espelho', _wc),
+            Paragraph('\u2014', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a)', _wc),
+        ],
+        [
+            Paragraph('<b>Domingo</b>', _wc),
+            Paragraph('\u00c1gua + Espelho', _wc),
+            Paragraph('\u2014', _wc),
+            Paragraph('\u00c1gua (ta\u00e7a) + inten\u00e7\u00e3o da semana', _wc),
+        ],
+    ]
+    week_tbl = Table(week_rows, colWidths=[cw_dia, cw_m, cw_t, cw_n], repeatRows=1)
+    week_tbl.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), DEEP),
+        ('BACKGROUND', (0, 1), (-1, -1), LLIGHT),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [LLIGHT, colors.white]),
+        ('GRID', (0, 0), (-1, -1), 0.5, LAV),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ('LEFTPADDING', (0, 0), (-1, -1), 5),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+    ]))
+    story.append(week_tbl)
+    story.append(sp(3))
+    story.append(Paragraph(
+        '<i>Nos fins de semana, pausa na 369 e na visualiza\u00e7\u00e3o guiada \u2014 '
+        'mantenha \u00e1gua + espelho e a ta\u00e7a \u00e0 noite. No domingo \u00e0 noite, '
+        'reforce a inten\u00e7\u00e3o geral da semana que vem.</i>',
+        S('week_note', fontName='Helvetica-Oblique', fontSize=8.5, leading=12,
+          textColor=GRAY, alignment=TA_JUSTIFY, spaceAfter=10)))
+    story.append(sp(3))
+
     story.append(bb('Tempo total por dia'))
     story.append(AccentBar(iw, GOLD, 2))
     story.append(sp(2))
