@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Gerador do Ebook: 3 Tecnicas de Manifestacao"""
+"""Gerador do ebook: Destrave Sua Energia (3 praticas + protocolo + bonus)."""
 import sys
 sys.path.insert(0, r'C:\PromptLab\Lib\site-packages')
 
@@ -12,6 +12,11 @@ from reportlab.platypus import (BaseDocTemplate, PageTemplate, Frame,
                                  Paragraph, Spacer, Table, TableStyle,
                                  PageBreak, NextPageTemplate)
 from reportlab.platypus.flowables import Flowable
+from reportlab.lib.utils import simpleSplit
+
+EBOOK_TITLE = 'Destrave Sua Energia'
+EBOOK_SUBTITLE = ('3 pr\u00e1ticas para manifestar dinheiro, clareza e '
+                  'poder pessoal')
 
 W, H = A4
 LM = RM = 20 * mm
@@ -19,26 +24,29 @@ TM = 22 * mm
 BM = 20 * mm
 IW = W - LM - RM
 
-# ── Paleta ─────────────────────────────────────────────────────────────────
-DEEP    = colors.HexColor('#1E0A3C')
-PURPLE  = colors.HexColor('#5B2D8E')
-MED     = colors.HexColor('#7B4DB5')
-LAV     = colors.HexColor('#EDE0FF')
-LLIGHT  = colors.HexColor('#F7F0FF')
-ROSE    = colors.HexColor('#A63D72')
-SROSE   = colors.HexColor('#FCE8F3')
-TEAL    = colors.HexColor('#1A7A6E')
-LTEAL   = colors.HexColor('#E0F5F2')
-# Base visual inspirada em layout cream + dourado + marrom ("Destrave sua energia")
-CREAM   = colors.HexColor('#F9F6F1')
-TEXT    = colors.HexColor('#4A3F3C')
-GRAY    = colors.HexColor('#7A726E')
+# ── Paleta clara (referência: capa cream + marrom + sálvia + mogno suave) ──
+CREAM   = colors.HexColor('#FAF8F5')
+TEXT    = colors.HexColor('#4A3835')
+GRAY    = colors.HexColor('#8A817A')
 WHITE   = colors.white
-GOLD    = colors.HexColor('#C5A076')
-LGOLD   = colors.HexColor('#F3EBE0')
-BLANCH_SAGE   = colors.HexColor('#8B9474')
-BLANCH_MAROON = colors.HexColor('#6D4C41')
-INNER_BAR = colors.HexColor('#E5DDD4')
+GOLD    = colors.HexColor('#C4B08A')
+LGOLD   = colors.HexColor('#F5EFE6')
+DEEP    = colors.HexColor('#3D2F2C')
+BLANCH_SAGE   = colors.HexColor('#9AAA8C')
+BLANCH_MAROON = colors.HexColor('#7D5E52')
+INNER_BAR     = colors.HexColor('#EDE8E2')
+HEADER_STRIP  = colors.HexColor('#E6E0D9')
+LINE_SOFT     = colors.HexColor('#D8D0C8')
+
+# Acentos suaves por capítulo (fundo de box / TOC)
+ROSE    = colors.HexColor('#C9A7A1')
+SROSE   = colors.HexColor('#FAF0EE')
+PURPLE  = colors.HexColor('#A99BB3')
+MED     = colors.HexColor('#9A8AA6')
+LAV     = colors.HexColor('#EDE8EF')
+LLIGHT  = colors.HexColor('#F6F3F8')
+TEAL    = colors.HexColor('#8BAFA5')
+LTEAL   = colors.HexColor('#EAF3F0')
 
 TECH_COLORS = [ROSE, PURPLE, TEAL]
 TECH_BG     = [SROSE, LLIGHT, LTEAL]
@@ -50,14 +58,16 @@ BODY    = S('body',   fontName='Helvetica', fontSize=10.5, leading=17, textColor
 BODYL   = S('bodyl',  fontName='Helvetica', fontSize=10.5, leading=17, textColor=TEXT, alignment=TA_LEFT, spaceAfter=6)
 BOLDB   = S('boldb',  fontName='Helvetica-Bold', fontSize=10.5, leading=17, textColor=TEXT, spaceAfter=6)
 BULLET  = S('bul',    fontName='Helvetica', fontSize=10.5, leading=16, textColor=TEXT, leftIndent=16, firstLineIndent=-10, spaceAfter=5)
-QUOTE   = S('quote',  fontName='Helvetica-Oblique', fontSize=11.5, leading=18, textColor=PURPLE, alignment=TA_CENTER, spaceAfter=6)
-STEP_T  = S('stept',  fontName='Helvetica-Bold', fontSize=11, leading=15, textColor=DEEP, spaceAfter=3)
+QUOTE   = S('quote',  fontName='Helvetica-Oblique', fontSize=11.5, leading=18, textColor=BLANCH_MAROON, alignment=TA_CENTER, spaceAfter=6)
+STEP_T  = S('stept',  fontName='Helvetica-Bold', fontSize=11, leading=15, textColor=TEXT, spaceAfter=3)
 GOLD_T  = S('goldt',  fontName='Helvetica-Bold', fontSize=11, leading=15, textColor=GOLD, spaceAfter=3)
-AFF     = S('aff',    fontName='Helvetica-Oblique', fontSize=11, leading=17, textColor=DEEP, spaceAfter=5)
-TOC_T   = S('toct',   fontName='Helvetica-Bold', fontSize=13, leading=18, textColor=DEEP, spaceAfter=3)
+AFF     = S('aff',    fontName='Helvetica-Oblique', fontSize=11, leading=17, textColor=TEXT, spaceAfter=5)
+TOC_T   = S('toct',   fontName='Helvetica-Bold', fontSize=13, leading=18, textColor=TEXT, spaceAfter=3)
 TOC_D   = S('tocd',   fontName='Helvetica', fontSize=10, leading=14, textColor=GRAY, spaceAfter=2)
 SMALL   = S('small',  fontName='Helvetica', fontSize=9, leading=13, textColor=GRAY, spaceAfter=4)
-CLOSING = S('cl',     fontName='Helvetica-Oblique', fontSize=14, leading=22, textColor=DEEP, alignment=TA_CENTER, spaceAfter=8)
+CLOSING = S('cl',     fontName='Helvetica-Oblique', fontSize=14, leading=22, textColor=TEXT, alignment=TA_CENTER, spaceAfter=8)
+MANIFESTO = S('manifest', fontName='Helvetica', fontSize=11.5, leading=18,
+              textColor=TEXT, alignment=TA_CENTER, spaceAfter=6)
 
 
 # ── Flowables ──────────────────────────────────────────────────────────────
@@ -94,31 +104,27 @@ class ChapterHeader(Flowable):
         c = self.canv
         iw = self.iw
         h = self.height
-        # Fundo
         c.setFillColor(self.color)
         c.roundRect(0, 0, iw, h, 4 * mm, fill=1, stroke=0)
-        # Numero fantasma
-        c.setFillColor(WHITE)
-        c.setFillAlpha(0.07)
+        c.setStrokeColor(LINE_SOFT)
+        c.setLineWidth(0.8)
+        c.roundRect(0, 0, iw, h, 4 * mm, fill=0, stroke=1)
+        c.setFillColor(TEXT)
+        c.setFillAlpha(0.06)
         c.setFont('Helvetica-Bold', 90)
         c.drawRightString(iw - 6 * mm, 0 * mm, str(self.num))
         c.setFillAlpha(1.0)
-        # Badge
         c.setFillColor(GOLD)
-        c.roundRect(8 * mm, h - 14 * mm, 32 * mm, 8 * mm, 3 * mm, fill=1, stroke=0)
+        c.roundRect(8 * mm, h - 14 * mm, 34 * mm, 8 * mm, 3 * mm, fill=1, stroke=0)
         c.setFillColor(DEEP)
         c.setFont('Helvetica-Bold', 8)
         c.drawString(10 * mm, h - 14 * mm + 2.5 * mm, self.badge)
-        # Titulo
-        c.setFillColor(WHITE)
-        c.setFont('Helvetica-Bold', 20)
+        c.setFillColor(TEXT)
+        c.setFont('Helvetica-Bold', 19)
         c.drawString(8 * mm, h - 26 * mm, self.title)
-        # Subtitulo
-        c.setFillColor(WHITE)
-        c.setFillAlpha(0.75)
+        c.setFillColor(GRAY)
         c.setFont('Helvetica-Oblique', 11)
         c.drawString(8 * mm, h - 33 * mm, self.subtitle)
-        c.setFillAlpha(1.0)
 
 
 class TipBox(Flowable):
@@ -228,87 +234,225 @@ def _hline(c, y, x0=None, x1=None, w=0.6, col=None):
 
 
 def draw_cover_blanch(c):
-    """Capa estilo refer\u00eancia: cream, tipografia central, duas faixas neuro/espiritualidade."""
-    c.setFillColor(CREAM)
+    """Capa vetorial com hierarquia forte: moldura, brilho, painel e t\u00edtulo em destaque."""
+    bg = colors.HexColor('#FCFAF7')
+    text_main = colors.HexColor('#2F2623')
+    text_soft = colors.HexColor('#6B625C')
+    text_faint = colors.HexColor('#9A918A')
+    sage = colors.HexColor('#8FA882')
+    sage_edge = colors.HexColor('#55604C')
+    mahogany = colors.HexColor('#8B5E4F')
+    mahogany_edge = colors.HexColor('#4A3228')
+    gold_glow = colors.HexColor('#C9B896')
+    gold_accent = colors.HexColor('#B89B6A')
+    line_col = colors.HexColor('#D5CDC4')
+    panel_bg = colors.HexColor('#F3EBE3')
+    shadow = colors.HexColor('#1A1412')
+
+    c.setFillColor(bg)
     c.rect(0, 0, W, H, fill=1, stroke=0)
-    y_hi = H - 16 * mm
-    _hline(c, y_hi)
-    c.setFillColor(TEXT)
-    c.setFont('Helvetica', 7.5)
-    c.drawCentredString(W / 2, y_hi - 5.5 * mm,
-                        'N E U R O C I \u00ca N C I A   &   E S P I R I T U A L I D A D E')
-    _hline(c, y_hi - 11 * mm)
 
-    cy = H * 0.52
-    c.setFillColor(TEXT)
-    c.setFont('Times-Bold', 34)
-    c.drawCentredString(W / 2, cy + 28 * mm, '3 T\u00e9cnicas de')
-    c.setFont('Times-Bold', 38)
-    c.drawCentredString(W / 2, cy + 12 * mm, 'Manifesta\u00e7\u00e3o')
+    # Cantos com mais contraste
+    c.saveState()
+    c.setFillColor(colors.HexColor('#E8DFD4'))
+    c.setFillAlpha(0.55)
+    c.circle(-38 * mm, H + 28 * mm, 135 * mm, fill=1, stroke=0)
+    c.circle(W + 38 * mm, -28 * mm, 125 * mm, fill=1, stroke=0)
+    c.restoreState()
 
-    c.setFillColor(GRAY)
-    c.setFont('Helvetica-Oblique', 11)
-    sub = 'Pr\u00e1ticas simples para transformar inten\u00e7\u00e3o em realidade'
-    c.drawCentredString(W / 2, cy - 2 * mm, sub)
-    c.setFont('Helvetica-Oblique', 10)
-    c.drawCentredString(W / 2, cy - 8 * mm, '\u2014 com neuroci\u00eancia e espiritualidade pr\u00e1tica \u2014')
+    # Moldura dupla (chama aten\u00e7\u00e3o sem pesar)
+    inset = 11 * mm
+    c.setStrokeColor(gold_accent)
+    c.setLineWidth(1.15)
+    c.roundRect(inset, inset, W - 2 * inset, H - 2 * inset, 2.5 * mm, fill=0, stroke=1)
+    c.setStrokeColor(mahogany_edge)
+    c.setLineWidth(0.5)
+    c.setFillAlpha(0.35)
+    c.roundRect(inset + 2.5 * mm, inset + 2.5 * mm,
+                W - 2 * (inset + 2.5 * mm), H - 2 * (inset + 2.5 * mm),
+                2 * mm, fill=0, stroke=1)
+    c.setFillAlpha(1.0)
 
-    bw, bh, gap = 64 * mm, 12 * mm, 5 * mm
+    # Ornamentos nos cantos internos da moldura
+    L = 9 * mm
+    gap_o = inset + 5 * mm
+    c.setStrokeColor(gold_accent)
+    c.setLineWidth(0.85)
+    for ox, oy, dx, dy in [
+        (gap_o, H - gap_o, 1, -1),
+        (W - gap_o, H - gap_o, -1, -1),
+        (gap_o, gap_o, 1, 1),
+        (W - gap_o, gap_o, -1, 1),
+    ]:
+        c.line(ox, oy, ox + L * dx, oy)
+        c.line(ox, oy, ox, oy + L * dy)
+
+    # Halo mais intenso atr\u00e1s do t\u00edtulo
+    vc = H * 0.52
+    cy_glow = vc + 10 * mm
+    for r, a in [(102, 0.038), (78, 0.055), (52, 0.08), (28, 0.1)]:
+        c.setFillColor(gold_glow)
+        c.setFillAlpha(a)
+        c.circle(W / 2, cy_glow, r * mm, fill=1, stroke=0)
+    c.setFillAlpha(1.0)
+
+    mx = W * 0.14
+    ty = vc + 50 * mm
+    title_txt = 'Destrave Sua Energia'
+    # Sombra em camadas (profundidade)
+    c.saveState()
+    c.setFont('Helvetica-Bold', 35)
+    for dx, dy, a in [(2.2, -2.2, 0.08), (1.2, -1.2, 0.12), (0.5, -0.5, 0.16)]:
+        c.setFillColor(shadow)
+        c.setFillAlpha(a)
+        c.drawCentredString(W / 2 + dx, ty + dy, title_txt)
+    c.restoreState()
+    c.setFillColor(text_main)
+    c.setFont('Helvetica-Bold', 35)
+    c.drawCentredString(W / 2, ty, title_txt)
+
+    # Filete dourado sob o t\u00edtulo
+    bar_w = 52 * mm
+    c.setFillColor(gold_accent)
+    c.setFillAlpha(0.9)
+    c.roundRect(W / 2 - bar_w / 2, ty - 4.5 * mm, bar_w, 2.2 * mm, 0.8 * mm, fill=1, stroke=0)
+    c.setFillAlpha(1.0)
+
+    c.setFillColor(text_soft)
+    c.setFont('Helvetica-Oblique', 11.2)
+    sub = ('3 pr\u00e1ticas para manifestar dinheiro, clareza e poder '
+           'pessoal')
+    sub_w = 122 * mm
+    sub_lines = simpleSplit(sub, 'Helvetica-Oblique', 11.2, sub_w)
+    sy = ty - 16 * mm
+    for line in sub_lines:
+        c.drawCentredString(W / 2, sy, line)
+        sy -= 4.2 * mm
+
+    quote_y = sy - 8 * mm
+    teaser = [
+        'Voc\u00ea est\u00e1 prestes a mudar algo em voc\u00ea.',
+        'N\u00e3o \u00e9 misticismo vazio.',
+        '\u00c9 a uni\u00e3o entre inten\u00e7\u00e3o energ\u00e9tica,',
+        'neuroci\u00eancia e espiritualidade.',
+    ]
+    tw = 128 * mm
+    q_lead = 6.5 * mm
+    pad_v = 5.5 * mm
+    pad_h = 9 * mm
+
+    # Conta linhas ap\u00f3s quebra (para altura do painel)
+    def _quote_line_count():
+        n = 0
+        n += len(simpleSplit(teaser[0], 'Helvetica-BoldOblique', 13.5, tw))
+        for raw in teaser[1:]:
+            n += len(simpleSplit(raw, 'Helvetica-Oblique', 12.3, tw))
+        return max(n, 4)
+
+    n_q_lines = _quote_line_count()
+    ly0 = quote_y - 6 * mm
+    panel_top = ly0 + pad_v
+    panel_bot = ly0 - n_q_lines * q_lead - pad_v
+    box_h = panel_top - panel_bot
+    box_w = tw + 2 * pad_h
+    box_x = (W - box_w) / 2
+    box_y = panel_bot
+
+    # Painel do manifesto (cart\u00e3o)
+    c.saveState()
+    c.setFillColor(panel_bg)
+    c.setFillAlpha(0.92)
+    c.setStrokeColor(mahogany_edge)
+    c.setLineWidth(0.65)
+    c.roundRect(box_x, box_y, box_w, box_h, 4.5 * mm, fill=1, stroke=1)
+    c.restoreState()
+    c.setFillColor(gold_accent)
+    c.rect(box_x + 1.2 * mm, box_y + 5 * mm, 3.2 * mm,
+           max(box_h - 10 * mm, 12 * mm), fill=1, stroke=0)
+
+    ly = ly0
+    c.setFont('Helvetica-BoldOblique', 13.5)
+    c.setFillColor(mahogany_edge)
+    for part in simpleSplit(teaser[0], 'Helvetica-BoldOblique', 13.5, tw):
+        c.drawCentredString(W / 2, ly, part)
+        ly -= q_lead
+    c.setFont('Helvetica-Oblique', 12.3)
+    c.setFillColor(text_main)
+    for raw in teaser[1:]:
+        for part in simpleSplit(raw, 'Helvetica-Oblique', 12.3, tw):
+            c.drawCentredString(W / 2, ly, part)
+            ly -= q_lead
+
+    bw, bh, gap = 64 * mm, 12.5 * mm, 6 * mm
     x0 = (W - (2 * bw + gap)) / 2
-    yb = cy - 28 * mm
-    for (x, col, lab) in [(x0, BLANCH_SAGE, 'NEUROCI\u00caNCIA'),
-                          (x0 + bw + gap, BLANCH_MAROON, 'ESPIRITUALIDADE')]:
-        c.setFillColor(col)
-        c.roundRect(x, yb, bw, bh, 3 * mm, fill=1, stroke=0)
-        c.setFillColor(WHITE)
-        c.setFont('Helvetica-Bold', 9)
-        c.drawCentredString(x + bw / 2, yb + 4 * mm, lab)
+    yb = box_y - bh - 8 * mm
+    if yb < 24 * mm:
+        yb = 24 * mm
+    for (x, fill_col, edge_col, lab) in (
+        (x0, sage, sage_edge, 'NEUROCI\u00caNCIA'),
+        (x0 + bw + gap, mahogany, mahogany_edge, 'ESPIRITUALIDADE'),
+    ):
+        c.setFillColor(colors.HexColor('#000000'))
+        c.setFillAlpha(0.12)
+        c.roundRect(x + 0.8 * mm, yb - 0.8 * mm, bw, bh, 3.2 * mm, fill=1, stroke=0)
+        c.setFillAlpha(1.0)
+        c.setFillColor(fill_col)
+        c.roundRect(x, yb, bw, bh, 3.2 * mm, fill=1, stroke=0)
+        c.setStrokeColor(edge_col)
+        c.setLineWidth(0.85)
+        c.roundRect(x, yb, bw, bh, 3.2 * mm, fill=0, stroke=1)
+        c.setFillColor(colors.white)
+        c.setFont('Helvetica-Bold', 9.2)
+        c.drawCentredString(x + bw / 2, yb + 3.9 * mm, lab)
 
-    yf = 22 * mm
-    _hline(c, yf + 8 * mm)
-    c.setFillColor(GRAY)
-    c.setFont('Helvetica', 7)
-    c.drawCentredString(W / 2, yf + 4.5 * mm, 'Neuroci\u00eancia & Espiritualidade')
-    _hline(c, yf + 2 * mm)
+    yf = 20 * mm
+    c.setStrokeColor(gold_accent)
+    c.setLineWidth(0.55)
+    c.line(mx, yf + 7 * mm, W - mx, yf + 7 * mm)
+    c.setFillColor(text_faint)
+    c.setFont('Helvetica-Bold', 7.2)
+    c.drawCentredString(W / 2, yf + 3 * mm,
+                        'Neuroci\u00eancia & Espiritualidade')
 
 
 def draw_consistencia_page(c):
-    """P\u00e1gina 'A regra de ouro' / CONSIST\u00caNCIA antes do sum\u00e1rio."""
+    """P\u00e1gina 'A regra de ouro' / CONSIST\u00caNCIA \u2014 conte\u00fado centrado na p\u00e1gina."""
     c.setFillColor(CREAM)
     c.rect(0, 0, W, H, fill=1, stroke=0)
-    _hline(c, H - 18 * mm, col=colors.HexColor('#D8D0C8'))
-    _hline(c, 16 * mm, col=colors.HexColor('#D8D0C8'))
+    _hline(c, H - 18 * mm, col=LINE_SOFT)
+    _hline(c, 16 * mm, col=LINE_SOFT)
 
-    cx, cy = W / 2, H * 0.52
+    cx = W / 2
+    mid = H * 0.5
     for r, a in [(95, 0.04), (72, 0.06), (48, 0.08)]:
         c.setFillColor(GOLD)
         c.setFillAlpha(a)
-        c.circle(cx, cy, r * mm, fill=1, stroke=0)
+        c.circle(cx, mid, r * mm, fill=1, stroke=0)
     c.setFillAlpha(1.0)
 
     c.setFillColor(GOLD)
     c.setFont('Helvetica-Bold', 8)
-    c.drawCentredString(W / 2, cy + 52 * mm, 'A REGRA DE OURO')
-    _hline(c, cy + 48 * mm, W * 0.35, W * 0.65)
+    c.drawCentredString(cx, mid + 52 * mm, 'A REGRA DE OURO')
+    _hline(c, mid + 48 * mm, W * 0.35, W * 0.65)
 
     c.setFillColor(TEXT)
     c.setFont('Helvetica-Bold', 46)
-    c.drawCentredString(W / 2, cy + 18 * mm, 'CONSIS-')
-    c.drawCentredString(W / 2, cy - 8 * mm, 'T\u00caNCIA.')
-    _hline(c, cy - 18 * mm, W * 0.30, W * 0.70)
+    c.drawCentredString(cx, mid + 18 * mm, 'CONSIS-')
+    c.drawCentredString(cx, mid - 10 * mm, 'T\u00caNCIA.')
+    _hline(c, mid - 20 * mm, W * 0.30, W * 0.70)
 
     c.setFillColor(TEXT)
     c.setFont('Helvetica', 11)
-    c.drawCentredString(W / 2, cy - 28 * mm, 'Fa\u00e7a todos os dias. Sem exce\u00e7\u00e3o.')
+    c.drawCentredString(cx, mid - 30 * mm, 'Fa\u00e7a todos os dias. Sem exce\u00e7\u00e3o.')
     c.setFillColor(GOLD)
     c.setFont('Helvetica-Oblique', 10.5)
-    c.drawCentredString(W / 2, cy - 36 * mm,
+    c.drawCentredString(cx, mid - 39 * mm,
                         'A repeti\u00e7\u00e3o \u00e9 o que transforma inten\u00e7\u00e3o em realidade.')
 
     c.setFillColor(GRAY)
     c.setFont('Helvetica', 7)
-    c.drawCentredString(W / 2, 11 * mm,
-                        '3 T\u00e9cnicas \u2022 Neuroci\u00eancia & Espiritualidade')
+    c.drawCentredString(cx, 11 * mm,
+                        'Destrave Sua Energia \u2022 Neuroci\u00eancia & Espiritualidade')
 
 
 def draw_inner(c):
@@ -316,16 +460,17 @@ def draw_inner(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     c.setFillColor(INNER_BAR)
     c.rect(0, 0, 3 * mm, H, fill=1, stroke=0)
-    c.setFillColor(DEEP)
+    c.setFillColor(HEADER_STRIP)
     c.rect(0, H - TM, W, TM, fill=1, stroke=0)
-    c.setFillColor(GOLD)
-    c.setFont('Helvetica-Bold', 8)
-    c.drawString(LM, H - TM + 7 * mm, '3 T\u00c9CNICAS DE MANIFESTA\u00c7\u00c3O')
-    c.setFillColor(WHITE)
-    c.setFillAlpha(0.65)
-    c.setFont('Helvetica', 8)
-    c.drawRightString(W - RM, H - TM + 7 * mm, 'Pr\u00e1ticas Poderosas para Co-Criar sua Realidade')
-    c.setFillAlpha(1.0)
+    c.setStrokeColor(LINE_SOFT)
+    c.setLineWidth(0.6)
+    c.line(0, H - TM, W, H - TM)
+    c.setFillColor(TEXT)
+    c.setFont('Helvetica-Bold', 9)
+    c.drawString(LM, H - TM + 8 * mm, EBOOK_TITLE.upper())
+    c.setFillColor(GRAY)
+    c.setFont('Helvetica-Oblique', 8)
+    c.drawRightString(W - RM, H - TM + 8 * mm, 'Neuroci\u00eancia & Espiritualidade')
     pn = c.getPageNumber()
     if pn > 2:
         c.setFillColor(GRAY)
@@ -360,6 +505,17 @@ def step_row(num, title, desc, color=PURPLE, iw=IW):
 
 # ── Conteúdo ─────────────────────────────────────────────────────────────────
 
+def _abertura_vertical_pad_pt():
+    """Padding topo/rodap\u00e9 (em pt) para centralizar o bloco da abertura no frame interno."""
+    inner_h = H - TM - BM
+    bar_h = 2.5 + 4  # AccentBar.wrap (altura do flowable)
+    # Estimativa do par\u00e1grafo manifesto (linhas + <br/><br/>)
+    para_h_est = 330
+    core = bar_h + 8 * mm + para_h_est + 6 * mm + bar_h
+    pad = (inner_h - core) / 2
+    return max(5 * mm, pad)
+
+
 def build_content(iw):
     story = []
     story.append(Spacer(1, 1))
@@ -369,11 +525,35 @@ def build_content(iw):
     story.append(NextPageTemplate('inner'))
     story.append(PageBreak())
 
-    # ── Sumário ──────────────────────────────────────────────────────────────
+    # ── Abertura (antes do sum\u00e1rio), centralizada na p\u00e1gina ───────────────
+    _pad_ab = _abertura_vertical_pad_pt()
+    story.append(Spacer(1, _pad_ab))
+    story.append(AccentBar(iw, GOLD))
+    story.append(sp(8))
+    story.append(Paragraph(
+        'Cada t\u00e9cnica aqui foi escolhida por ser<br/>'
+        'f\u00e1cil de incorporar \u00e0 rotina<br/>'
+        '\u2014 e por gerar resultados reais.<br/><br/>'
+        'Voc\u00ea n\u00e3o precisa acreditar em tudo agora.<br/>'
+        'S\u00f3 precisa come\u00e7ar.<br/><br/>'
+        'O que transforma n\u00e3o \u00e9 o talento.<br/>'
+        'N\u00e3o \u00e9 a sorte.<br/>'
+        'N\u00e3o \u00e9 o momento certo.<br/><br/>'
+        '\u00c9 a pr\u00e1tica di\u00e1ria.<br/>'
+        '\u00c9 a consist\u00eancia.<br/>'
+        '\u00c9 voc\u00ea escolhendo a si mesma,<br/>'
+        'todos os dias.',
+        MANIFESTO))
+    story.append(sp(6))
+    story.append(AccentBar(iw, GOLD))
+    story.append(Spacer(1, _pad_ab))
+    story.append(PageBreak())
+
+    # ── Sumário (esta p\u00e1gina: apenas sum\u00e1rio) ───────────────────────────
     story.append(sp(8))
     story.append(Paragraph('<b>S U M \u00c1 R I O</b>',
                            S('toch', fontName='Helvetica-Bold', fontSize=28, leading=34,
-                             textColor=DEEP, alignment=TA_LEFT, spaceAfter=6)))
+                             textColor=TEXT, alignment=TA_LEFT, spaceAfter=6)))
     story.append(AccentBar(iw, GOLD))
     story.append(sp(6))
 
@@ -411,18 +591,21 @@ def build_content(iw):
         story.append(AccentBar(iw, LAV, 1))
         story.append(sp(1))
 
-    # ── Introdução ───────────────────────────────────────────────────────────
+    story.append(PageBreak())
+
+    # ── Introdu\u00e7\u00e3o (p\u00e1gina seguinte ao sum\u00e1rio) ───────────────────
     story.append(sp(8))
-    story.append(Paragraph('<b>3 T\u00c9CNICAS DE MANIFESTA\u00c7\u00c3O</b>',
+    story.append(Paragraph('<b>DESTRAVE SUA ENERGIA</b>',
                            S('introtitle', fontName='Helvetica-Bold', fontSize=22, leading=28,
-                             textColor=DEEP, alignment=TA_CENTER, spaceAfter=4)))
-    story.append(Paragraph('Transforme inten\u00e7\u00e3o em realidade',
-                           S('introsub', fontName='Helvetica-Oblique', fontSize=13, leading=18,
-                             textColor=PURPLE, alignment=TA_CENTER, spaceAfter=10)))
+                             textColor=TEXT, alignment=TA_CENTER, spaceAfter=4)))
+    story.append(Paragraph(
+        'Ta\u00e7a, espelho, visualiza\u00e7\u00e3o, protocolo semanal e b\u00f4nus \u2014 no mesmo tom leve deste guia.',
+        S('introsub', fontName='Helvetica-Oblique', fontSize=12, leading=17,
+          textColor=GRAY, alignment=TA_CENTER, spaceAfter=10)))
     story.append(AccentBar(iw, ROSE, 2))
     story.append(sp(3))
     story.append(b('Voc\u00ea est\u00e1 prestes a aprender tr\u00eas das pr\u00e1ticas mais poderosas de manifesta\u00e7\u00e3o \u2014 simples, acess\u00edveis e com resultados comprovados por quem pratica com consist\u00eancia.'))
-    story.append(b('N\u00e3o \u00e9 misticismo vazio. \u00c9 a uni\u00e3o entre inten\u00e7\u00e3o energ\u00e9tica, neuroci\u00eancia e espiritualidade pr\u00e1tica. Cada t\u00e9cnica foi escolhida por ser f\u00e1cil de incorporar \u00e0 rotina \u2014 e por gerar resultados reais.'))
+    story.append(b('N\u00e3o \u00e9 misticismo vazio. \u00c9 a uni\u00e3o entre inten\u00e7\u00e3o energ\u00e9tica, neuroci\u00eancia e espiritualidade pr\u00e1tica.'))
     story.append(TipBox(['O segredo de toda pr\u00e1tica de manifesta\u00e7\u00e3o \u00e9 um s\u00f3: CONSIST\u00caNCIA.',
                          'Fa\u00e7a todos os dias. Sem exce\u00e7\u00e3o. A repeti\u00e7\u00e3o \u00e9 o que transforma inten\u00e7\u00e3o em realidade.'],
                         label='LEMBRE SEMPRE'))
@@ -548,7 +731,7 @@ def build_content(iw):
         'Eu sou magn\u00e9tica',
     ]
     tbl_data = [[Paragraph(f'\u2728 {a}', S('afr', fontName='Helvetica-Oblique', fontSize=11,
-                                             leading=16, textColor=DEEP))] for a in affirmations_general]
+                                             leading=16, textColor=TEXT))] for a in affirmations_general]
     tbl = Table(tbl_data, colWidths=[iw],
                 style=TableStyle([
                     ('BACKGROUND', (0, 0), (-1, -1), LLIGHT),
@@ -681,7 +864,7 @@ def build_content(iw):
     story.append(sp(4))
     story.append(Paragraph('<b>PROTOCOLO SEMANAL</b>',
                            S('prot1', fontName='Helvetica-Bold', fontSize=20, leading=24,
-                             textColor=DEEP, alignment=TA_LEFT, spaceAfter=4)))
+                             textColor=TEXT, alignment=TA_LEFT, spaceAfter=4)))
     story.append(Paragraph('Como encaixar as 3 t\u00e9cnicas na sua rotina',
                            S('prot2', fontName='Helvetica-Bold', fontSize=12, leading=16,
                              textColor=MED, spaceAfter=8)))
@@ -737,7 +920,7 @@ def build_content(iw):
         '\u00c1gua (ta\u00e7a) = \u00e0 NOITE, fazer a Ta\u00e7a completa (falar 3x, 3 goles, copo ao lado).',
         '369 (9x) = na NOITE, depois da ta\u00e7a (ou na sequ\u00eancia), escrever 9 vezes a afirma\u00e7\u00e3o.',
         '\u2014 = neste hor\u00e1rio n\u00e3o h\u00e1 369 nem visualiza\u00e7\u00e3o na sugest\u00e3o (fins de semana).',
-    ], color=DEEP, bg=LGOLD, label='LEGENDA \u2014 LEIA PRIMEIRO'))
+    ], color=BLANCH_MAROON, bg=LGOLD, label='LEGENDA \u2014 LEIA PRIMEIRO'))
     story.append(sp(4))
     story.append(Paragraph(
         'A tabela abaixo \u00e9 um <b>modelo</b>. Segunda a sexta inclui 369; s\u00e1bado e domingo s\u00e3o mais leves para voc\u00ea descansar da escrita intensa.',
@@ -803,7 +986,7 @@ def build_content(iw):
     ]
     week_tbl = Table(week_rows, colWidths=[cw_dia, cw_m, cw_t, cw_n], repeatRows=1)
     week_tbl.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), DEEP),
+        ('BACKGROUND', (0, 0), (-1, 0), BLANCH_MAROON),
         ('BACKGROUND', (0, 1), (-1, -1), LLIGHT),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [LLIGHT, colors.white]),
         ('GRID', (0, 0), (-1, -1), 0.5, LAV),
@@ -843,14 +1026,14 @@ def build_content(iw):
     # Header especial bônus
     tbl_bonus = Table(
         [[Paragraph('\u2605  B\u00d4NUS  \u2605', S('bh', fontName='Helvetica-Bold', fontSize=11,
-                                                    textColor=DEEP, alignment=TA_CENTER)),
+                                                    textColor=TEXT, alignment=TA_CENTER)),
           Paragraph('Pr\u00e1tica de Manifesta\u00e7\u00e3o Poderosa',
                     S('bt2', fontName='Helvetica-Bold', fontSize=18, leading=22,
                       textColor=WHITE, alignment=TA_LEFT))]],
         colWidths=[28 * mm, iw - 28 * mm],
         style=TableStyle([
             ('BACKGROUND', (0, 0), (0, 0), GOLD),
-            ('BACKGROUND', (1, 0), (1, 0), DEEP),
+            ('BACKGROUND', (1, 0), (1, 0), BLANCH_MAROON),
             ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
             ('TOPPADDING', (0, 0), (-1, -1), 14),
             ('BOTTOMPADDING', (0, 0), (-1, -1), 14),
@@ -966,19 +1149,19 @@ def build_content(iw):
     story.append(Paragraph('\u2728', S('st', fontName='Helvetica-Bold', fontSize=42,
                                         textColor=GOLD, alignment=TA_CENTER, spaceAfter=6)))
     story.append(Paragraph('Voc\u00ea agora tem nas m\u00e3os', CLOSING))
-    story.append(Paragraph('3 pr\u00e1ticas poderosas de manifesta\u00e7\u00e3o.', CLOSING))
-    story.append(Paragraph('Use-as todos os dias.',
+    story.append(Paragraph('Um guia leve para destravar sua energia \u2014 dia ap\u00f3s dia.', CLOSING))
+    story.append(Paragraph('Use as t\u00e9cnicas todos os dias.',
                             S('cl2', fontName='Helvetica-Bold', fontSize=15, leading=22,
-                              textColor=PURPLE, alignment=TA_CENTER, spaceAfter=10)))
+                              textColor=BLANCH_MAROON, alignment=TA_CENTER, spaceAfter=10)))
     story.append(sp(5))
     story.append(b('O universo responde \u00e0 consist\u00eancia. N\u00e3o \u00e0 perfeic\u00e3o. N\u00e3o ao talento. N\u00e3o \u00e0 sorte. \u00c0 pr\u00e1tica di\u00e1ria, \u00e0 inten\u00e7\u00e3o renovada todos os dias, ao ato de escolher acreditar mesmo antes de ver.'))
     story.append(sp(4))
     story.append(Paragraph('<b>Comece hoje. Agora. Com o que voc\u00ea tem.</b>',
                            S('begin', fontName='Helvetica-Bold', fontSize=13, leading=18,
-                             textColor=DEEP, alignment=TA_CENTER, spaceAfter=4)))
+                             textColor=TEXT, alignment=TA_CENTER, spaceAfter=4)))
     story.append(Paragraph('A vida que voc\u00ea sonha est\u00e1 esperando pela sua inten\u00e7\u00e3o.',
                            S('wait', fontName='Helvetica-Oblique', fontSize=12, leading=18,
-                             textColor=PURPLE, alignment=TA_CENTER)))
+                             textColor=GRAY, alignment=TA_CENTER)))
     story.append(sp(10))
     story.append(AccentBar(iw, GOLD))
 
@@ -986,7 +1169,7 @@ def build_content(iw):
 
 
 # ── Build PDF ─────────────────────────────────────────────────────────────────
-def build_pdf(output='3_Tecnicas_Manifestacao_v2.pdf'):
+def build_pdf(output='Destrave_Sua_Energia_ebook.pdf'):
     doc = BaseDocTemplate(
         output, pagesize=A4,
         leftMargin=LM, rightMargin=RM,
