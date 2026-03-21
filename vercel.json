@@ -3,6 +3,7 @@
   "rewrites": [
     { "source": "/",        "destination": "/index.html" },
     { "source": "/30posts",      "destination": "/30posts.html" },
-    { "source": "/manifestacao", "destination": "/manifestacao.html" }
+    { "source": "/manifestacao", "destination": "/manifestacao.html" },
+    { "source": "/3tecnicas",    "destination": "/3tecnicas.html" }
   ]
 }
