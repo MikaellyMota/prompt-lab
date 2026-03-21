@@ -63,13 +63,21 @@
       box-shadow: 0 -4px 24px rgba(47,38,35,0.35);
     }
     .sticky p { font-family: sans-serif; font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.92); }
+    .sticky small {
+      display: block; width: 100%; text-align: center;
+      font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.65);
+      margin-top: 4px; letter-spacing: 0.04em;
+    }
     .sticky a {
       background: linear-gradient(135deg, var(--gold), var(--gold-soft)); color: var(--deep);
       font-family: sans-serif; font-weight: 800; font-size: clamp(0.94rem, 3.8vw, 1.05rem);
       padding: 12px 26px; border-radius: 30px; text-decoration: none; white-space: nowrap;
       text-transform: uppercase; letter-spacing: 0.05em;
     }
-    @media(max-width:480px){ .sticky p { display:none; } }
+    @media(max-width:480px){
+      .sticky small { display: none; }
+      .sticky p { font-size: 0.82rem; }
+    }
 
     /* HERO */
     .hero {
@@ -149,6 +157,34 @@
     .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(74,50,40,0.28); }
     .hero-below { margin-top: 14px; font-family: sans-serif; font-size: 0.88rem; color: var(--gray-light); position: relative; z-index: 1; }
     .hero-below span { color: var(--mahogany); font-weight: 700; }
+    .urgency-line {
+      font-family: sans-serif; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mahogany-dark); background: rgba(184,155,106,0.25);
+      display: inline-block; padding: 8px 18px; border-radius: 8px;
+      margin-bottom: 16px; border: 1px solid rgba(139,94,79,0.35);
+    }
+    .highlight-buy {
+      max-width: 540px; margin: 32px auto 0;
+      background: linear-gradient(135deg, var(--mahogany-dark), var(--deep));
+      border-radius: 14px; padding: 22px 26px;
+      border: 1px solid rgba(184,155,106,0.35);
+      text-align: center;
+    }
+    .highlight-buy p {
+      font-family: sans-serif; font-size: 1.02rem; font-weight: 700;
+      color: var(--gold-soft); line-height: 1.5; margin: 0;
+    }
+    .scarcity-text {
+      font-family: sans-serif; font-size: 0.86rem; color: rgba(255,255,255,0.55);
+      max-width: 26rem; margin: 12px auto 0; line-height: 1.5; font-style: italic;
+    }
+    .price-pulse {
+      font-family: sans-serif; font-size: 0.8rem; font-weight: 800;
+      color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 10px; animation: heatPulse 2.4s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) { .price-pulse { animation: none; } }
     .hero-proof { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; position: relative; z-index: 1; }
     .hero-proof .stars { color: var(--gold); font-size: 1rem; }
     .hero-proof p { font-family: sans-serif; font-size: 0.9rem; color: var(--gray); max-width: 33rem; line-height: 1.45; }
@@ -464,13 +500,20 @@
 
 <!-- STICKY -->
 <div class="sticky">
-  <p>✦ Destrave Sua Energia — R$ 27</p>
-  <a href="SEU_LINK_KIWIFY_3TECNICAS">Quero destravar agora →</a>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;max-width:520px">
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;width:100%">
+      <p>✦ <strong>R$27</strong> · bônus inclusos · garantia 7 dias</p>
+      <a href="SEU_LINK_KIWIFY_3TECNICAS">Quero destravar agora →</a>
+    </div>
+    <small>⏱ Leva &lt; 2 min · PDF na hora no e-mail · só neste link de campanha</small>
+  </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+    <div class="hero-heat">🔥 Oferta com bônus · só neste link</div>
+    <div class="hero-badge">✦ Acesso imediato após o pagamento</div>
     <p class="hero-eyebrow">Neurociência &amp; Espiritualidade</p>
     <p class="hero-lead">O que está travando a sua vida não é falta de esforço.</p>
     <h1 class="hero-title-split"><span>Destrave</span> <span class="line2">Sua Energia</span></h1>
@@ -481,10 +524,15 @@
       <li>Práticas que cabem em qualquer rotina</li>
       <li>União entre intenção, espiritualidade e ciência</li>
     </ul>
+    <p class="urgency-line">Preço de campanha · pode sair do ar sem aviso</p>
     <div class="hero-mini-price"><del>De R$47</del> <strong>R$27</strong></div>
-    <p class="hero-mini-sub">acesso imediato · pagamento único</p>
+    <p class="hero-mini-sub">acesso imediato · pagamento único · <strong>risco zero por 7 dias</strong></p>
+    <div class="hero-proof">
+      <span class="stars">★★★★★</span>
+      <p><strong>Garantia de 7 dias</strong> · PDF no e-mail na hora · cartão ou Pix pela Kiwify</p>
+    </div>
     <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">Quero destravar agora</a>
-    <p class="hero-below" style="margin-top:16px">🔒 Compra segura via Kiwify · 🛡️ Garantia 7 dias</p>
+    <p class="hero-below" style="margin-top:14px">⏱ Menos de 2 minutos para concluir · 🔒 Pagamento seguro · 🛡️ <span>Teste sem medo — devolução integral se não for pra você</span></p>
   </div>
 </section>
 
@@ -521,6 +569,9 @@
         <p>Não é misticismo vazio.</p>
         <p>É a união entre intenção energética, neurociência e espiritualidade.</p>
       </div>
+    </div>
+    <div class="highlight-buy">
+      <p>✦ A diferença entre quem manifesta e quem só deseja está em uma coisa: <strong style="color:#FFF8E7">consistência</strong> com o método certo. ✦</p>
     </div>
   </div>
 </section>
@@ -593,8 +644,9 @@
 <section class="bonus">
   <div class="container">
     <div style="text-align:center;">
-      <span class="bonus-badge">✦ Bônus Exclusivo</span>
+      <span class="bonus-badge">✦ Bônus Exclusivo no pacote</span>
       <h2 class="title">Prática da Lua Nova</h2>
+      <p class="bonus-text" style="font-size:0.95rem;opacity:0.95;margin-bottom:12px;font-family:sans-serif;font-weight:700;color:var(--gold)">🎁 Reciprocidade: você leva tudo junto — sem pagar nada a mais pelo bônus nesta oferta.</p>
       <p class="bonus-text">Além das 3 práticas do guia <strong>Destrave Sua Energia</strong>, você recebe um bônus completo: escrita sagrada, numerologia de Tesla e prática energética com o ciclo lunar — para amplificar o que você já está construindo.</p>
       <div class="bonus-pills">
         <span class="bonus-pill">⚡ Técnica 369 Lunar — 33 dias</span>
@@ -669,6 +721,7 @@
     <h2 class="title">Você já tentou força de vontade.<br><span>Tente frequência.</span></h2>
     <div class="gold-bar"></div>
     <p class="promise-text">O que muda não é sua agenda. É a energia que você carrega antes de enfrentar o dia. <strong>Em menos de 20 minutos.</strong></p>
+    <p class="promise-text" style="font-weight:700;color:var(--mahogany-dark)">👉 O “depois eu compro” custa caro: é mais um dia no mesmo padrão neural.</p>
     <div class="hero-mini-price" style="margin-top:20px"><del>De R$47</del> <strong style="color:var(--mahogany-dark)">R$27</strong></div>
     <p class="hero-mini-sub" style="margin-bottom:20px">acesso imediato · pagamento único · via Kiwify</p>
     <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">Quero destravar minha energia</a>
@@ -683,9 +736,12 @@
       <span class="urgency-pill">De R$47 por R$27</span>
       <span class="urgency-pill">Bônus inclusos</span>
       <span class="urgency-pill">Garantia 7 dias</span>
+      <span class="urgency-pill">PDF na hora</span>
+      <span class="urgency-pill">Só neste link</span>
     </div>
     <h2>O método leva minutos.<br>A indecisão custa semanas.</h2>
     <p class="urgency-loss">Se você fechar esta página, volta para a mesma rotina: esperando “um dia” mudar sozinho.</p>
+    <p class="urgency-loss" style="font-weight:800;font-size:1.08rem">Cada semana sem prática é uma semana a mais com a mesma frequência de antes.</p>
     <p>As práticas são simples. O PDF chega na hora no seu e-mail. Você testa com calma — se não fizer sentido, pede reembolso.</p>
     <a href="SEU_LINK_KIWIFY_3TECNICAS" class="btn-gold">Quero destravar agora</a>
   </div>
@@ -707,9 +763,10 @@
   <div class="container">
     <p class="label">Sua transformação começa hoje</p>
     <h2 class="title">Invista na vida<br>que você merece</h2>
-    <p class="body-text" style="color:rgba(255,255,255,.65);max-width:520px;margin:-8px auto 8px;font-style:italic"><strong>Destrave Sua Energia</strong> — práticas, protocolo e bônus no mesmo PDF. Teste com calma: 7 dias de garantia.</p>
+    <p class="body-text" style="color:rgba(255,255,255,.65);max-width:520px;margin:-8px auto 8px;font-style:italic"><strong>Destrave Sua Energia</strong> — práticas, protocolo e bônus no mesmo PDF. <strong style="color:var(--gold-soft)">Ancoragem:</strong> o pacote completo vale muito mais que R$27; você paga só a campanha enquanto durar.</p>
     <div class="price-box" id="comprar">
-      <div class="price-flash">Pacote completo · oferta neste link</div>
+      <div class="price-pulse">⚡ Oferta ativa nesta página</div>
+      <div class="price-flash">Pacote completo · preço especial</div>
       <div class="value-stack" aria-label="Valor do pacote">
         <div class="vs-row"><span><strong>Destrave Sua Energia</strong> — 3 práticas (PDF passo a passo)</span> <del>R$ 47,00</del></div>
         <div class="vs-row"><span>Protocolo semanal + bônus Lua Nova + 369 (33 dias) + perfume energético</span> <span style="color:var(--gold);font-weight:800;font-size:0.88rem;white-space:nowrap">INCLUSO</span></div>
@@ -718,6 +775,7 @@
       <p class="price-old">De R$ 47,00</p>
       <p class="price-main">R$ 27</p>
       <p class="price-sub">pagamento único · acesso imediato e vitalício · risco zero por 7 dias</p>
+      <p class="scarcity-text">Oferta válida enquanto mantivermos esta campanha neste link. Quando sair do ar, o valor volta ao normal.</p>
       <ul class="price-list">
         <li>Ebook <strong>Destrave Sua Energia</strong> (PDF)</li>
         <li>Prática 01 — Taça de Água (antes de dormir)</li>
