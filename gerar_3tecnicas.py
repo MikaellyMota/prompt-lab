@@ -417,11 +417,18 @@ def draw_inner(c):
     c.setFillColor(GRAY)
     c.setFont('Helvetica-Oblique', 9)
     c.drawRightString(W - RM, H - TM + 8 * mm, 'Neuroci\u00eancia & Espiritualidade')
+    # Capa=1, 1\u00ba miolo=2, manifest=3, depois miolo segue: numera\u00e7\u00e3o 1,2,3\u2026
     pn = c.getPageNumber()
-    if pn > 2:
+    if pn == 2:
+        num = '1'
+    elif pn >= 4:
+        num = str(pn - 2)
+    else:
+        num = None
+    if num:
         c.setFillColor(GRAY)
         c.setFont('Helvetica', 9)
-        c.drawCentredString(W / 2, 10 * mm, str(pn - 2))
+        c.drawCentredString(W / 2, 10 * mm, num)
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -465,13 +472,11 @@ def _abertura_vertical_pad_pt():
 def build_content(iw):
     story = []
     story.append(Spacer(1, 1))
-    story.append(NextPageTemplate('manifest'))
-    story.append(PageBreak())
-    story.append(Spacer(1, 1))
+    # P\u00e1g. 2 = abertura (miolo); p\u00e1g. 3 = CONSIST\u00caNCIA (manifest) \u2014 ordem invertida
     story.append(NextPageTemplate('inner'))
     story.append(PageBreak())
 
-    # ── Abertura (antes do sum\u00e1rio), centralizada na p\u00e1gina ───────────────
+    # ── Abertura (antes do sum\u00e1rio), centralizada na p\u00e1gina \u2014 folha 2 ─────
     _pad_ab = _abertura_vertical_pad_pt()
     story.append(Spacer(1, _pad_ab))
     story.append(AccentBar(iw, GOLD))
@@ -498,11 +503,17 @@ def build_content(iw):
         MANIFESTO))
     story.append(sp(6))
     story.append(AccentBar(iw, GOLD))
-    # Sem Spacer grande aqui: em p\u00e1gina cheia ele ia para a folha seguinte
-    # e gerava uma p\u00e1gina em branco antes do sum\u00e1rio.
+    # Sem Spacer grande aqui (evita folha s\u00f3 com espa\u00e7o).
+    # Um PageBreak antes de NextPageTemplate('manifest') abria p\u00e1gina inner vazia;
+    # ir direto: template manifest + um \u00fanico PageBreak leva o Spacer j\u00e1 na CONSIST\u00caNCIA.
+    story.append(NextPageTemplate('manifest'))
+    story.append(PageBreak())
+    story.append(Spacer(1, 1))
+
+    story.append(NextPageTemplate('inner'))
     story.append(PageBreak())
 
-    # ── Sumário (esta p\u00e1gina: apenas sum\u00e1rio) ───────────────────────────
+    # ── Sumário (esta p\u00e1gina: apenas sum\u00e1rio) \u2014 ap\u00f3s manifest ─────────
     story.append(sp(8))
     story.append(Paragraph('<b>S U M \u00c1 R I O</b>',
                            S('toch', fontName='Helvetica-Bold', fontSize=31, leading=38,
