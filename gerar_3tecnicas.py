@@ -395,6 +395,21 @@ def build_content(iw):
     story.append(TipBox(['O segredo de toda pr\u00e1tica de manifesta\u00e7\u00e3o \u00e9 um s\u00f3: CONSIST\u00caNCIA.',
                          'Fa\u00e7a todos os dias. Sem exce\u00e7\u00e3o. A repeti\u00e7\u00e3o \u00e9 o que transforma inten\u00e7\u00e3o em realidade.'],
                         label='LEMBRE SEMPRE'))
+    story.append(sp(4))
+    story.append(bb('Como usar este ebook (bem simples)'))
+    story.append(AccentBar(iw, PURPLE, 2))
+    story.append(sp(2))
+    story.append(b('1) Leia as <b>tr\u00eas t\u00e9cnicas</b> na ordem (Ta\u00e7a, Espelho, Visualiza\u00e7\u00e3o). Cada uma tem o <b>porqu\u00ea</b> e o <b>passo a passo</b>.'))
+    story.append(b('2) Depois abra o cap\u00edtulo <b>Protocolo semanal</b>. L\u00e1 voc\u00ea v\u00ea como juntar tudo no dia a dia.'))
+    story.append(b('3) No final, o <b>b\u00f4nus</b> explica a T\u00e9cnica 369 (escrita) e a pr\u00e1tica da Lua Nova. Sem pressa: volte ao b\u00f4nus quando quiser aprofundar.'))
+    story.append(b('4) Se ficar em d\u00favida, procure as caixas <b>RESUMO R\u00c1PIDO</b> no fim de cada t\u00e9cnica.'))
+    story.append(sp(3))
+    story.append(TipBox([
+        'Ta\u00e7a de \u00e1gua = pr\u00e1tica da noite + gole pela manh\u00e3.',
+        'Espelho = frases EU SOU olhando nos seus olhos.',
+        'Visualiza\u00e7\u00e3o = fechar os olhos, sentir como se j\u00e1 tivesse acontecido (com m\u00fasica 528 Hz).',
+        '369 = escrever a mesma afirma\u00e7\u00e3o no papel: 3x de manh\u00e3, 6x \u00e0 tarde, 9x \u00e0 noite (detalhes no b\u00f4nus).',
+    ], color=PURPLE, bg=LLIGHT, label='O QUE \u00c9 CADA COISA'))
 
     # ── TÉCNICA 1: Taça de Água ──────────────────────────────────────────────
     story.append(PageBreak())
@@ -453,6 +468,12 @@ def build_content(iw):
         'Pedidos espec\u00edficos com todos os detalhes',
         'Fa\u00e7a TODO DIA',
     ], iw, ROSE))
+    story.append(sp(4))
+    story.append(TipBox([
+        'Noite: copo + falar 3x na \u00e1gua + 3 goles + deixar o resto ao lado da cama.',
+        'Manh\u00e3: ao acordar, beber o que sobrou no copo.',
+        'Regra de ouro: depois da pr\u00e1tica da noite, ir dormir sem celular.',
+    ], color=ROSE, bg=SROSE, label='RESUMO R\u00c1PIDO \u2014 TA\u00c7A'))
 
     # ── TÉCNICA 2: Espelho ───────────────────────────────────────────────────
     story.append(PageBreak())
@@ -531,6 +552,13 @@ def build_content(iw):
     story.append(TipBox(['Regra de ouro: fa\u00e7a TODO DIA, sem exce\u00e7\u00e3o.',
                          'A consist\u00eancia \u00e9 o que transforma afirma\u00e7\u00e3o em realidade.'],
                         color=PURPLE, bg=LLIGHT, label='O SEGREDO'))
+    story.append(sp(3))
+    story.append(TipBox([
+        'Fique de frente para o espelho.',
+        'Olhe nos seus pr\u00f3prios olhos.',
+        'Fale em voz alta frases que come\u00e7am com EU SOU...',
+        '2 minutos j\u00e1 bastam; o importante \u00e9 fazer todo dia.',
+    ], color=PURPLE, bg=LLIGHT, label='RESUMO R\u00c1PIDO \u2014 ESPELHO'))
 
     # ── TÉCNICA 3: Visualização Emocional ────────────────────────────────────
     story.append(PageBreak())
@@ -606,6 +634,13 @@ def build_content(iw):
         'Seja espec\u00edfica \u2014 o c\u00e9rebro responde a detalhes',
         'Fa\u00e7a antes de dormir ou ao acordar \u2014 maior receptividade',
     ], iw, TEAL))
+    story.append(sp(4))
+    story.append(TipBox([
+        'Ligar 528 Hz + sentar + respirar.',
+        'Imaginar a cena com detalhes (roupa, lugar, pessoas).',
+        'Sentir no corpo (gratid\u00e3o, alegria) por v\u00e1rios minutos.',
+        'Fechar com uma frase de gratid\u00e3o e soltar.',
+    ], color=TEAL, bg=LTEAL, label='RESUMO R\u00c1PIDO \u2014 VISUALIZA\u00c7\u00c3O'))
 
     story.append(sp(3))
     story.append(Paragraph('Baseado nas pesquisas e ensinamentos do Dr. Joe Dispenza, autor de <i>"Quebre o H\u00e1bito de Ser Voc\u00ea Mesmo"</i> e pesquisador de neuroplasticidade e consci\u00eancia.', SMALL))
@@ -621,102 +656,118 @@ def build_content(iw):
                              textColor=MED, spaceAfter=8)))
     story.append(AccentBar(iw, GOLD, 2))
     story.append(sp(4))
-    story.append(b('Voc\u00ea n\u00e3o precisa fazer tudo de uma vez. O segredo \u00e9 criar uma rotina que caiba na sua vida \u2014 e que voc\u00ea consiga manter todos os dias, sem se sobrecarregar.'))
+    story.append(b('Voc\u00ea n\u00e3o precisa fazer tudo de uma vez. O segredo \u00e9 montar uma rotina <b>simples</b>, que caiba na sua vida, para repetir <b>todo dia</b> sem culpa e sem confus\u00e3o.'))
+    story.append(sp(3))
+    story.append(TipBox([
+        'Este cap\u00edtulo tem 4 blocos: manh\u00e3 na cama, manh\u00e3 no banheiro, visualiza\u00e7\u00e3o (alguns dias) e noite.',
+        'Depois vem uma TABELA de segunda a domingo \u2014 \u00e9 s\u00f3 copiar ou adaptar.',
+        'Leia a LEGENDA antes da tabela: l\u00e1 cada palavra da tabela est\u00e1 explicada.',
+    ], color=GOLD, bg=LGOLD, label='LEIA ANTES'))
     story.append(sp(5))
 
-    story.append(bb('Toda manh\u00e3 \u2014 antes de pegar o celular'))
+    story.append(bb('Bloco 1 \u2014 Ao acordar (ainda na cama, sem celular)'))
     story.append(AccentBar(iw, MED, 2))
     story.append(sp(2))
-    story.append(b('Acorde. Antes de olhar qualquer notifica\u00e7\u00e3o, beba o restante da \u00e1gua que deixou ao seu lado na noite anterior (T\u00e9cnica da Ta\u00e7a). Esses primeiros segundos do dia s\u00e3o poderosos \u2014 seu c\u00e9rebro ainda est\u00e1 em estado Alfa, receptivo e aberto. Aproveite.'))
-    story.append(b('Se voc\u00ea estiver aplicando a <b>T\u00e9cnica 369</b> (passo a passo completo no b\u00f4nus deste ebook), escreva sua afirma\u00e7\u00e3o 3 vezes agora.'))
+    story.append(b('<b>O que fazer:</b> beber o restante da \u00e1gua que ficou no copo ao lado da cama (final da T\u00e9cnica da Ta\u00e7a, do dia anterior).'))
+    story.append(b('<b>Por qu\u00ea:</b> os primeiros segundos do dia ainda s\u00e3o um momento em que o c\u00e9rebro costuma estar mais calmo e receptivo.'))
+    story.append(b('<b>Se voc\u00ea usa a T\u00e9cnica 369</b> (explicada no b\u00f4nus): neste mesmo momento, <b>escreva a mesma afirma\u00e7\u00e3o 3 vezes</b> no caderno, antes de pegar o celular.'))
     story.append(sp(5))
 
-    story.append(bb('Toda manh\u00e3 \u2014 no banheiro'))
+    story.append(bb('Bloco 2 \u2014 No banheiro (cerca de 2 minutos)'))
     story.append(AccentBar(iw, MED, 2))
     story.append(sp(2))
-    story.append(b('Na frente do espelho, enquanto escova os dentes ou se arruma, olhe nos seus pr\u00f3prios olhos e declare suas afirma\u00e7\u00f5es <b>EU SOU</b> em voz alta. N\u00e3o precisa de mais do que 2 minutos. Mas fa\u00e7a com presen\u00e7a \u2014 n\u00e3o no autom\u00e1tico.'))
+    story.append(b('<b>O que fazer:</b> na frente do espelho, olhando nos seus olhos, falar em voz alta suas frases <b>EU SOU</b> (T\u00e9cnica 02). Pode ser enquanto escova os dentes ou se arruma.'))
+    story.append(b('<b>Importante:</b> n\u00e3o precisa ser longo. Precisa ser <b>presente</b> \u2014 n\u00e3o no autom\u00e1tico.'))
     story.append(sp(5))
 
-    story.append(bb('3x por semana \u2014 manh\u00e3 ou noite'))
+    story.append(bb('Bloco 3 \u2014 Visualiza\u00e7\u00e3o (3 dias na semana, 10 a 15 minutos)'))
     story.append(AccentBar(iw, MED, 2))
     story.append(sp(2))
-    story.append(b('Separe de 10 a 15 minutos para a visualiza\u00e7\u00e3o emocional. Coloque sua m\u00fasica em 528 Hz, feche os olhos e sinta a vida que voc\u00ea est\u00e1 criando. Sugerimos segunda, quarta e sexta \u2014 mas escolha os dias que funcionam melhor para voc\u00ea.'))
+    story.append(b('<b>O que fazer:</b> sentar com fones, m\u00fasica em 528 Hz, fechar os olhos e seguir o passo a passo da T\u00e9cnica 03 (sentir como se j\u00e1 fosse real).'))
+    story.append(b('<b>Sugest\u00e3o de dias:</b> segunda, quarta e sexta. Se outro encaixe melhor na sua vida, troque \u2014 o importante \u00e9 manter os 3 dias por semana.'))
     story.append(sp(5))
 
-    story.append(bb('Toda noite \u2014 antes de dormir'))
+    story.append(bb('Bloco 4 \u2014 \u00c0 noite, antes de dormir'))
     story.append(AccentBar(iw, MED, 2))
     story.append(sp(2))
-    story.append(b('Pegue seu copo de \u00e1gua. Fale sua inten\u00e7\u00e3o 3 vezes, beba 3 goles, deixe ao seu lado (T\u00e9cnica da Ta\u00e7a). Se estiver na T\u00e9cnica 369, escreva sua afirma\u00e7\u00e3o 9 vezes antes de deitar. Encerre com: \u201cObrigada, universo. Est\u00e1 feito.\u201d'))
-    story.append(b('Desligue a tela. Durma com a inten\u00e7\u00e3o.'))
+    story.append(b('<b>O que fazer (Ta\u00e7a):</b> copo com \u00e1gua, falar a inten\u00e7\u00e3o 3 vezes com a boca no copo, beber 3 goles, deixar o restante ao lado da cama.'))
+    story.append(b('<b>Se usa 369:</b> antes de deitar, <b>escreva a mesma afirma\u00e7\u00e3o 9 vezes</b>. Feche com: \u201cObrigada, universo. Est\u00e1 feito.\u201d'))
+    story.append(b('<b>Depois:</b> desligue a tela e v\u00e1 dormir pensando na sua inten\u00e7\u00e3o \u2014 sem ficar no celular.'))
     story.append(sp(5))
 
     story.append(bb('Exemplo de como fica a semana na pr\u00e1tica'))
     story.append(AccentBar(iw, GOLD, 2))
     story.append(sp(3))
+    story.append(TipBox([
+        '\u00c1gua (manh\u00e3) = beber o que sobrou no copo da noite.',
+        'Espelho = frases EU SOU no espelho.',
+        'Visualiza\u00e7\u00e3o = sess\u00e3o com 528 Hz (T\u00e9cnica 03).',
+        '369 (6x) = \u00e0 TARDE, escrever a MESMA afirma\u00e7\u00e3o 6 vezes no papel.',
+        '\u00c1gua (ta\u00e7a) = \u00e0 NOITE, fazer a Ta\u00e7a completa (falar 3x, 3 goles, copo ao lado).',
+        '369 (9x) = na NOITE, depois da ta\u00e7a (ou na sequ\u00eancia), escrever 9 vezes a afirma\u00e7\u00e3o.',
+        '\u2014 = neste hor\u00e1rio n\u00e3o h\u00e1 369 nem visualiza\u00e7\u00e3o na sugest\u00e3o (fins de semana).',
+    ], color=DEEP, bg=LGOLD, label='LEGENDA \u2014 LEIA PRIMEIRO'))
+    story.append(sp(4))
     story.append(Paragraph(
-        'Use esta tabela como <b>modelo</b> (segunda a domingo). '
-        '<b>\u00c1gua</b> de manh\u00e3 = beber o restante do copo da noite anterior; '
-        '<b>Espelho</b> = afirma\u00e7\u00f5es EU SOU; '
-        '<b>Visualiza\u00e7\u00e3o</b> = pr\u00e1tica com 528 Hz; '
-        '<b>369</b> = t\u00e9cnica do b\u00f4nus (3x manh\u00e3, 6x tarde, 9x noite).',
-        S('week_leg', fontName='Helvetica', fontSize=9, leading=13, textColor=TEXT,
+        'A tabela abaixo \u00e9 um <b>modelo</b>. Segunda a sexta inclui 369; s\u00e1bado e domingo s\u00e3o mais leves para voc\u00ea descansar da escrita intensa.',
+        S('week_leg', fontName='Helvetica', fontSize=9.5, leading=14, textColor=TEXT,
           alignment=TA_JUSTIFY, spaceAfter=8)))
-    _wc = S('wcell', fontName='Helvetica', fontSize=8, leading=11, textColor=TEXT, alignment=TA_LEFT)
+    _wc = S('wcell', fontName='Helvetica', fontSize=8.5, leading=11.5, textColor=TEXT, alignment=TA_LEFT)
     _wh = S('whead', fontName='Helvetica-Bold', fontSize=8.5, leading=11, textColor=WHITE, alignment=TA_CENTER)
     w = iw
-    cw_dia = 22 * mm
+    cw_dia = 24 * mm
     cw_rest = w - cw_dia
-    cw_m = cw_rest * 0.36
-    cw_t = cw_rest * 0.26
+    cw_m = cw_rest * 0.34
+    cw_t = cw_rest * 0.22
     cw_n = cw_rest - cw_m - cw_t
     week_rows = [
         [
             Paragraph('<b>Dia</b>', _wh),
-            Paragraph('<b>Manh\u00e3</b>', _wh),
-            Paragraph('<b>Tarde</b>', _wh),
-            Paragraph('<b>Noite</b>', _wh),
+            Paragraph('<b>Manh\u00e3</b><br/><i><font size="7">(ordem sugerida)</font></i>', _wh),
+            Paragraph('<b>Tarde</b><br/><i><font size="7">(369)</font></i>', _wh),
+            Paragraph('<b>Noite</b><br/><i><font size="7">(ta\u00e7a + 369)</font></i>', _wh),
         ],
         [
             Paragraph('<b>Segunda</b>', _wc),
-            Paragraph('\u00c1gua + Espelho + Visualiza\u00e7\u00e3o', _wc),
-            Paragraph('369 (6x)', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU no espelho<br/>3) Visualiza\u00e7\u00e3o 528 Hz', _wc),
+            Paragraph('Escrever a frase<br/><b>6 vezes</b>', _wc),
+            Paragraph('1) Ta\u00e7a (falar 3x, 3 goles)<br/>2) Escrever a frase <b>9 vezes</b>', _wc),
         ],
         [
             Paragraph('<b>Ter\u00e7a</b>', _wc),
-            Paragraph('\u00c1gua + Espelho', _wc),
-            Paragraph('369 (6x)', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU no espelho<br/><i>(sem visualiza\u00e7\u00e3o)</i>', _wc),
+            Paragraph('Escrever a frase<br/><b>6 vezes</b>', _wc),
+            Paragraph('1) Ta\u00e7a<br/>2) Escrever <b>9 vezes</b>', _wc),
         ],
         [
             Paragraph('<b>Quarta</b>', _wc),
-            Paragraph('\u00c1gua + Espelho + Visualiza\u00e7\u00e3o', _wc),
-            Paragraph('369 (6x)', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU<br/>3) Visualiza\u00e7\u00e3o 528 Hz', _wc),
+            Paragraph('Escrever a frase<br/><b>6 vezes</b>', _wc),
+            Paragraph('1) Ta\u00e7a<br/>2) Escrever <b>9 vezes</b>', _wc),
         ],
         [
             Paragraph('<b>Quinta</b>', _wc),
-            Paragraph('\u00c1gua + Espelho', _wc),
-            Paragraph('369 (6x)', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU<br/><i>(sem visualiza\u00e7\u00e3o)</i>', _wc),
+            Paragraph('Escrever a frase<br/><b>6 vezes</b>', _wc),
+            Paragraph('1) Ta\u00e7a<br/>2) Escrever <b>9 vezes</b>', _wc),
         ],
         [
             Paragraph('<b>Sexta</b>', _wc),
-            Paragraph('\u00c1gua + Espelho + Visualiza\u00e7\u00e3o', _wc),
-            Paragraph('369 (6x)', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a) + 369 (9x)', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU<br/>3) Visualiza\u00e7\u00e3o 528 Hz', _wc),
+            Paragraph('Escrever a frase<br/><b>6 vezes</b>', _wc),
+            Paragraph('1) Ta\u00e7a<br/>2) Escrever <b>9 vezes</b>', _wc),
         ],
         [
             Paragraph('<b>S\u00e1bado</b>', _wc),
-            Paragraph('\u00c1gua + Espelho', _wc),
-            Paragraph('\u2014', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a)', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU<br/><i>(descanso da 369 e da visualiza\u00e7\u00e3o)</i>', _wc),
+            Paragraph('<b>\u2014</b><br/><i>sem escrita 369</i>', _wc),
+            Paragraph('S\u00f3 a <b>ta\u00e7a</b><br/><i>(sem 9x)</i>', _wc),
         ],
         [
             Paragraph('<b>Domingo</b>', _wc),
-            Paragraph('\u00c1gua + Espelho', _wc),
-            Paragraph('\u2014', _wc),
-            Paragraph('\u00c1gua (ta\u00e7a) + inten\u00e7\u00e3o da semana', _wc),
+            Paragraph('1) Beber \u00e1gua do copo<br/>2) EU SOU', _wc),
+            Paragraph('<b>\u2014</b>', _wc),
+            Paragraph('Ta\u00e7a + revisar a<br/><b>inten\u00e7\u00e3o da semana</b><br/><i>(mentalizar o que deseja na semana seguinte)</i>', _wc),
         ],
     ]
     week_tbl = Table(week_rows, colWidths=[cw_dia, cw_m, cw_t, cw_n], repeatRows=1)
@@ -734,28 +785,27 @@ def build_content(iw):
     story.append(week_tbl)
     story.append(sp(3))
     story.append(Paragraph(
-        '<i>Nos fins de semana, pausa na 369 e na visualiza\u00e7\u00e3o guiada \u2014 '
-        'mantenha \u00e1gua + espelho e a ta\u00e7a \u00e0 noite. No domingo \u00e0 noite, '
-        'reforce a inten\u00e7\u00e3o geral da semana que vem.</i>',
-        S('week_note', fontName='Helvetica-Oblique', fontSize=8.5, leading=12,
-          textColor=GRAY, alignment=TA_JUSTIFY, spaceAfter=10)))
+        '<b>Fim de semana:</b> a ideia \u00e9 <b>aliviar</b>: voc\u00ea mant\u00e9m o b\u00e1sico (\u00e1gua da manh\u00e3, EU SOU, ta\u00e7a \u00e0 noite) e <b>n\u00e3o</b> precisa da escrita 369 nem da visualiza\u00e7\u00e3o longa, se n\u00e3o quiser.<br/><br/>'
+        '<b>Domingo \u00e0 noite:</b> al\u00e9m da ta\u00e7a, reserve um minuto para lembrar <b>o que voc\u00ea quer para a semana que come\u00e7a</b> \u2014 em uma frase, com calma.',
+        S('week_note', fontName='Helvetica', fontSize=9, leading=13,
+          textColor=TEXT, alignment=TA_JUSTIFY, spaceAfter=10)))
     story.append(sp(3))
 
-    story.append(bb('Tempo total por dia'))
+    story.append(bb('Quanto tempo isso leva?'))
     story.append(AccentBar(iw, GOLD, 2))
     story.append(sp(2))
-    story.append(b('Entre <b>10 e 20 minutos</b>, dependendo do dia (nos dias de visualiza\u00e7\u00e3o, um pouco mais).'))
+    story.append(b('Em m\u00e9dia, entre <b>10 e 20 minutos por dia</b>. Nos dias em que tem visualiza\u00e7\u00e3o, pode passar um pouco disso \u2014 tudo bem.'))
     story.append(sp(3))
-    story.append(b('N\u00e3o \u00e9 sobre ter horas livres. \u00c9 sobre escolher, todos os dias, dedicar alguns minutos para si mesma. Essa \u00e9 a pr\u00e1tica mais poderosa de todas: a de se colocar em primeiro lugar.'))
+    story.append(b('N\u00e3o \u00e9 sobre ter o dia livre. \u00c9 sobre <b>escolher</b>, todos os dias, alguns minutos s\u00f3 para voc\u00ea. Isso \u00e9 o mais poderoso: se colocar em primeiro lugar, mesmo com a vida corrida.'))
     story.append(sp(5))
 
     story.append(TipBox([
-        'N\u00e3o tente ser perfeita. Se um dia voc\u00ea esquecer a \u00e1gua, fa\u00e7a o espelho.',
-        'Se n\u00e3o tiver energia para a visualiza\u00e7\u00e3o, fa\u00e7a s\u00f3 a 369 (se estiver no b\u00f4nus) ou o m\u00ednimo poss\u00edvel.',
-        'O que n\u00e3o pode \u00e9 parar completamente.',
-        'Uma pr\u00e1tica pequena feita todos os dias vale muito mais que uma pr\u00e1tica intensa feita uma vez por semana.',
+        'Ningu\u00e9m \u00e9 perfeita. Esqueceu a \u00e1gua? Fa\u00e7a pelo menos o espelho.',
+        'Sem energia para visualizar? Fa\u00e7a s\u00f3 a parte escrita da 369 ou s\u00f3 a ta\u00e7a.',
+        'O pior \u00e9 parar 100%. O melhor \u00e9 fazer um pouquinho todo dia.',
+        '5 minutos todos os dias vencem 1 hora s\u00f3 no domingo.',
         'A consist\u00eancia \u00e9 a sua maior ferramenta.',
-    ], color=MED, bg=LLIGHT, label='UMA DICA IMPORTANTE'))
+    ], color=MED, bg=LLIGHT, label='SE FICAR DIF\u00cdCIL'))
 
     # ── BÔNUS ────────────────────────────────────────────────────────────────
     story.append(PageBreak())
@@ -787,6 +837,13 @@ def build_content(iw):
     story.append(sp(3))
     story.append(b('Inspirada na numerologia sagrada e na sabedoria de Nikola Tesla, a t\u00e9cnica 369 usa a repeti\u00e7\u00e3o como forma de programar o subconsciente.'))
     story.append(sp(3))
+    story.append(TipBox([
+        'Voc\u00ea escolhe UMA \u00fanica frase (afirma\u00e7\u00e3o) e repete ela no papel.',
+        '3 = escrever 3 vezes de manh\u00e3 (antes do celular).',
+        '6 = escrever 6 vezes \u00e0 tarde (sempre a mesma frase).',
+        '9 = escrever 9 vezes \u00e0 noite (mesma frase), antes de dormir.',
+        'Sempre a MESMA frase nos tr\u00eas hor\u00e1rios \u2014 isso cria o h\u00e1bito no c\u00e9rebro.',
+    ], color=GOLD, bg=LGOLD, label='369 EM UMA FRASE'))
 
     lunar_steps = [
         ('3', 'MANH\u00c3', GOLD, LGOLD,
